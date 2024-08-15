@@ -1,0 +1,63 @@
+---
+permalink: install/concept_planning_summary_for_a_v_series_system_using_native_disks.html 
+sidebar: sidebar 
+keywords: plan, summary, v-series, system, native, disks, additional, considerations, setup, array, luns 
+summary: 您可以在新的或現有的 V 系列系統上安裝原生磁碟櫃。不過、如果您計畫在 V 系列系統上安裝原生磁碟櫃、則必須考量其他幾個因素、而非在 FAS 系統上安裝磁碟櫃。 
+---
+= 使用原生磁碟的 V 系列系統規劃摘要
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在新的或現有的 V 系列系統上安裝原生磁碟櫃。不過、如果您計畫在 V 系列系統上安裝原生磁碟櫃、則必須考量其他幾個因素、而非在 FAS 系統上安裝磁碟櫃。
+
+
+
+== 在具有磁碟的 V 系列系統上進行基本設定的其他規劃考量
+
+在決定使用原生磁碟的 V 系列系統的基本設定與安裝需求時、您必須考量下列事項：
+
+* 如果 V 系列系統隨磁碟櫃一起訂購、則原廠會設定根磁碟區、並安裝授權與 ONTAP 軟體（就像 FAS 系統一樣）。
+* 如果 V 系列系統未隨磁碟櫃一起訂購、您必須計畫安裝 ONTAP 軟體和適當的授權。
+* ONTAP 會自動將擁有權指派給連接至 V 系列系統的原生磁碟。
+
+
+
+
+== 如果 V 系列系統同時使用磁碟和陣列 LUN 、則需要考量其他規劃事項
+
+下表摘要列出其他規劃考量事項及資訊位置、以協助您完成每項工作。
+
+|===
+| 規劃考量 | 哪裡可以找到準則 
+
+
+ a| 
+根 Volume 的位置
+ a| 
+xref:concept_location_of_the_root_volume.adoc[根 Volume 的位置]
+
+
+
+ a| 
+可以在不超過 V 系列系統支援上限的情況下、指派多少個磁碟和陣列 LUN 組合
+ a| 
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+
+
+ a| 
+FC 啟動器連接埠使用率
+ a| 
+xref:concept_requirements_for_v_series_fc_initiator_port_usage.adoc[FC 啟動器連接埠使用需求]
+
+
+
+ a| 
+應位於磁碟上的資料類型、以及應位於陣列 LUN 上的資料類型
+ a| 
+您必須評估需要管理的資料類型、然後決定資料是否可以位於原生磁碟或陣列 LUN 上。
+
+|===

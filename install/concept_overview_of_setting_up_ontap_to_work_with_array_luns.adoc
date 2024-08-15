@@ -1,0 +1,18 @@
+---
+permalink: install/concept_overview_of_setting_up_ontap_to_work_with_array_luns.html 
+sidebar: sidebar 
+keywords: set, up, ontap, work, array, luns 
+summary: 設定 ONTAP 系統以搭配陣列 LUN 的程序會因 ONTAP 系統是否隨磁碟一起訂購而有所不同。 
+---
+= 設定 ONTAP 以使用陣列 LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+設定 ONTAP 系統以搭配陣列 LUN 的程序會因 ONTAP 系統是否隨磁碟一起訂購而有所不同。
+
+如果訂購的 ONTAP 系統隨附磁碟櫃、則 ONTAP 軟體將由原廠安裝。在這種組態中、您不需要建立根磁碟區、也不需要安裝授權和 ONTAP 軟體。
+
+您可以在沒有磁碟櫃的訂購系統上安裝 ONTAP 軟體。在這些系統上、您必須先安裝 ONTAP 、然後再設定叢集。

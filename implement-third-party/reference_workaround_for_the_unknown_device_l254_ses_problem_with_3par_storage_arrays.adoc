@@ -1,0 +1,86 @@
+---
+permalink: implement-third-party/reference_workaround_for_the_unknown_device_l254_ses_problem_with_3par_storage_arrays.html 
+sidebar: sidebar 
+keywords: 'Workaround, unknown device (l254/ses), problem, 3PAR, storage, arrays, aggregates, luns, created, ontap system, not' 
+summary: 在將 ONTAP 系統分區為 3PAR ONTAP 儲存陣列連接至 3PAR 儲存陣列之前、應在 3PAR 儲存陣列上建立主機定義、並在必要參數中指定主機角色。如果在主機定義之前設定分區、則 ONTAP 會將 3PAR 陣列 LUN 探索為 LUN 254 、並將產品類型視為 ONTAP 無法使用的 SES 。 
+---
+= 3PAR 儲存陣列未知裝置（ L254/SES ）問題的因應措施
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在將 ONTAP 系統分區為 3PAR ONTAP 儲存陣列連接至 3PAR 儲存陣列之前、應在 3PAR 儲存陣列上建立主機定義、並在必要參數中指定主機角色。如果在主機定義之前設定分區、則 ONTAP 會將 3PAR 陣列 LUN 探索為 LUN 254 、並將產品類型視為 ONTAP 無法使用的 SES 。
+
+xref:reference_required_parameters_for_3par_arrays_with_data_ontap_systems.adoc[使用 ONTAP 系統的 3PAR 陣列所需的參數]
+
+當 ONTAP 將 3PAR 陣列 LUN 發現為 LUN 254 和產品類型 SES 時、無法將新對應的 3PAR LUN 指派給 ONTAP 系統、而可能已新增至集合的某些 3PAR LUN 則無法使用、因為 ONTAP 會看到 LUN 254 。ONTAP 會為其發現為 LUN 254 的 LUN 產生 EMS 訊息、產品類型為 SES 、將某些 LUN 回報為未知裝置。
+
+如果分區是在主機定義之前設定的、您可以強制重新探索從 3PAR 儲存陣列對應的陣列 LUN 、來解決 LUN 254/SES 未知裝置問題。您使用的程序取決於是否已在 ONTAP 系統上設定具有 3PAR 陣列 LUN 的集合體。（在下列程序中、假設節點 1 和節點 2 是 ONTAP 節點的名稱。）
+
+
+
+== 如果已在 ONTAP 系統上建立具有 3PAR 陣列 LUN 的集合體
+
+. 執行下列命令、確保 ONTAP 系統上已啟用 HA 組態： *`cluster ha show`*
++
+將顯示下列輸出：
+
++
+[listing]
+----
+
+High Availability Configured: true
+----
+. 執行下列命令、確保 ONTAP 系統上已設定儲存容錯移轉： *`storage failover show`*
++
+將顯示下列輸出：
+
++
+[listing]
+----
+          Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+Node-1    Node-2    true     Connected to Node-2
+Node-2    Node-1    true     Connected to Node-1
+2 entries were displayed.
+----
+. 執行下列命令、在 Node-1 上執行接管作業： *`storage failover takeover -ofnode Node-1`*
+. 再次執行下列命令、確認 Node-2 已準備好進行恢復作業： *`storage failover show`*
++
+將顯示下列輸出：
+
++
+[listing]
+----
+          Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+Node-2    Node-1    false    In takeover, Auto giveback will be
+                                      initiated in 348 seconds
+Node-1    Node-2    -        Waiting for giveback (HA mailboxes)
+2 entries were displayed.
+----
+. 執行下列命令、在節點 1 上執行恢復作業： *`storage failover giveback -ofnode Node-1 -require-partner-waiting true`*
+. 從叢集中的其他節點、重複步驟 3 到步驟 5 。
+
+
+
+
+== 如果尚未在 ONTAP 系統上建立具有 3PAR 陣列 LUN 的集合體
+
+. 執行下列命令、列出連接至 3PAR 儲存陣列的所有 ONTAP FC 啟動器連接埠： *`system node run -node <node name> -command "sysconfig -v"`*
++
+下列範例顯示包含特定節點名稱的命令： *`system node run -node Node-1 -command "sysconfig -v"`*
+
+. 執行下列命令、將所有列出的連接埠離線： *`system node run -node <node name> -command "priv set advanced;fcadmin offline <adapter>"`*
++
+以下範例顯示包含特定節點名稱和介面卡的命令： *`system node run -node Node-1 -command "priv set advanced;fcadmin offline 0a"`*
+
+. 執行下列命令、將所有列出的連接埠上線： *`system node run -node <node name> -command "priv set advanced;fcadmin online <adapter>"`*
++
+以下範例顯示包含特定節點名稱和介面卡的命令： *`system node run -node Node-1 -command "priv set advanced;fcadmin online 0a"`*
+
+

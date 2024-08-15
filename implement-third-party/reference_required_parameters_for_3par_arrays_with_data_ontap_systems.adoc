@@ -1,0 +1,71 @@
+---
+permalink: implement-third-party/reference_required_parameters_for_3par_arrays_with_data_ontap_systems.html 
+sidebar: sidebar 
+keywords: required, parameters, 3par, arrays, ontap, systems, host, persona, settings, port, 
+summary: 儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。 
+---
+= 使用 ONTAP 系統的 3PAR 陣列所需的參數
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。
+
+
+
+== 主機角色設定
+
+若為韌體 2.3.1 及更新版本的 3PAR 陣列、則必須如下表所示設定所需的主機角色值：
+
+|===
+| 連線類型 | 主機角色 
+
+
+ a| 
+直接連線
+ a| 
+10
+
+
+
+ a| 
+網路已附加
+ a| 
+10
+
+|===
+在將交換器分區為將 ONTAP 系統連接至 3PAR 儲存陣列之前、應在 3PAR 儲存陣列上建立具有所需主機角色的主機定義。如果在主機定義之前設定分區、 ONTAP 會將 3PAR LUN 探索為 LUN 254 、並將產品類型 SES （ ONTAP 無法使用）。結果是無法將新對應的 3PAR LUN 指派給 ONTAP 系統、而可能已新增至集合的某些 3PAR LUN 則無法使用、因為 ONTAP 會看到 LUN 254 而非 3PAR LUN 。如果發生此問題、 ONTAP 會產生下列 EMS 訊息：
+
+[listing]
+----
+mlm.array.unknown:warning - Array LUN XXXXXXXX.126L254 [S/N 'XXXXXXX' vendor '3PARdata' product 'SES'] is unknown and is not supported in this version of Data ONTAP.
+----
+如果分區是在主機定義之前設定的、您可以執行路徑重新初始化來強制重新探索從 3PAR 儲存陣列對應的陣列 LUN 、以解決此問題。如需此問題的因應措施、請參閱「 3PAR 儲存陣列的未知裝置（ L254/SES ）問題因應措施」一節。
+
+xref:reference_workaround_for_the_unknown_device_l254_ses_problem_with_3par_storage_arrays.adoc[3PAR 儲存陣列未知裝置（ L254/SES ）問題的因應措施]
+
+
+
+== 連接埠角色設定
+
+若為韌體為 2.2.x 的 3PAR 陣列、則必須設定所需的連接埠角色值、如下表所示：
+
+|===
+| 連線類型 | 連接埠角色 
+
+
+ a| 
+直接連線
+ a| 
+18
+
+
+
+ a| 
+網路已附加
+ a| 
+19
+
+|===

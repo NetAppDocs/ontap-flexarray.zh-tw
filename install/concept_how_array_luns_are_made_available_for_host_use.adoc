@@ -1,0 +1,36 @@
+---
+permalink: install/concept_how_array_luns_are_made_available_for_host_use.html 
+sidebar: sidebar 
+keywords: how, array, luns, available, host, use 
+summary: 儲存陣列管理員必須建立陣列 LUN 、並將其提供給 ONTAP 系統的指定 FC 啟動器連接埠。 
+---
+= 陣列 LUN 如何可供主機使用
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+儲存陣列管理員必須建立陣列 LUN 、並將其提供給 ONTAP 系統的指定 FC 啟動器連接埠。
+
+為主機提供 LUN 的程序和用來說明 LUN 的術語、會因儲存陣列廠商而異。儲存陣列管理員為了讓 LUN 可供主機使用而遵循的基本程序如下：
+
+. 建立邏輯裝置（ LDEVs ）。
++
+[NOTE]
+====
+_LDEV_ 是一些廠商使用的術語、此內容用於說明從磁碟設定的邏輯 RAID 儲存設備。
+
+====
+. 建立主機群組（或與廠商同等的）。
++
+主機群組包含主機的啟動器連接埠的 WWPN 、這些連接埠允許檢視 LDEV 。
+
++
+[NOTE]
+====
+為了簡化管理、大多數的儲存陣列都能讓您定義一或多個主機群組。您可以將特定的 WWPN （連接埠）和 WWN （主機）定義為同一個群組的成員。然後將特定陣列 LUN 與主機群組建立關聯。主機群組中的主機可以存取與主機群組相關聯的 LUN ；不在該主機群組中的主機無法存取這些 LUN 。不同的廠商會使用不同的術語來描述此概念。建立主機群組的程序因廠商而異。
+
+====
+. 將 LDEVs 對應至主機群組做為 LUN 。
+

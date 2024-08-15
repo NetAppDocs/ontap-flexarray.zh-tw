@@ -1,0 +1,22 @@
+---
+permalink: implement-third-party/concept_requirements_for_volume_groups_on_ds8xxx_storage_arrays.html 
+sidebar: sidebar 
+keywords: requirements, volume, groups, ds8xxx, storage, arrays 
+summary: 設定 DS8xxx 陣列時、您必須瞭解 LUN 群組可搭配使用的磁碟區群組數量限制。 
+---
+= DS8xxx 儲存陣列上的 Volume 群組需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+設定 DS8xxx 陣列時、您必須瞭解 LUN 群組可搭配使用的磁碟區群組數量限制。
+
+DS8xxx 儲存陣列上的每個 LUN 群組都必須使用單一磁碟區群組、以確保 DS8xxx 陣列 LUN 一致呈現給所有存取這些 LUN 的 FC 啟動器（位於 ONTAP 系統上）。
+
+[NOTE]
+====
+如果陣列 LUN 的呈現不一致、可能會導致資料毀損。
+
+====

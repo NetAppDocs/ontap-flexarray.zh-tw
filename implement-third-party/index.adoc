@@ -1,0 +1,12 @@
+---
+permalink: implement-third-party/index.html 
+sidebar: sidebar 
+keywords: flexarray, virtualization, implementation, third-Party, storage 
+summary: 歡迎使用 ONTAP FlexArray 資訊庫。您可在此找到如何使用協力廠商儲存陣列作為叢集後端儲存設備的相關資訊。 
+---
+= 適用於協力廠商儲存設備的 FlexArray ® 虛擬化實作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+

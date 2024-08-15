@@ -1,0 +1,29 @@
+---
+permalink: install/concept_raid_protection_for_array_luns.html 
+sidebar: sidebar 
+keywords: raid, protection, array, luns 
+summary: 儲存陣列可為其提供給 ONTAP 的陣列 LUN 提供 RAID 保護。ONTAP 不提供 RAID 保護。 
+---
+= 陣列 LUN 的 RAID 保護
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+儲存陣列可為其提供給 ONTAP 的陣列 LUN 提供 RAID 保護。ONTAP 不提供 RAID 保護。
+
+ONTAP 使用 RAID0 （分拆）來處理陣列 LUN 。ONTAP 支援儲存陣列上的各種 RAID 類型、但 RAID0 除外、因為 RAID0 不提供儲存保護。
+
+在儲存陣列上建立 _RAID 群組時、您必須遵循儲存陣列廠商的最佳實務做法、確保儲存陣列具備適當的保護層級、以免磁碟故障導致資料遺失或資料存取遺失。
+
+[NOTE]
+====
+* 儲存陣列上的 _RAID 群組 _ 是組成定義 RAID 層級的磁碟排列方式。
++
+每個 RAID 群組僅支援一種 RAID 類型。您為 RAID 群組選取的磁碟數目、決定了特定 RAID 群組支援的 RAID 類型。不同的儲存陣列廠商會使用不同的術語來描述這個實體、例如 RAID 群組、同位元群組、磁碟群組、同位元 RAID 群組和其他術語。
+
+* ONTAP 在原生磁碟機櫃上支援 RAID4 和 RAID-DP 、但在陣列 LUN 上僅支援 RAID0 。
+
+
+====

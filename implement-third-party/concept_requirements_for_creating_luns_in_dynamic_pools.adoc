@@ -1,0 +1,14 @@
+---
+permalink: implement-third-party/concept_requirements_for_creating_luns_in_dynamic_pools.html 
+sidebar: sidebar 
+keywords: requirements, creating, luns, dynamic pools 
+summary: 在動態集區中建立 LUN 時、請勿過度配置集區容量。 
+---
+= 在動態集區中建立 LUN 的需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在動態集區中建立 LUN 時、請勿過度配置集區容量。

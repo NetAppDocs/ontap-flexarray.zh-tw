@@ -1,0 +1,28 @@
+---
+permalink: install/concept_rules_for_sharing_a_target_port_with_multiple_fc_initiator_ports.html 
+sidebar: sidebar 
+keywords: rules, share, target, port, multiple, fc initiator 
+summary: 支援將最多兩個 ONTAP FC 啟動器連接埠連接至儲存陣列上的單一目標連接埠。每個目標連接埠分區為兩個 FC 啟動器連接埠、每個叢集節點一個。不支援與任何其他主機共用連接至 ONTAP 系統的目標連接埠。 
+---
+= 與多個 FC 啟動器連接埠共用目標連接埠的規則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+支援將最多兩個 ONTAP FC 啟動器連接埠連接至儲存陣列上的單一目標連接埠。每個目標連接埠分區為兩個 FC 啟動器連接埠、每個叢集節點一個。不支援與任何其他主機共用連接至 ONTAP 系統的目標連接埠。
+
+與多個啟動器共用目標連接埠、有助於最佳化儲存陣列連接埠的使用、以與 ONTAP 系統連線。
+
+此組態的規則如下：
+
+* 當 ONTAP 系統位於 HA 配對中時、每個節點最多可在一個 FC 啟動器連接埠上與相同的目標連接埠共用一個。
+* 所有儲存陣列都必須來自相同的廠商和機型系列。
+* MetroCluster 組態支援將單一目標連接埠連接至多個 FC 啟動器連接埠。
+* 分區的最佳做法是將每個 FC 啟動器目標連接埠配對放在獨立的分區（ 1 ： 1 ）中。
+
+
+*相關資訊*
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Fabric附加MetroCluster 的安裝與組態"]

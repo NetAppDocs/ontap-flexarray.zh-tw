@@ -1,0 +1,20 @@
+---
+permalink: implement-third-party/concept_guidelines_for_enabling_alua_on_emc_vnx_storrage_arrays.html 
+sidebar: sidebar 
+keywords: guidelines, enabling, alua, emc, vnx, storage arrays 
+summary: 已新增對 CLARiiON 和 VNX 陣列的非對稱邏輯單元存取（ ALUA ）的支援。 
+---
+= 在 EMC VNX 儲存陣列上啟用 ALUA 的準則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+已新增對 CLARiiON 和 VNX 陣列的非對稱邏輯單元存取（ ALUA ）的支援。
+
+根據預設、 ONTAP 中會啟用 ALUA 支援。但若要使用、必須在儲存陣列上啟用 ALUA 。
+
+您應該只在新組態上啟用 ALUA 。您不應在現有組態中啟用 ALUA 。
+
+如果您要在儲存陣列上設定 ALUA 、則必須確保儲存群組中的所有主機都處於相同的容錯移轉模式、也就是容錯移轉模式 4 （ ALUA ）。

@@ -1,0 +1,30 @@
+---
+permalink: install/concept_verifying_an_installation_with_storage_arrays.html 
+sidebar: sidebar 
+keywords: verify, installation, storage, arrays 
+summary: 在正式作業環境中部署系統之前、請務必先偵測並解決任何後端組態錯誤。 
+---
+= 使用儲存陣列驗證安裝
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在正式作業環境中部署系統之前、請務必先偵測並解決任何後端組態錯誤。
+
+驗證後端組態的兩個階段如下：
+
+. 檢查是否有任何後端組態錯誤、使 ONTAP 無法與儲存陣列一起運作。
++
+這些是由標記的錯誤 `storage errors show`。您必須修正這些錯誤。
+
+. 檢查以確保組態符合您的預期。
++
+有許多情況不是系統的錯誤、但可能不是您想要的。例如、輸出會 `storage array config show` 顯示兩個 LUN 群組、但您只打算使用一個 LUN 群組。本文提及的情況包括不符合您「意圖」的情況。
+
+
+
+下圖顯示的工作流程會先從系統的角度驗證沒有組態錯誤、然後確認安裝是否符合您的預期。
+
+image::../media/installation_verification_flowchart.gif[第一次執行儲存陣列組態顯示。如有指示,run storage errors show,review the messages and review the documentation. Contact technical support if the problem is not resolved.]

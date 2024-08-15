@@ -1,0 +1,14 @@
+---
+permalink: install/concept_invalid_path_setup_examples.html 
+sidebar: sidebar 
+keywords: invalid, path, setup, examples 
+summary: 路徑設定可能無效、因為通往陣列 LUN 的路徑不是備援路徑、或是通往陣列 LUN 的路徑數量不符合 ONTAP 需求。 
+---
+= 無效的路徑設定範例
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+路徑設定可能無效、因為通往陣列 LUN 的路徑不是備援路徑、或是通往陣列 LUN 的路徑數量不符合 ONTAP 需求。

@@ -1,0 +1,20 @@
+---
+permalink: install/concept_sharing_storage_arrays_among_hosts.html 
+sidebar: sidebar 
+keywords: share, storage, arrays, hosts 
+summary: 典型的儲存陣列可為不同廠商的主機提供儲存設備。不過、 ONTAP 需要將某些儲存陣列專用於 ONTAP 系統。 
+---
+= 在主機之間共用儲存陣列
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+典型的儲存陣列可為不同廠商的主機提供儲存設備。不過、 ONTAP 需要將某些儲存陣列專用於 ONTAP 系統。
+
+若要判斷廠商的儲存陣列是否必須專用於 ONTAP 系統、請參閱互通性對照表 _ 。
+
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

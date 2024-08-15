@@ -1,0 +1,27 @@
+---
+permalink: install/concept_how_fc_initiator_ports_are_labeled.html 
+sidebar: sidebar 
+keywords: how, fc initiator, ports, labeled 
+summary: ONTAP 系統上的所有 FC 啟動器連接埠都會以數字和字母來識別。根據連接埠是位於主機板上、還是擴充插槽中的卡、標籤會有所不同。 
+---
+= 如何標記 FC 啟動器連接埠
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 系統上的所有 FC 啟動器連接埠都會以數字和字母來識別。根據連接埠是位於主機板上、還是擴充插槽中的卡、標籤會有所不同。
+
+* 主機板上的連接埠編號
++
+連接埠編號為 0A 、 0b 、 0c 、 0d...
+
+* 擴充卡上的連接埠編號
++
+連接埠會根據安裝擴充卡的插槽編號。插槽 3 中的插卡會產生連接埠 3A 和 3B 。
+
++
+FC 啟動器連接埠標示為 1 和 2 。不過、軟體將它們稱為 A 和 B 。您會在使用者介面中看到這些標籤、並在主控台上顯示系統訊息。
+
+

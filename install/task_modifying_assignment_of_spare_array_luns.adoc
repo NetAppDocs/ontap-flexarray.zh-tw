@@ -1,0 +1,36 @@
+---
+permalink: install/task_modifying_assignment_of_spare_array_luns.html 
+sidebar: sidebar 
+keywords: modify, assignment, spare, array, luns 
+summary: 您可以將備用陣列 LUN 的擁有權變更為其他節點。您可能想要在節點上進行負載平衡。 
+---
+= 修改備用陣列 LUN 的指派
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以將 _spare 陣列 LUN 的擁有權變更為其他節點。您可能想要在節點上進行負載平衡。
+
+.步驟
+. 在擁有您要重新指派之陣列 LUN 的節點主控台、輸入下列命令以查看節點上的備用陣列 LUN 清單： `storage disk show -owner local`
++
+列出節點擁有的陣列 LUN 、包括集合體中的備援磁碟機和 LUN 。
+
+. 確認您要重新指派給其他節點的 LUN 是備用 LUN 。
+. 輸入下列命令、將陣列 LUN 的擁有權指派給其他節點： `storage disk assign arrayLUNname -owner new_owner_name -force`
++
+[NOTE]
+====
+如果未使用 -force 選項、或陣列 LUN 已新增至 Aggregate 、則陣列 LUN 所有權不會變更。
+
+====
+. 輸入下列命令、確認備用陣列 LUN 的擁有權已變更為其他節點： `storage disk show -owner local`
++
+您變更為新擁有者的備用陣列 LUN 不應再出現在備援清單中。如果陣列 LUN 仍然出現、請重複此命令以變更擁有權。
+
+. 在目的地節點上、輸入下列命令、確認您變更其擁有權的備用陣列 LUN 列為目的地節點擁有的備用陣列 LUN ： `storage disk show -owner local`
+
+
+您必須先將陣列 LUN 新增至集合、才能用於儲存。

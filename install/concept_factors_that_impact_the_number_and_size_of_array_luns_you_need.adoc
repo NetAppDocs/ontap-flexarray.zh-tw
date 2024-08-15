@@ -1,0 +1,14 @@
+---
+permalink: install/concept_factors_that_impact_the_number_and_size_of_array_luns_you_need.html 
+sidebar: sidebar 
+keywords: factors, impact, number, size, array, luns, need 
+summary: 在決定需要多少陣列 LUN 及其大小時、您必須考量許多因素、包括 LUN 中的可用空間。 
+---
+= 影響所需陣列 LUN 數量和大小的因素
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在決定需要多少陣列 LUN 及其大小時、您必須考量許多因素、包括 LUN 中的可用空間。

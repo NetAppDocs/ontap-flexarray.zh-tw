@@ -1,0 +1,18 @@
+---
+permalink: implement-third-party/concept_caution_about_using_the_vcmdb_lun.html 
+sidebar: sidebar 
+keywords: caution, using, vcmdb, lun 
+summary: 若要啟用 VCMDB （ Volume Configuration Management Database ）、 VCMDB LUN 必須存在。VCMDB LUN 是命令類型 LUN 、而非儲存 LUN 。VCMDB 通常會對應至 LUN 0 、但可對應至 LUN 0 以外的陣列 LUN 。 
+---
+= 使用 VCMDB LUN 的注意事項
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+若要啟用 VCMDB （ Volume Configuration Management Database ）、 VCMDB LUN 必須存在。VCMDB LUN 屬於 `command` LUN 類型、而非儲存 LUN 。VCMDB 通常會對應至 LUN 0 、但可對應至 LUN 0 以外的陣列 LUN 。
+
+如果將 VCMDB LUN 對應至 ONTAP 系統、 ONTAP 會定期記錄一則訊息、指出 VCMDB LUN 小於所需的最小大小、並將 VCMDB LUN 標示為故障。ONTAP 系統在記錄此錯誤訊息之後仍可正常運作、但無法使用 LUN 。
+
+VCMDB LUN 應從 ONTAP 系統取消對應。

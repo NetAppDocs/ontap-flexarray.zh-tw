@@ -1,0 +1,27 @@
+---
+permalink: install/reference_requirements_for_zoning_in_a_configuration_with_storage_arrays.html 
+sidebar: sidebar 
+keywords: requirements, zone, configuration, storage, arrays 
+summary: 您必須遵循 ONTAP 組態中的分區需求、搭配儲存陣列、以確保 ONTAP 系統能夠存取正確的 LUN 集。 
+---
+= 在具有儲存陣列的組態中分區的需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須遵循 ONTAP 組態中的分區需求、搭配儲存陣列、以確保 ONTAP 系統能夠存取正確的 LUN 集。
+
+* 互通性對照表 _ 必須識別 ONTAP 組態支援的交換器和交換器韌體。
+* 必須設定分區、將每個啟動器連接埠限制在每個儲存陣列上的單一目標連接埠。
+* 在交換器上、 ONTAP 系統上的連接埠和儲存陣列上的連接埠必須指派給相同的區域。
++
+這可讓 ONTAP 系統存取儲存陣列上的 LUN 。
+
+* 當儲存陣列連接埠在異質系統之間共用時、來自 ONTAP 系統的陣列 LUN 無法暴露於其他系統。
++
+必須使用 LUN 安全性或陣列 LUN 遮罩、以確保 ONTAP 儲存設備的陣列 LUN 僅能在 ONTAP 系統中看到。
+
+* 主機組態連接埠不得與目標連接埠位於同一個區域內。
+

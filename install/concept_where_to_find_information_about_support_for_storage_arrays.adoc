@@ -1,0 +1,77 @@
+---
+permalink: install/concept_where_to_find_information_about_support_for_storage_arrays.html 
+sidebar: sidebar 
+keywords: non-ontap, storage, third-party, storage, e-series 
+summary: 並非所有 ONTAP 版本都支援相同的功能、組態、系統機型和儲存陣列機型。在部署規劃期間、您必須檢查 ONTAP 支援資訊、以確認部署符合部署中所有系統的 ONTAP 硬體和軟體需求。 
+---
+= 何處可以找到儲存陣列 ONTAP 支援的相關資訊
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+並非所有 ONTAP 版本都支援相同的功能、組態、系統機型和儲存陣列機型。在部署規劃期間、您必須檢查 ONTAP 支援資訊、以確認部署符合部署中所有系統的 ONTAP 硬體和軟體需求。
+
+下表列出資訊來源、其中包含與 ONTAP 系統相關的硬體和軟體需求詳細資料：
+
+|===
+| 如需相關資訊 ... | 您應該來看看 ... 
+
+
+ a| 
+ONTAP 可搭配裝置使用、包括：
+
+* 支援的儲存陣列和儲存陣列韌體
+* 支援的交換器和交換器韌體
+* 您的儲存陣列是否支援不中斷（即時）的儲存陣列韌體升級
+* 儲存陣列是否支援 MetroCluster 組態
+
+ a| 
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]
+
+
+
+ a| 
+ONTAP 版本與平台的限制、包括下列項目：
+
+* 陣列 LUN 的最小和最大大小、包括根磁碟區和備用核心陣列 LUN 的最小陣列 LUN 大小
+* 具有陣列 LUN 的集合體的最小集合體大小
+* 支援的區塊大小
+* 最小和最大容量
+* 鄰近限制
+
+ a| 
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+
+
+ a| 
+設定 E-Series 儲存陣列、包括：
+
+* 場地準備要求
+* 佈線說明
+* SANtricity 軟體安裝與組態指示
+
+ a| 
+下列 E-Series 文件：
+
+* E-Series 儲存系統網站準備指南 _
+* E-Series 儲存系統硬體佈線指南 _
+* SANtricity ES Storage Manager 文件 _
+
+
+您可以從 NetApp 支援網站存取這些文件。
+
+https://mysupport.netapp.com/site/global/dashboard["NetApp支援"]
+
+
+
+ a| 
+特定儲存陣列支援的項目、包括支援的組態
+ a| 
+* https://docs.netapp.com/us-en/ontap-flexarray/implement-third-party/index.html["適用於協力廠商儲存設備的虛擬化實作FlexArray"]
+* https://docs.netapp.com/us-en/ontap-flexarray/implement-e-series/index.html["NetApp E系列儲存設備的虛擬化實作FlexArray"]
+
+
+|===

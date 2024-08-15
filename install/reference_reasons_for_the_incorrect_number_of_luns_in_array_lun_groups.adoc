@@ -1,0 +1,57 @@
+---
+permalink: install/reference_reasons_for_the_incorrect_number_of_luns_in_array_lun_groups.html 
+sidebar: sidebar 
+keywords: reasons, incorrect, number, luns, array, groups, issue, resolve 
+summary: 驗證組態時、您應該檢查儲存陣列組態 show 輸出、以確保每個 LUN 群組中的 LUN 數量符合您的預期。LUN 群組中 LUN 數目不正確的最可能原因是陣列 LUN 未對應至 ONTAP 系統。 
+---
+= 陣列 LUN 群組中 LUN 數量不正確的原因
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+驗證組態時、您應該檢查 `storage array config show` 輸出、以確保每個 LUN 群組中的 LUN 數量符合您的預期。LUN 群組中 LUN 數目不正確的最可能原因是陣列 LUN 未對應至 ONTAP 系統。
+
+
+
+== 儲存陣列組態 show 輸出範例
+
+輸出中會顯示每個 LUN 群組中的陣列 LUN 數量 `storage array config show` 、如下範例所示：
+
+[listing]
+----
+mysystem1::> storage array config show
+
+               LUN     LUN
+Node           Group   Count Array Name     Array Target Port  Initiator
+------         ------ ----- -------------- -------------------- ----------
+mysystem1        0      50   DGC_RAID5_1     201A00a0b80fee04     0a
+                                             202A00a0b80fee04     0c
+----
+
+
+== 說明
+
+您預期 LUN 群組中的陣列 LUN 遺失的最可能原因如下：
+
+* 陣列 LUN 未對應至 ONTAP 系統。
+* 發生對應錯誤、導致陣列 LUN 位於錯誤的 LUN 群組中。
++
+例如、主機群組組組態可能不正確。
+
+* 儲存陣列仍在初始化及提供陣列 LUN （轉換狀態）。
+* ONTAP LUN 掃描器尚未發現 LUN （轉換狀態）。
+
+
+
+
+== 解決問題
+
+. 如果陣列 LUN 尚未對應至 ONTAP 系統、則儲存陣列管理員必須將其對應。
++
+將陣列 LUN 對應至主機的程序因儲存陣列而異。
+
+. 如果陣列 LUN 已對應至 ONTAP 系統、請檢查分區和主機群組組組態。
+. 解決問題後、再次執行 `storage array config show` 以確認問題已解決。
+

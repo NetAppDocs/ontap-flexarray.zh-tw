@@ -1,0 +1,54 @@
+---
+permalink: install/reference_reasons_for_fewer_array_lun_groups_than_expected.html 
+sidebar: sidebar 
+keywords: reasons, fewer, array, lun, groups, expected, resolve, issue 
+summary: 驗證後端組態時、您需要檢查儲存陣列組態顯示輸出、以判斷輸出中的陣列 LUN 群組數量是否符合您的預期。 
+---
+= 陣列 LUN 群組數量少於預期的原因
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+驗證後端組態時、您需要檢查 `storage array config show` 輸出、以判斷輸出中的陣列 LUN 群組數量是否符合您的預期。
+
+
+
+== 說明
+
+最可能導致 LUN 群組數量比預期的少、是因為 ONTAP 系統上兩個 FC 啟動器連接埠配對的 LDEV-LUN 對應相同。如果兩個 FC 啟動器連接埠配對的 LDEV-LUN 對應相同、則 `storage array config show` 輸出顯示的 LUN 群組比預期少一。
+
+下列 `storage array config show` 輸出僅顯示一個陣列 LUN 群組、因為兩個 FC 啟動器連接埠配對都對應至相同的目標連接埠配對：
+
+[listing]
+----
+
+mysystem1::> storage array config show
+
+         LUN   LUN
+Node     Group Count Array Name  Array Target Ports      Switch Port    Initiator
+------   ----- ----- ---------- -------------------      -----------    ---------
+
+mysystem1  0     2   DGC_RAID5_1  20:1A:00:a0:b8:0f:ee:04  vnbr200es25:5   0a
+                                  20:2A:00:a0:b8:0f:ee:04  vnci9124s53:6   0c
+                                  20:1A:00:a0:b8:0f:ee:04  vnbr200es25:5   0b
+                                  20:2A:00:a0:b8:0f:ee:04  vnci9124s53:6   0d
+----
+透過查看 Array Target Portes （陣列目標連接埠）欄、您可以在 LUN 群組中多次看到相同的目標連接埠、而且每次出現的啟動器都不同。
+
+* 啟動器 0A 和 0b 均可存取儲存陣列連接埠 1A 。
+* 啟動器 0c 和 0d 均可存取儲存陣列連接埠 2A 。
+
+
+
+
+== 解決問題
+
+ONTAP 不會將此標記為錯誤、因為 ONTAP 系統可以在兩個 FC 啟動器連接埠配對的 LDEV-LUN 對應相同時運作。不過、不支援多個 FC 啟動器連接到相同的目標連接埠。您應該修正對應、讓 ONTAP 系統遵循支援的組態、並擁有您想要的 LUN 群組數量。
+
+如果您想要修正此問題、請執行下列步驟：
+
+. 在儲存陣列上、修正對應、使 ONTAP 系統上的兩個 FC 啟動器連接埠配對不再相同。
+. 在 ONTAP 系統上、再次執行 `storage array config show` 並確認已顯示您預期的 LUN 群組數目、且 FC 啟動器連接埠配對未存取相同的目標連接埠。
+

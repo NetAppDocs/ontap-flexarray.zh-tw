@@ -1,0 +1,50 @@
+---
+permalink: install/reference_an_access_control_lun_is_presented_to_ontap.html 
+sidebar: sidebar 
+keywords: access, control, lun, presented, ontap 
+summary: ONTAP 不支援存取控制陣列 LUN 。如果出現存取控制 LUN 、儲存錯誤會顯示輸出警示。 
+---
+= 存取控制 LUN 會呈現給 ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 不支援存取控制陣列 LUN 。如果顯示存取控制 LUN 、輸出會 `storage errors show` 向您發出警示。
+
+
+
+== 儲存錯誤會顯示訊息
+
+[listing]
+----
+
+NAME (UID): This array LUN is an access control LUN. It is not supported and should be masked off or disabled.
+----
+
+
+== 說明
+
+ONTAP 僅支援儲存陣列 LUN 。例如、當陣列 LUN E-Series 呈現給 ONTAP 時、輸出看起來很正常、會顯示 LUN 群組中的存取控制 LUN 、 `storage array config show` 如下例所示。畫面底部的警告訊息會指出問題。您需要執行 `storage errors show` 以瞭解問題在於存取控制 LUN 的呈現方式及其所在的 LUN 。
+
+[listing]
+----
+
+mysystem1::> storage array config show
+
+          LUN     LUN
+Node      Group   Count  Array Name    Array Target Port       Initiator
+------    ------  -----  ------------ ------------------       --------
+mysystem1   0       1    NETAPP_INF_1  20:1A:00:a0:b8:0f:ee:04   0a
+                                       20:2A:00:a0:b8:0f:ee:04   0c
+
+Warning: Configuration errors were detected.  Use 'storage errors show' for detailed information.
+----
+
+
+== 疑難排解與問題解決
+
+. 在儲存陣列上、遮罩存取控制 LUN 。
+. 在 ONTAP 中、再次執行 `storage errors show` 以確認存取控制 LUN 不再顯示給 ONTAP 。
+

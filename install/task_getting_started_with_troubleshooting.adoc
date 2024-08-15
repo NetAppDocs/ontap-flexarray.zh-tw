@@ -1,0 +1,67 @@
+---
+permalink: install/task_getting_started_with_troubleshooting.html 
+sidebar: sidebar 
+keywords: get, started, troubleshoot, ontap, configuration, array, luns 
+summary: 在排除陣列 LUN 的 ONTAP 組態故障時、您應該遵循系統化方法來判斷問題的原因。 
+---
+= 開始疑難排解陣列 LUN 的 ONTAP 組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在排除陣列 LUN 的 ONTAP 組態故障時、您應該遵循系統化方法來判斷問題的原因。
+
+本程序建議您訂購疑難排解產品。
+
+[NOTE]
+====
+繼續進行疑難排解步驟時、您應儲存收集到的問題相關資訊、以便在問題提報時提供此資訊給技術支援人員。
+
+====
+.步驟
+. 判斷問題是由 _ 前端 _ （影響所有對應平台的 ONTAP 問題）或 _ 後端 _ （交換器或儲存陣列組態的問題）所造成。
++
+例如、如果您嘗試使用 ONTAP 功能、但無法如預期般運作、則問題可能是正面的問題
+
+. 視問題性質而定、採取適當行動來解決此問題：
++
+|===
+| 如果 ONTAP 組態有 .. | 然後執行此動作... 
+
+
+ a| 
+前端問題
+ a| 
+請依照 ONTAP 指南中的指示、繼續疑難排解 ONTAP 功能。
+
+https://docs.netapp.com/us-en/ontap/index.html["ONTAP 9 文件"^]
+
+
+
+ a| 
+後端問題
+ a| 
+.. 檢查互通性對照表、確保支援下列項目：組態、儲存陣列、儲存陣列韌體、交換器和交換器韌體。
++
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"^]
+
+.. 使用 `storage array config show` 命令檢查系統是否可以偵測到任何常見的後端組態錯誤。
++
+如果 ONTAP 偵測到後端組態錯誤、您必須執行 `storage errors show` 命令以取得有關錯誤的詳細資料。
+
+
+
+|===
+. 如果問題的原因仍然不清楚、請檢查下列來源、確保您的系統符合使用儲存陣列的要求：
++
+** xref:concept_verifying_an_installation_with_storage_arrays.adoc[使用儲存陣列驗證安裝]
+** https://docs.netapp.com/us-en/ontap-flexarray/implement-third-party/index.html["適用於協力廠商儲存設備的虛擬化實作FlexArray"]
+** https://docs.netapp.com/us-en/ontap-flexarray/implement-e-series/index.html["NetApp E系列儲存設備的虛擬化實作FlexArray"]
+** https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"^]
+** https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+
+. 如果您仍需要協助解決問題、請聯絡技術支援。
+

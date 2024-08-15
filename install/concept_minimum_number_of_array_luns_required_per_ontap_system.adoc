@@ -1,0 +1,18 @@
+---
+permalink: install/concept_minimum_number_of_array_luns_required_per_ontap_system.html 
+sidebar: sidebar 
+keywords: minimum, number, array, luns, required, ontap, system 
+summary: 每個 ONTAP 系統所需的陣列 LUN 數量取決於根磁碟區的位置。 
+---
+= 每個 ONTAP 系統所需的陣列 LUN 數量下限
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+每個 ONTAP 系統所需的陣列 LUN 數量取決於根磁碟區的位置。
+
+根磁碟區可以位於磁碟或陣列 LUN 上。然後、根磁碟區的位置會決定您所需的陣列 LUN 數量下限。如果根磁碟區位於儲存陣列上、則每個獨立的 ONTAP 系統和 HA 配對中的每個節點都必須擁有至少一個陣列 LUN 。如果根磁碟區位於原生磁碟上、則唯一需要的陣列 LUN 就是用於資料儲存的 LUN 。
+
+對於使用陣列 LUN 的 MetroCluster 組態、如果根磁碟區位於儲存陣列上、則需要兩個陣列 LUN （每個站台一個 LUN ）。這兩個 LUN 都是必要的、因此可以鏡射根磁碟區。

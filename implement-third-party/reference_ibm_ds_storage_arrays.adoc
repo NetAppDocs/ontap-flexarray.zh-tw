@@ -1,0 +1,14 @@
+---
+permalink: implement-third-party/reference_ibm_ds_storage_arrays.html 
+sidebar: sidebar 
+keywords: ibm, ds, storage, arrays 
+summary: 設定儲存陣列以搭配使用陣列 LUN 的 ONTAP 系統時、您必須符合特定需求。這些需求包括在儲存陣列上設定組態參數、以及僅部署支援的組態。 
+---
+= IBM DS 儲存陣列
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+設定儲存陣列以搭配使用陣列 LUN 的 ONTAP 系統時、您必須符合特定需求。這些需求包括在儲存陣列上設定組態參數、以及僅部署支援的組態。

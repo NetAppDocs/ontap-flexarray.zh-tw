@@ -1,0 +1,30 @@
+---
+permalink: install/concept_guidelines_for_specifying_the_appropriate_target_queue_depth.html 
+sidebar: sidebar 
+keywords: guidelines, specify, appropriate, target, queue, depth 
+summary: 當您規劃特定 ONTAP 系統或未執行 ONTAP 的特定主機的組態時、您需要考量所有存取儲存陣列連接埠的啟動器的影響。 
+---
+= 指定適當目標佇列深度的準則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當您規劃特定 ONTAP 系統或未執行 ONTAP 的特定主機的組態時、您需要考量所有存取儲存陣列連接埠的啟動器的影響。
+
+如果您的部署在目標連接埠上包含多個啟動器、則在設定目標佇列深度時、您需要考慮所有啟動器傳送至目標連接埠的命令總數。
+
+指定適當目標佇列深度的準則如下：
+
+* 請勿將值設定為 0 （零）。
++
+值 0 表示未處理命令沒有限制。
+
+* 請考慮特定啟動器可能傳送到目標連接埠的命令量。
++
+接著、您可以為可能傳送較多要求的啟動器設定較高的值、並為可能傳送較少要求的啟動器設定較低的值。
+
+* 根據為這些主機所提供的準則、設定未執行 ONTAP 的主機。
+* 請考慮在每個目標連接埠的工作負載不同時、設定目標佇列深度。
+

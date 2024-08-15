@@ -1,0 +1,33 @@
+---
+permalink: install/concept_multiple_paths_to_an_array_lun_can_be_used_to_distribute_load.html 
+sidebar: sidebar 
+keywords: multiple, paths, array, lun, used, distribute, load, commands 
+summary: 指定 LUN 的 I/O 要求可分散在通往 LUN 的所有可用最佳化路徑上。這與先前版本不同、雖然有多個路徑可供使用、但指定 LUN 的 I/O 要求只會透過單一主動最佳化路徑傳送。 
+---
+= 陣列 LUN 的多個路徑可用於分散負載
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+指定 LUN 的 I/O 要求可分散在通往 LUN 的所有可用最佳化路徑上。這與先前版本不同、雖然有多個路徑可供使用、但指定 LUN 的 I/O 要求只會透過單一主動最佳化路徑傳送。
+
+在多個路徑上發佈給定 LUN 的 I/O 要求、可帶來下列效益：
+
+* 最大化使用所有可用和最佳化路徑、進而提升效率
+* 透過多個路徑的負載平衡、提升效能
+
+
+例如、在雙主動式陣列上、指定 LUN 的 I/O 要求可分散在該 LUN 可用的四個目標連接埠上。對於非對稱雙主動式陣列 LUN 、 I/O 要求可分散在指定 LUN 的所有最佳化路徑上。
+
+
+
+== 用於查看指定 LUN 多個路徑上的負載平衡的命令
+
+您可以執行下列命令、檢視指定 LUN 在多個路徑之間的負載分配：
+
+* ``storage disk show -disk <LUN name>`` 顯示指定陣列 LUN 可用路徑之間的 I/O 負載分配。
+* ``storage path show-by-initiator -array-name <array name>`` 顯示連接至指定儲存陣列之 ONTAP 系統上所有啟動器連接埠的 I/O 負載分配。
+* ``storage path show -by-target -array-name <array name>`` 顯示指定儲存陣列上所有目標連接埠的 I/O 負載分配。
+

@@ -1,0 +1,41 @@
+---
+permalink: install/task_checking_the_number_of_array_luns_visible_on_an_fc_initiator_port.html 
+sidebar: sidebar 
+keywords: check, number, array, luns, visible, fc initiator, port 
+summary: 您可以檢查 FC 啟動器連接埠上可見的陣列 LUN 數量。可在 FC 啟動器連接埠上看到的陣列 LUN 支援數量、會因不同的 ONTAP 版本而異。 
+---
+= 檢查 FC 啟動器連接埠上可見的陣列 LUN 數量
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以檢查 FC 啟動器連接埠上可見的陣列 LUN 數量。可在 FC 啟動器連接埠上看到的陣列 LUN 支援數量、會因不同的 ONTAP 版本而異。
+
+.步驟
+. 檢查 FC 啟動器連接埠上的可見編號： `storage array config show -initiator initiator_number`
++
+`storage array config show -initiator 0a`
+
+. 如果某個節點有多個陣列 LUN 群組、請新增該節點所有 LUN 群組的陣列 LUN 數量、以決定該節點指定 FC 啟動器所能看到的陣列 LUN 總數。
++
+以下範例顯示所有節點的 FC 啟動器 0A 輸出。若要判斷在特定 FC 啟動器上為 _specific 節點顯示的陣列 LUN 數量、您必須從該節點顯示的所有目標連接埠查看該節點的項目。例如、若要找出在 vgv3070f51-0A 上看到的陣列 LUN 數量、您可以將 LUN 群組 1 （ HP ）的 LUN 數量 24 新增至 LUN 群組 2 （ DGC_RAID5_1 ）的 LUN 數量 1 、總共可在 vgv3070f51-01 上看到 25 個陣列 LUN 。
+
++
+您可以遵循相同的程序、判斷 LUN 群組 0 和 LUN 群組 2 （也就是 25 ）在 vgv3070f51-00A 上可見的陣列 LUN 數量。
+
++
+[listing]
+----
+
+vgv3070f51::> storage array config show -initiator 0a
+             LUN   LUN
+Node         Group Count    Array Name     Array Target Port Initiator
+------------ ----- -----    -----------  ------------------  -------
+vgv3070f51-01    1    24             HP    50014380025d1508     0a
+                 2     1    DGC_RAID5_1    200600a0b819e16f     0a
+vgv3070f51-02    0    24             HP    50014380025d1508     0a
+                 2     1    DGC_RAID5_1    200600a0b819e16f     0a
+----
+

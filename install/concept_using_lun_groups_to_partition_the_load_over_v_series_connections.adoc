@@ -1,0 +1,34 @@
+---
+permalink: install/concept_using_lun_groups_to_partition_the_load_over_v_series_connections.html 
+sidebar: sidebar 
+keywords: benefits, use, multiple, lun, groups 
+summary: 您可以在儲存組態中使用多個 LUN 群組、以增加容量、並將工作負載分散到更多目標連接埠、藉此提升系統效能。 
+---
+= 使用多個 LUN 群組的優點
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在儲存組態中使用多個 LUN 群組、以增加容量、並將工作負載分散到更多目標連接埠、藉此提升系統效能。
+
+_LUN 群組是儲存陣列上的一組邏輯裝置、 ONTAP 系統會透過相同路徑存取這些裝置。儲存陣列管理員會將一組邏輯裝置設定為群組、以定義哪些主機 WWPN 可以存取它們。ONTAP 將這組裝置稱為 _LUN 群組 _ 。
+
+使用多個 LUN 群組的優點如下：
+
+* 指定 FC 啟動器連接埠配對可支援的 LUN 數量有限。
++
+尤其是大型儲存陣列、所需容量可能會超過單一 LUN 群組所能提供的容量。因此、使用多個 LUN 群組可能會有好處。
+
+* 您可以透過 FC 啟動器連接埠配對來分割陣列 LUN 的負載。
+
+
+[NOTE]
+====
+並非所有儲存陣列都支援使用多個 LUN 群組。請參閱 _ 互通性對照表 _ 、判斷儲存陣列是否支援使用多個 LUN 群組的組態。
+
+====
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

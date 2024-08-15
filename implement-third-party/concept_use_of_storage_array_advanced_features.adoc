@@ -1,0 +1,18 @@
+---
+permalink: implement-third-party/concept_use_of_storage_array_advanced_features.html 
+sidebar: sidebar 
+keywords: support, advanced, features, storage, arrays 
+summary: ONTAP 不支援儲存陣列的進階功能、除非互通性對照表中另有指定。 
+---
+= 支援儲存陣列的進階功能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 不支援儲存陣列的進階功能、除非互通性對照表中另有指定。
+
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

@@ -1,0 +1,47 @@
+---
+permalink: install/concept_stages_of_implementation_for_a_system_using_array_luns.html 
+sidebar: sidebar 
+keywords: stages, implementation, system, use, array, luns, back end, front end 
+summary: 實作一個組態、讓系統使用儲存陣列中的 LUN 有兩個階段：後端實作和前端實作。規劃組態以瞭解每個階段的高層級工作時、會很有幫助。 
+---
+= 使用陣列 LUN 的系統實作階段
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+實作一個組態、讓系統使用儲存陣列中的 LUN 有兩個階段：後端實作和前端實作。規劃組態以瞭解每個階段的高層級工作時、會很有幫助。
+
+
+
+== 第 1 階段：後端實作
+
+設定後端實作包括設定 ONTAP 系統與儲存陣列所需的所有工作、直到您可以安裝 ONTAP 軟體的位置。
+
+設定後端實作的工作包括：
+
+. 建立及格式化陣列 LUN
+. 指派連接埠
+. 纜線
+. 分區交換器（若適用）
+. 在 ONTAP 中、將特定陣列 LUN 指派給 ONTAP 系統
+. 在 ONTAP 中、提供在網路上設定 ONTAP 系統的資訊
+. 安裝 ONTAP 軟體
+
+
+如果訂購的 ONTAP 系統附有磁碟櫃、則 ONTAP 軟體將由原廠安裝。在這種組態中、您不需要建立根磁碟區、也不需要安裝授權和 ONTAP 軟體。
+
+如果訂購的 ONTAP 系統沒有磁碟櫃、您必須先設定 ONTAP 、才能設定叢集。
+
+
+
+== 第 2 階段：前端實作
+
+設定前端實作的工作與使用磁碟的系統相同、包括：
+
+* 為所有傳輸協定（ NAS 、 FC 或兩者）設定 ONTAP 系統
+* 設定 ONTAP 功能、例如 SnapVault 、 SnapMirror 、 SnapValidator 和 Snapshot 複本
+* 建立磁碟區和集合體
+* 設定資料保護、包括將 NDMP 傾印至磁帶
+

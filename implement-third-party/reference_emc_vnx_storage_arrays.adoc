@@ -1,0 +1,14 @@
+---
+permalink: implement-third-party/reference_emc_vnx_storage_arrays.html 
+sidebar: sidebar 
+keywords: emc, vnx, storage, arrays 
+summary: 設定 EMC VNX 儲存陣列以搭配使用陣列 LUN 的 ONTAP 系統時、您必須符合特定需求。這些需求包括在儲存陣列上設定組態參數、以及僅部署支援的組態。 
+---
+= EMC VNX 儲存陣列
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+設定 EMC VNX 儲存陣列以搭配使用陣列 LUN 的 ONTAP 系統時、您必須符合特定需求。這些需求包括在儲存陣列上設定組態參數、以及僅部署支援的組態。

@@ -1,0 +1,41 @@
+---
+permalink: implement-third-party/concept_configuring_fill_word_settings_for_8_gb_brocade_switch_ports_concept.html 
+sidebar: sidebar 
+keywords: required fill word, settings, 8 gb, brocade, switch, ports 
+summary: 如果您在儲存環境中使用執行韌體版本 FOS 6.3.1 或更新版本的 8 Gb Brocade 交換器、則必須確認已在連接至 ONTAP 系統的交換器連接埠上設定適當的填字設定、且交換器連接埠已連接至儲存陣列。提供不正確的填入字詞可能會導致交換器連接埠中的連結初始化失敗。 
+---
+= 8 Gb Brocade 交換器連接埠的必要填入字詞設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您在儲存環境中使用執行韌體版本 FOS 6.3.1 或更新版本的 8 Gb Brocade 交換器、則必須確認已在連接至 ONTAP 系統的交換器連接埠上設定適當的填字設定、且交換器連接埠已連接至儲存陣列。提供不正確的填入字詞可能會導致交換器連接埠中的連結初始化失敗。
+
+對於 ONTAP 系統、您必須將對應交換器連接埠上的填色字設為 3 。
+
+對於儲存陣列、您必須使用 Brocade 交換器說明文件、根據下列建議值設定填滿字詞：
+
+[cols="2*"]
+|===
+| 儲存陣列 | 在 Brocade 交換器連接埠上填入字值 
+
+
+ a| 
+Hitachi
+| 2 
+
+
+ a| 
+HP XP
+|  
+
+
+ a| 
+Data ONTAP 系統支援的所有其他儲存陣列
+| 3 
+|===
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

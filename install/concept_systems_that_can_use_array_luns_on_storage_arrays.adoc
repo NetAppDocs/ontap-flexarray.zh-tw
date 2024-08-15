@@ -1,0 +1,20 @@
+---
+permalink: install/concept_systems_that_can_use_array_luns_on_storage_arrays.html 
+sidebar: sidebar 
+keywords: ontap, systems, use, array, luns, storage 
+summary: 您可以使用支援的 FAS 和 V 系列系統搭配陣列 LUN 。 
+---
+= 可在儲存陣列上使用陣列 LUN 的 ONTAP 系統
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用支援的 FAS 和 V 系列系統搭配陣列 LUN 。
+
+NetApp 互通性對照表工具列出支援的硬體與軟體組合。
+
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

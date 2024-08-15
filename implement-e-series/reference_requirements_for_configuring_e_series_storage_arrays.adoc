@@ -1,0 +1,14 @@
+---
+permalink: implement-e-series/reference_requirements_for_configuring_e_series_storage_arrays.html 
+sidebar: sidebar 
+keywords: requirements, configure, e-series, storage, arrays 
+summary: 在設定儲存陣列以搭配 ONTAP 系統運作時、您必須設定系統參數、並謹記這些注意事項。 
+---
+= 設定 E-Series 儲存陣列的需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在設定儲存陣列以搭配 ONTAP 系統運作時、您必須設定系統參數、並謹記這些注意事項。

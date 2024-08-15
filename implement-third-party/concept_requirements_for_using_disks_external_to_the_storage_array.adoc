@@ -1,0 +1,30 @@
+---
+permalink: implement-third-party/concept_requirements_for_using_disks_external_to_the_storage_array.html 
+sidebar: sidebar 
+keywords: requirements, using, disks, external, storage, array 
+summary: ONTAP 支援在供應商支援的儲存陣列後方使用相同的磁碟（也就是儲存陣列外部的磁碟）。當您部署使用外部磁碟的儲存陣列時、 ONTAP 會接受儲存陣列與外部磁碟之間的組態。 
+---
+= 使用儲存陣列外部磁碟的需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 支援在供應商支援的儲存陣列後方使用相同的磁碟（也就是儲存陣列外部的磁碟）。當您部署使用外部磁碟的儲存陣列時、 ONTAP 會接受儲存陣列與外部磁碟之間的組態。
+
+以下是部署使用外部磁碟的儲存陣列的限制和最佳實務建議：
+
+* 外部磁碟支援根磁碟區和備用核心 LUN 。
+* 來自外部和內部磁碟的陣列 LUN 不應位於相同的 ONTAP Aggregate 中。
+* 來自 SATA 磁碟機的陣列 LUN 和來自 FC 磁碟機的陣列 LUN 不應位於相同的集合體中。
+* 外部磁碟上陣列 LUN 路徑數量的規則與儲存陣列上磁碟上陣列 LUN 的規則相同。
++
+若是外部磁碟、路徑會從 ONTAP 系統經由儲存陣列移至外部磁碟。
+
+* 外部磁碟上的陣列 LUN 僅支援區塊總和檢查碼。
+
+
+*相關資訊*
+
+https://docs.netapp.com/us-en/ontap-flexarray/install/index.html["介紹虛擬化安裝需求與參考資料FlexArray"]

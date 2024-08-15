@@ -1,0 +1,14 @@
+---
+permalink: install/concept_planning_for_raid_implementation.html 
+sidebar: sidebar 
+keywords: plan, raid, implementation 
+summary: 您需要規劃儲存陣列 RAID 群組中 LUN 的大小和數量、並決定是否要在主機之間共用 RAID 群組。 
+---
+= 規劃 RAID 實作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您需要規劃儲存陣列 RAID 群組中 LUN 的大小和數量、並決定是否要在主機之間共用 RAID 群組。

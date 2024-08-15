@@ -1,0 +1,71 @@
+---
+permalink: implement-third-party/reference_required_parameters_for_emc_symmetrix_storage_arrays_with_data_ontap_systems.html 
+sidebar: sidebar 
+keywords: required, parameter, settings, storage, array, ontap, systems, host, channel, director, configuration, port 
+summary: 儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。 
+---
+= ONTAP 系統儲存陣列上的必要參數設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。
+
+
+
+== 必要的主機通道導向器連接埠組態參數
+
+下表顯示必須在儲存陣列上設定的主機通道導向器連接埠組態參數：
+
+|===
+| 參數（名稱可能因 GUI 和 CLI 而異） | 設定 
+
+
+ a| 
+`Common SN` （通用序號或 C 位元參數）
+ a| 
+啟用
+
+
+
+ a| 
+`PP` （點對點參數）
+ a| 
+啟用
+
+
+
+ a| 
+`SC3` （ SCSI-3 ）
+ a| 
+啟用
+
+
+
+ a| 
+`SPC-2` （ SCS2_Protocol_version 、 SCSI Primary Command 2 參數、或 `Allow inquiry data to be compiled to the standard)`
+ a| 
+啟用
+
+
+
+ a| 
+`UWN` （全球唯一名稱）
+ a| 
+啟用
+
+
+
+ a| 
+`Volume Set Addressing`
+ a| 
+停用
+
+|===
+ `Volume Set Addressing`必須在 LUN 對應的所有通道導向器連接埠上、以相同方式設定參數。如果設定不同、 ONTAP 會在輸出和 EMS 訊息中報告 LUN ID 不相符的 `storage errors show` 情況。
+
+*相關資訊*
+
+https://docs.netapp.com/us-en/ontap-flexarray/install/index.html["介紹虛擬化安裝需求與參考資料FlexArray"]

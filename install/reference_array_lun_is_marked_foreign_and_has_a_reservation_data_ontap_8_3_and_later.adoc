@@ -1,0 +1,60 @@
+---
+permalink: install/reference_array_lun_is_marked_foreign_and_has_a_reservation_data_ontap_8_3_and_later.html 
+sidebar: sidebar 
+keywords: array, lun, marked, foreign, reservation, show, message, troubleshoot, resolution, problem 
+summary: 您可以將陣列 LUN 上託管的資料以原生格式匯入 ONTAP 。如果陣列 LUN 在匯入期間具有外部主機保留、則匯入此類陣列 LUN 內容的程序可能會受到影響。 
+---
+= 陣列 LUN 標示為外部、並具有保留
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以將陣列 LUN 上託管的資料以原生格式匯入 ONTAP 。如果陣列 LUN 在匯入期間具有外部主機保留、則匯入此類陣列 LUN 標記為 * Foreign * （外部 * ）的內容的程序可能會受到影響。
+
+
+
+== 儲存錯誤會顯示訊息
+
+[listing]
+----
+
+EMC-1.3 (600000e00d1000000010000e00030000): This array LUN is marked foreign and has a reservation.
+----
+
+
+== 說明
+
+當 ONTAP 管理員在啟動匯入程序之前、未清除 LUN 上外部主機應用程式所建立的保留時、就會發生此錯誤狀況。匯入作業失敗、訊息會顯示為命令的輸出 `storage errors show` 。
+
+必須清除保留、才能成功匯入作業。
+
+
+
+== 疑難排解與問題解決
+
+若要修正此問題、儲存陣列管理員必須從陣列 LUN 移除持續保留。
+
+您可以從以原始格式存取陣列 LUN 資料的外部主機、或使用 ONTAP 命令、移除持續保留。您可以使用下列 ONTAP 命令來移除保留區：
+
+. 檢閱 `storage errors show` 輸出、以使用保留區識別陣列 LUN 、如下列範例所示：
++
+[listing]
+----
+
+system1a::> storage errors show
+EMC_SYMMETRIX_1
+--------------------------------------
+EMC-1.3 (600000e00d1000000010000e00030000): This array LUN is marked foreign and has a reservation.
+----
+. 執行 `set -privilege advanced` 命令以切換至 _advancive_ 模式、因為您無法在 _admin_ 模式中匯入陣列 LUN 內容。
+. 使用 `storage disk -remove-reservation` 命令從識別的陣列 LUN 中移除持續保留。
++
+[listing]
+----
+
+system1a::>* storage disk remove-reservation -disk EMC-1.3
+----
+. 使用 `lun import start` 命令啟動將陣列 LUN 內容匯入 ONTAP 的程序。
+

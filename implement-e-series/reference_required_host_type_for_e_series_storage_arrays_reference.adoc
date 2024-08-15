@@ -1,0 +1,29 @@
+---
+permalink: implement-e-series/reference_required_host_type_for_e_series_storage_arrays_reference.html 
+sidebar: sidebar 
+keywords: required, host, type, e-series, storage, arrays 
+summary: 您必須為 E-Series 儲存陣列設定適當的主機類型選項、才能與 ONTAP 系統通訊。您可以使用 SANtricity Storage Manager 來設定主機類型。 
+---
+= E-Series 儲存陣列所需的主機類型
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須為 E-Series 儲存陣列設定適當的主機類型選項、才能與 ONTAP 系統通訊。您可以使用 SANtricity Storage Manager 來設定主機類型。
+
+對於指定的 ONTAP 版本、您可以根據儲存陣列韌體版本來設定所需的主機類型。
+
+如果您的韌體版本為 08.10.15.00 以上、請將主機類型設為 Data ONTAP （ ALUA ） _ 。
+
+[NOTE]
+====
+韌體版本 08.10.15.00 及更新版本支援的 SANtricity Storage Manager 最低版本為 11.10.0G00.0026 。
+
+====
+使用 E-Series 控制器韌體 8.25 時、 E-Series 系統不再支援 ONTAP RDAC 作為主機類型。因此、如果您使用的是 ONTAP RDAC 、則在將後端陣列升級至 CFW 8.25 或更新版本之前、您必須先參閱知識庫文章、將其轉換為 ONTAP ALUA 。
+
+*相關資訊*
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/E-Series_Storage_Array/How_to_non-disruptively_change_between_Active-Passive_and_ALUA_failover_modes["如何在連線至叢集式 Data ONTAP 系統的 NetApp E-Series 陣列上、在「主動式被動式」和「 ALUA 」容錯移轉模式之間進行不中斷的變更"]

@@ -1,0 +1,28 @@
+---
+permalink: install/concept_target_queue_depth_customization.html 
+sidebar: sidebar 
+keywords: target, queue, depth, customization 
+summary: 目標佇列深度定義可在儲存陣列目標連接埠上佇列（未處理）的 ONTAP 命令數。ONTAP 提供預設值。對於大多數部署而言、預設的目標佇列深度是適當的；不過、您可以變更目標佇列深度來修正效能問題。 
+---
+= 目標佇列深度自訂
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+目標佇列深度定義可在儲存陣列目標連接埠上佇列（未處理）的 ONTAP 命令數。ONTAP 提供預設值。對於大多數部署而言、預設的目標佇列深度是適當的；不過、您可以變更目標佇列深度來修正效能問題。
+
+預設目標佇列深度會因不同版本的 ONTAP 而異：
+
+* 對於 ONTAP 、預設值為 512 。
+* 對於 Data ONTAP 8.2 之前的所有版本、預設值為 256 。
+
+
+當儲存陣列設定多個啟動器共用目標連接埠時、您不希望所有啟動器的佇列緩衝區中的未處理命令一起超出儲存陣列可以處理的範圍。否則、所有主機的效能都會受到影響。儲存陣列在佇列緩衝區中可處理的命令數量上會有所不同。
+
+[NOTE]
+====
+目標佇列深度也可能稱為「目標佇列長度」、「 Q 深度」或「最大油門」。
+
+====

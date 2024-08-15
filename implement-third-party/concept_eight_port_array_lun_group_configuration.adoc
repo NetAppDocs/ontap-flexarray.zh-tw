@@ -1,0 +1,44 @@
+---
+permalink: implement-third-party/concept_eight_port_array_lun_group_configuration.html 
+sidebar: sidebar 
+keywords: eight-port, array, lun, group, configuration, crossed, back-end, connections, not 
+summary: 叢集式 V 系列系統和可使用陣列 LUN 的 ONTAP 系統均支援八埠 LUN 群組組組態。 
+---
+= 八埠陣列 LUN 群組組組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+叢集式 V 系列系統和可使用陣列 LUN 的 ONTAP 系統均支援八埠 LUN 群組組組態。
+
+此組態支援與互操作性對照表中所列的所有儲存陣列搭配使用、並支援在您的系統上執行的 ONTAP 版本。
+
+部署此組態有兩種方法：交叉和無交叉的後端連線。
+
+
+
+== 交叉後端連線
+
+在此配置中、後端連線交叉時、來自同一個儲存陣列控制器的 FC 連線會同時連線至兩個光纖交換器（備援）。
+
+在此交叉後端連線的圖例中、請注意節點如何連接至交換器和儲存陣列。VS1 在連接至儲存陣列控制器 1 連接埠 1A 和控制器 2 連接埠 2C 時使用交換器 1 、並在連接至儲存陣列控制器 2 連接埠 2A 和控制器 1 連接埠 1C 時使用交換器 2 。這樣可以優化交換機端口和陣列端口的使用，從而減少交換機或存儲陣列控制器故障的影響。
+
+image::../media/eight_port_array_lun_group_configuration_crossed.gif[八個連接埠陣列 LUN 群組組組態交叉]
+
+
+
+== 後端連線不會交叉
+
+在此不交叉後端連線的組態中、來自相同儲存陣列控制器的 FC 連線只會移至一個 Fabric 交換器。
+
+下圖顯示未跨越後端連線的組態。
+
+image::../media/eight_port_array_lun_group_configuration.gif[八埠陣列 LUN 群組組組態]
+
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Fabric附加MetroCluster 的安裝與組態"]

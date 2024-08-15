@@ -1,0 +1,30 @@
+---
+permalink: install/concept_considerations_when_planning_for_disk_ownership.html 
+sidebar: sidebar 
+keywords: considerations, plan, disk, ownership 
+summary: 如果您要部署多個 ONTAP 系統以搭配陣列 LUN 使用、則必須判斷哪個系統擁有哪些陣列 LUN 。磁碟擁有權可確保只有擁有特定陣列 LUN 的 ONTAP 系統才能從陣列 LUN 讀取資料、並將資料寫入陣列 LUN 。 
+---
+= 規劃磁碟擁有權時的考量
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您要部署多個 ONTAP 系統以搭配陣列 LUN 使用、則必須判斷哪個系統擁有哪些陣列 LUN 。磁碟擁有權可確保只有擁有特定陣列 LUN 的 ONTAP 系統才能從陣列 LUN 讀取資料、並將資料寫入陣列 LUN 。
+
+規劃哪個系統會擁有哪些陣列 LUN 時、您應該考慮下列事項：
+
+* 平台支援的指派裝置上限
++
+Hardware Universe 會顯示不同平台支援的指派裝置上限。這是硬式編碼的限制。如果您的系統同時使用陣列 LUN 和磁碟、則此上限為磁碟和陣列 LUN 的組合上限。在確定可分配給系統的陣列 LUN 和磁碟數量時、您必須同時考慮這兩種類型的儲存設備。
+
+* 您預期由環境中使用的不同應用程式所產生的負載量
++
+某些類型的應用程式可能會產生大量的要求、而其他應用程式（例如歸檔應用程式）則會產生較少的要求。您可能會考慮根據特定應用程式的預期負載來衡量擁有權指派。
+
+
+
+*相關資訊*
+
+https://hwu.netapp.com["NetApp Hardware Universe"]

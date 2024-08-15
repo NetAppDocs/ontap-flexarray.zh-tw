@@ -1,0 +1,41 @@
+---
+permalink: implement-third-party/task_preparing_hp_eva_storage_arrays_for_ndu.html 
+sidebar: sidebar 
+keywords: prepare, hp, eva, storage, arrays, ndu 
+summary: HP EVA 儲存陣列傾向於在韌體升級期間將目標連接埠離線。ONTAP 提供的命令可提高 ONTAP 恢復能力、因此如果目標連接埠在韌體升級期間離線、則 ONTAP 系統不會中斷。這些命令只能用於執行 ONTAP 的儲存系統。 
+---
+= 準備用於 NDU 的 HP EVA 儲存陣列
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+HP EVA 儲存陣列傾向於在韌體升級期間將目標連接埠離線。ONTAP 提供的命令可提高 ONTAP 恢復能力、因此如果目標連接埠在韌體升級期間離線、則 ONTAP 系統不會中斷。這些命令只能用於執行 ONTAP 的儲存系統。
+
+您必須遵循 HP 提供的韌體升級準則、包括負載建議（ HP EVA ）的準則。您只能升級至 HP 支援的韌體。此程序適用於 HP EVA 韌體升級類型 _online upgrade 。
+
+[NOTE]
+====
+在韌體升級期間、兩個 HP EVA 控制器都會重新開機。
+
+====
+此程序會指示您使用 ONTAP 命令、以提高韌體升級期間的 ONTAP 恢復能力。韌體升級完成後、您可以再次使用 ONTAP 命令、將連接埠恢復為正常的作業模式。
+
+.步驟
+. 在 ONTAP 系統上、將命令工作階段的權限等級設為進階： *`set -privilege advanced`*
+. 對於正在進行韌體升級的 HP EVA 儲存陣列、請將參數設 `is-upgrade-pending` 為 * true* ： *`storage array modify -name array_name -is-upgrade-pending true`*
+. 在儲存陣列上、開始韌體升級。
+. 韌體升級完成後、視需要再次將權限層級設定為進階、然後在 ONTAP 系統上、將參數設定為 *FALSE* 、將 `is-upgrade-pending` 儲存陣列連接埠恢復正常運作： *`storage array modify -name array_name -is-upgrade-pending false`*
++
+如果您未在步驟 2 中結束進階模式、則不需要再次存取。
+
++
+此 `is-upgrade-pending` 參數包含下列功能、可確保正確使用命令：
+
++
+** 如果在儲存陣列上進行升級時嘗試設定為 *FALSE* 、則 `is-upgrade-pending` 命令會失敗、並傳回 EMS 訊息。
+** 如果狀態從設置爲 *true* 起 60 分鐘內未返回到 *FALSE* ，則 `is-upgrade-pending` EMS 訊息將每小時記錄一次，直到 `is-upgrade-pending` 返回到 *FALSE* 。
+
+
+

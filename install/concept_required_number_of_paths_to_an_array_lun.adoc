@@ -1,0 +1,18 @@
+---
+permalink: install/concept_required_number_of_paths_to_an_array_lun.html 
+sidebar: sidebar 
+keywords: required, number, paths, array, lun 
+summary: ONTAP 支援四或兩條通往陣列 LUN 的路徑。 
+---
+= 陣列 LUN 的必要路徑數
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 支援四或兩條通往陣列 LUN 的路徑。
+
+ONTAP 預期並要求儲存陣列至少在兩個備援儲存陣列連接埠上提供對特定陣列 LUN 的存取、也就是透過至少兩個備援路徑。
+
+請確定您選擇存取指定 LUN 的儲存陣列連接埠來自不同的元件、以避免單點故障、例如來自替代控制器、叢集或機箱。原因是、如果某個元件故障、您不希望所有存取陣列 LUN 的權限都會遺失。

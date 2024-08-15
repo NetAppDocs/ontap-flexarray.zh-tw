@@ -1,0 +1,33 @@
+---
+permalink: install/task_checking_the_checksum_type_of_spare_array_luns.html 
+sidebar: sidebar 
+keywords: check, checksum, type, spare, array, luns 
+summary: 如果您打算透過指定其名稱將備用陣列 LUN 新增至 Aggregate 、則必須確定您要新增的陣列 LUN 的 Checksum 類型與 Aggregate checksum 類型相同。 
+---
+= 檢查備用陣列 LUN 的 Checksum 類型
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您打算透過指定其名稱將備用陣列 LUN 新增至 Aggregate 、則必須確定您要新增的陣列 LUN 的 Checksum 類型與 Aggregate checksum 類型相同。
+
+您無法在陣列 LUN 集合中混合使用不同 Checksum 類型的陣列 LUN 。新增到其中的陣列 LUN 的總和檢查碼類型及檢查碼類型必須相同。
+
+如果您指定要新增至集合體的多個備用陣列 LUN 、則根據預設、 ONTAP 會選取與集合體相同總和類型的陣列 LUN 。
+
+[NOTE]
+====
+使用分區式 Checksum 陣列 LUN 的所有新建立集合體的 Checksum 類型為 _advanced regated checksum （ AZCS ）。現有分區式集合體仍支援分區式 Checksum 類型。分區的 Checksum 備用陣列 LUN 新增至現有分區的 Checksum Aggregate 、仍會分區為 Checksum 陣列 LUN 。新增至AZCS Checksum類型Aggregate的分區checksum備用陣列LUN、使用AZCS Checksum方案來管理Checksum。
+
+====
+.步驟
+. 輸入下列命令、檢查備用陣列 LUN 的 Checksum 類型：
++
+`storage disk show -fields checksum-compatibility -container-type spare`
+
++
+您可以將區塊 Checksum 陣列 LUN 新增至區塊 Checksum Aggregate 、並將分區陣列 LUN 新增至進階分區 Checksum （ AZCS ） Aggregate 。
+
+

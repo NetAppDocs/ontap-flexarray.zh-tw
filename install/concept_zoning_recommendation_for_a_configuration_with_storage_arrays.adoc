@@ -1,0 +1,20 @@
+---
+permalink: install/concept_zoning_recommendation_for_a_configuration_with_storage_arrays.html 
+sidebar: sidebar 
+keywords: zone, recommendation, configuration, storage, arrays 
+summary: 儲存陣列組態的建議分區類型為 1 ： 1 分區。每個區域都有 1 ： 1 分區、其中包含單一 FC 啟動器連接埠和單一儲存陣列目標連接埠。 
+---
+= 針對儲存陣列組態的分區建議
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+儲存陣列組態的建議分區類型為 1 ： 1 分區。每個區域都有 1 ： 1 分區、其中包含單一 FC 啟動器連接埠和單一儲存陣列目標連接埠。
+
+建立 1 ： 1 分區的好處如下：
+
+* 您可以限制可存取特定陣列 LUN 的連接埠數量。
+* 由於 FC 啟動器 ONTAP 系統不會嘗試彼此探索、因此探索和開機時間都有所改善。
+

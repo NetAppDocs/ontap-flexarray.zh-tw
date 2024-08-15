@@ -1,0 +1,39 @@
+---
+permalink: install/concept_valid_pathing_standalone_system_with_a_single_2_port_array_lun_group.html 
+sidebar: sidebar 
+keywords: valid, path, stand-alone, system, single, 2-port, array, lun, group 
+summary: 大多數 ONTAP 版本的儲存陣列都支援光纖網路附加獨立系統、其中只有一個雙埠陣列 LUN 群組。 
+---
+= 有效路徑：單一雙連接埠陣列 LUN 群組的獨立系統
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+大多數 ONTAP 版本的儲存陣列都支援光纖網路附加獨立系統、其中只有一個雙埠陣列 LUN 群組。
+
+[NOTE]
+====
+不同的儲存陣列、即使是同一家廠商的儲存陣列、也可能會將連接埠標示為不同於範例所示的連接埠。在您的儲存陣列上、您必須確定您選取的連接埠位於替代控制器上。
+
+====
+下圖顯示單一雙連接埠陣列 LUN 群組與獨立 ONTAP 系統：
+
+image::../media/one_standalone_2_port_array_lun_group_array_port_labels.gif[在單一雙連接埠陣列 LUN 群組組組態中、使用獨立系統]
+
+驗證安裝時、您可以對照下列範例檢查命令輸出、以確認 LUN 群組的數量符合您的預期、而且有多餘的路徑。
+
+.範例
+以下範例顯示所示組態的預期 `storage array config show` 輸出、即單一 LUN 群組（ LUN 群組 0 ）、每個陣列 LUN 有兩條備援路徑。（輸出中與圖示相符的備援路徑會顯示在陣列目標連接埠名稱 20**1A**00a0b80fee04 和 20**2A**00a0b80fee0420 中。）
+
+[listing]
+----
+
+vs1::> storage array config show
+             LUN   LUN
+Node         Group Count     Array Name    Array Target Port   Initiator
+------------ ----- ----- ----------------- ------------------- ----------
+vs1           0    50        DGC_RAID5_1	 201A00a0b80fee04     0a
+                                             202A00a0b80fee04     0h
+----

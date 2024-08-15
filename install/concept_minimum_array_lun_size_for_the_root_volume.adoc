@@ -1,0 +1,20 @@
+---
+permalink: install/concept_minimum_array_lun_size_for_the_root_volume.html 
+sidebar: sidebar 
+keywords: array, lun, size, required, root, volume 
+summary: 您必須將根磁碟區的大小設定為大於支援的最小陣列 LUN 大小、以確保根磁碟區中有足夠的空間用於系統檔案、記錄檔和核心檔案。如果發生系統問題、您必須將這些檔案提供給技術支援。 
+---
+= 根磁碟區所需的陣列 LUN 大小
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須將根磁碟區的大小設定為大於支援的最小陣列 LUN 大小、以確保根磁碟區中有足夠的空間用於系統檔案、記錄檔和核心檔案。如果發生系統問題、您必須將這些檔案提供給技術支援。
+
+Hardware Universe 會列出根磁碟區的最小陣列 LUN 大小。
+
+*相關資訊*
+
+https://hwu.netapp.com["NetApp Hardware Universe"]

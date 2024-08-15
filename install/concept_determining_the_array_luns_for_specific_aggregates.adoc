@@ -1,0 +1,14 @@
+---
+permalink: install/concept_determining_the_array_luns_for_specific_aggregates.html 
+sidebar: sidebar 
+keywords: determine, array, luns, specific, aggregates 
+summary: 在使用陣列 LUN 的 ONTAP 系統中、集合體中混合不同類型的儲存設備有許多規則。在規劃要新增哪些陣列 LUN 和磁碟至哪個集合體時、您必須瞭解這些規則。 
+---
+= 判斷特定集合體的陣列 LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用陣列 LUN 的 ONTAP 系統中、集合體中混合不同類型的儲存設備有許多規則。在規劃要新增哪些陣列 LUN 和磁碟至哪個集合體時、您必須瞭解這些規則。

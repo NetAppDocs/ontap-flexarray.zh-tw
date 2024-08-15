@@ -1,0 +1,88 @@
+---
+permalink: install/concept_example_of_zoning_in_a_configuration_with_storage_arrays.html 
+sidebar: sidebar 
+keywords: example, zone, configuration, storage, arrays, single, 4-port, lun, group 
+summary: 在設定交換器進行分區時使用 LUN 安全性、可確保不同主機不會看到對應至其他主機的 LUN 。 
+---
+= 使用儲存陣列進行組態分區的範例
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在設定交換器進行分區時使用 LUN 安全性、可確保不同主機不會看到對應至其他主機的 LUN 。
+
+
+
+== 在單一 4 埠 LUN 群組組組態中進行分區
+
+image::../media/one_4_port_array_lun_gp.gif[此圖形由其周邊文字說明。]
+
+下表顯示此 HA 配對中 ONTAP 系統組態範例的分區。建議採用單一啟動器分區策略。
+
+|===
+| 區域 | ONTAP系統 |  | 儲存陣列 |  
+
+
+ a| 
+交換器1.
+
+
+
+ a| 
+z1
+ a| 
+vs1
+ a| 
+連接埠 0A
+ a| 
+控制器1
+ a| 
+連接埠1A
+
+
+
+ a| 
+z2
+ a| 
+vs2
+ a| 
+連接埠 0A
+ a| 
+控制器1
+ a| 
+連接埠 1B
+
+
+
+ a| 
+交換器2.
+
+
+
+ a| 
+z3
+ a| 
+vs1
+ a| 
+連接埠 0c
+ a| 
+控制器2
+ a| 
+連接埠2A
+
+
+
+ a| 
+z4
+ a| 
+vs2
+ a| 
+連接埠 0c
+ a| 
+控制器2
+ a| 
+連接埠 2B
+
+|===

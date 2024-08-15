@@ -1,0 +1,16 @@
+---
+permalink: install/concept_zoning_for_a_configuration_with_storage_arrays.html 
+sidebar: sidebar 
+keywords: zone, configuration, storage, arrays 
+summary: 分區功能可讓儲存管理員限制特定 ONTAP 系統可存取的陣列 LUN 。ONTAP 要求每個啟動器連接埠只能在一個目標連接埠上看到陣列 LUN 。 
+---
+= 使用儲存陣列在組態中進行分區
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+分區功能可讓儲存管理員限制特定 ONTAP 系統可存取的陣列 LUN 。ONTAP 要求每個啟動器連接埠只能在一個目標連接埠上看到陣列 LUN 。
+
+在光纖通道（ FC ）交換器上設定分區、可讓您定義連接節點之間的路徑、限制連接至通用 FC SAN 的裝置之間的可見度和連線能力。

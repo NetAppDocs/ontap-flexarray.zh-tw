@@ -1,0 +1,24 @@
+---
+permalink: install/concept_spare_core_array_lun_requirement_for_core_dumps.html 
+sidebar: sidebar 
+keywords: spare, array, lun, requirement, core, dumps 
+summary: 對於獨立式 ONTAP 系統和 HA 配對中的節點、如果沒有可用的備用磁碟、您必須建立適當大小的備用陣列 LUN 來保存核心傾印。 
+---
+= 核心傾印的備用陣列 LUN 需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+對於獨立式 ONTAP 系統和 HA 配對中的節點、如果沒有可用的備用磁碟、您必須建立適當大小的備用陣列 LUN 來保存核心傾印。
+
+在同時使用磁碟和陣列 LUN 的系統上、如果有備用磁碟可用、核心傾印就不需要備用陣列 LUN 。如果沒有可用的備用陣列 LUN 或備用磁碟、就沒有地方可以傾印核心。
+
+核心傾印包含記憶體和 NVRAM 的內容。在系統出現緊急情況時、 ONTAP 會將核心轉儲至備用陣列 LUN 或備用磁碟（如果有備用磁碟）。重新開機時、核心會從備援讀取、並儲存到根檔案系統上的核心傾印。技術支援人員接著可以使用核心傾印來協助疑難排解問題。
+
+Hardware Universe _ 包含每個平台的最小備援核心陣列 LUN 大小。
+
+*相關資訊*
+
+https://hwu.netapp.com["NetApp Hardware Universe"]

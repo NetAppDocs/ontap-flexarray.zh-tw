@@ -1,0 +1,38 @@
+---
+permalink: install/reference_fc_initiator_ports_required_for_connection_with_disks.html 
+sidebar: sidebar 
+keywords: fc initiator, ports, required, connection, native, disks 
+summary: 您必須透過 FC 啟動器連接埠、將 V 系列系統連接至原生磁碟櫃。連線所需的啟動器連接埠數量取決於 V 系列系統是獨立式系統還是 HA 配對。 
+---
+= 連接至原生磁碟所需的 FC 啟動器連接埠
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須透過 FC 啟動器連接埠、將 V 系列系統連接至原生磁碟櫃。連線所需的啟動器連接埠數量取決於 V 系列系統是獨立式系統還是 HA 配對。
+
+下表列出將 V 系列系統連接至原生磁碟櫃所需的 FC 啟動器連接埠數量、視系統組態而定：
+
+|===
+| 組態 | FC 啟動器連接埠數量 
+
+
+ a| 
+獨立式系統
+ a| 
+* 如果您使用一個迴圈、則需要一個 FC 啟動器連接埠
+* 如果您要連接兩個迴圈、請使用兩個 FC 啟動器連接埠：每個迴圈一個
+
+
+
+
+ a| 
+HA配對
+ a| 
+* 如果您使用多重路徑儲存設備、則每個迴圈有兩個 FC 啟動器連接埠
+* 如果您不使用多重路徑儲存設備、則在組態中的每個迴圈中、每個控制器各有一個 FC 啟動器連接埠
+
+
+|===

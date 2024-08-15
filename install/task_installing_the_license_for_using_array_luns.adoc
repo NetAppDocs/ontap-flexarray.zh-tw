@@ -1,0 +1,41 @@
+---
+permalink: install/task_installing_the_license_for_using_array_luns.html 
+sidebar: sidebar 
+keywords: install, license, use, array, luns 
+summary: V_StorageAttach 授權必須安裝在您要搭配陣列 LUN 使用的每個 ONTAP 節點上。這不是叢集的單一授權。在安裝授權之前、無法在集合體中使用陣列 LUN 。 
+---
+= 安裝使用陣列 LUN 的授權
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+V_StorageAttach 授權必須安裝在您要搭配陣列 LUN 使用的每個 ONTAP 節點上。它不是叢集的單一授權。在安裝授權之前、無法在集合體中使用陣列 LUN 。
+
+*您需要的是什麼*
+
+* 必須安裝叢集。
+* 您必須擁有V_StorageAttach授權的授權金鑰。
++
+https://mysupport.netapp.com/site/global/dashboard["NetApp支援"]
+
+
+
+如果 V_StorageAttach 套件的授權金鑰已安裝、則無需執行此程序。如果 ONTAP 系統是隨磁碟一起訂購的、工廠通常會為您安裝授權套件。或者、許多客戶會在安裝程序的早期安裝所有必要的授權。
+
+.步驟
+. 對於叢集中每個用於陣列 LUN 的 ONTAP 節點、請在節點上輸入下列命令： `system license add license key`
++
+[listing]
+----
+
+vgv3170f41a> license
+Serial Number: nnnnnnnn
+Owner: mysystem1a
+Package           Type    Description           Expiration
+----------------- ------- --------------------- --------------------
+V_StorageAttach   license Virtual Attached Storage
+----
+. 查看輸出以確認是否顯示 V_StorageAttach 套件。
+

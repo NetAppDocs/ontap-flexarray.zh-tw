@@ -1,0 +1,16 @@
+---
+permalink: install/concept_considering_checksum_type_when_planning_array_lun_size_and_number.html 
+sidebar: sidebar 
+keywords: consider, checksum, type, plan, array, lun, size, number 
+summary: 規劃 ONTAP 所需陣列 LUN 的數量和大小時、您必須考量 Checksum 類型對陣列 LUN 中可用空間量的影響。必須為指派給 ONTAP 系統的每個陣列 LUN 指定 Checksum 類型。 
+---
+= 規劃陣列 LUN 大小和數量時、請考慮檢查值類型
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+規劃 ONTAP 所需陣列 LUN 的數量和大小時、您必須考量 Checksum 類型對陣列 LUN 中可用空間量的影響。必須為指派給 ONTAP 系統的每個陣列 LUN 指定 Checksum 類型。
+
+當儲存陣列上的陣列 LUN 對應至 ONTAP 系統使用時、 ONTAP 會將陣列 LUN 視為原始、未格式化的磁碟。當您將陣列 LUN 指派給 ONTAP 系統時、請指定 Checksum 類型、告知 ONTAP 如何格式化原始陣列 LUN 。Checksum 類型對可用空間的影響取決於您為 LUN 指定的 Checksum 類型。

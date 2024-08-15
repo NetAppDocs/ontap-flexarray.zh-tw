@@ -1,0 +1,21 @@
+---
+permalink: install/concept_advantages_of_four_paths_to_an_array_lun_clustered_data_ontap_8_1_and_later.html 
+sidebar: sidebar 
+keywords: advantages, four, paths, array, lun 
+summary: 規劃 ONTAP 陣列 LUN 的路徑數量時、您需要考慮是否要設定兩或四個路徑。 
+---
+= 通往陣列 LUN 的四條路徑的優點
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+規劃 ONTAP 陣列 LUN 的路徑數量時、您需要考慮是否要設定兩或四個路徑。
+
+設定四條陣列 LUN 路徑的優點如下：
+
+* 如果交換器故障、兩個儲存陣列控制器仍然可用。
+* 如果儲存陣列控制器故障、兩個交換器仍然可用。
+* 由於負載平衡是四條路徑而非兩條路徑、因此效能可以改善。
+

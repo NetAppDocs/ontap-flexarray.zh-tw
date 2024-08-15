@@ -1,0 +1,20 @@
+---
+permalink: implement-third-party/concept_guidelines_for_configuring_ports_on_hp_xp_storage_arrays.html 
+sidebar: sidebar 
+keywords: guidelines, configuring, ports, hp xp, storage, arrays 
+summary: 在 HP XP 儲存陣列上設定連接埠時、請遵循特定準則。 
+---
+= 在 HP XP 儲存陣列上設定連接埠的準則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 HP XP 儲存陣列上設定連接埠時、請遵循特定準則。
+
+在 HP XP 儲存陣列上設定連接埠的準則如下：
+
+* 每個連接埠只能新增一個主機群組。
+* 您應該確定主機群組包含陣列 LUN 鄰近區域中 V 系列系統的所有 FC 啟動器連接埠。
+

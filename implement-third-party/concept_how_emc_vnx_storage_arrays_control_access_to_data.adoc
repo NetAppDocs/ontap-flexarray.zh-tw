@@ -1,0 +1,24 @@
+---
+permalink: implement-third-party/concept_how_emc_vnx_storage_arrays_control_access_to_data.html 
+sidebar: sidebar 
+keywords: emc, vnx, storage, array, control, access, data 
+summary: EMC VNX 陣列使用儲存群組來控制資料的存取。儲存群組是儲存陣列中的一或多個 LUN 、只能由與陣列 LUN 相關聯的主機存取。主機無法存取或修改任何不屬於其儲存群組的陣列 LUN 中的資料。 
+---
+= EMC VNX 儲存陣列如何控制資料存取
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+EMC VNX 陣列使用儲存群組來控制資料的存取。儲存群組是儲存陣列中的一或多個 LUN 、只能由與陣列 LUN 相關聯的主機存取。主機無法存取或修改任何不屬於其儲存群組的陣列 LUN 中的資料。
+
+如果遵循這些規則、 ONTAP 支援多個儲存群組：
+
+* 交換器分區必須定義 ONTAP 系統上的 FC 啟動器連接埠用來存取每個陣列 LUN 群組的目標連接埠。
+* LUN 遮罩必須用於限制主機存取陣列 LUN 。
+* 儲存群組必須定義要向每個 FC 啟動器連接埠呈現的陣列 LUN 群組。
+* 每個陣列 LUN 群組都需要每個 ONTAP 系統上的一個 FC 啟動器連接埠配對。
+
+
+如果使用陣列 LUN 鄰近區域、則同一鄰近區域的 V 系列系統必須位於同一個儲存群組中。

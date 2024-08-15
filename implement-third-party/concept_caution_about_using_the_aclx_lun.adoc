@@ -1,0 +1,18 @@
+---
+permalink: implement-third-party/concept_caution_about_using_the_aclx_lun.html 
+sidebar: sidebar 
+keywords: caution, aclx, lun 
+summary: 在 VMAX 陣列上、如果客戶要求使用 ACLX 、則會在初始化期間建立 ACLX （存取控制 Logix ） LUN 。ACLX LUN 不是儲存 LUN 、因此不應對應至 ONTAP 。 
+---
+= 使用 ACLX LUN 的注意事項
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 VMAX 陣列上、如果客戶要求使用 ACLX 、則會在初始化期間建立 ACLX （存取控制 Logix ） LUN 。ACLX LUN 不是儲存 LUN 、因此不應對應至 ONTAP 。
+
+如果 ACLX LUN 對應至 ONTAP 系統、 ONTAP 會記錄一則訊息、指出 ACLX LUN 小於所需的最小大小、並將 LUN 標示為故障。ONTAP 系統在記錄此錯誤訊息之後仍可正常運作、但無法使用 LUN 。
+
+ACLX LUN 應從 ONTAP 系統上的前端 Director 連接埠取消對應。

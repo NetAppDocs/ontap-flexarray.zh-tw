@@ -1,0 +1,58 @@
+---
+permalink: install/task_checking_for_back_end_configuration_errors_preventing_system_operation.html 
+sidebar: sidebar 
+keywords: check, back-end, configuration, errors, prevent, system, operation 
+summary: ONTAP 要求您修正常見的後端組態錯誤、以免儲存陣列和 ONTAP 系統無法正常運作。使用儲存陣列 config show 命令可協助您判斷是否有後端組態錯誤。 
+---
+= 檢查後端組態錯誤、以防止系統運作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 要求您修正常見的後端組態錯誤、以免儲存陣列和 ONTAP 系統無法正常運作。使用 `storage array config show` 命令可協助您判斷是否有後端組態錯誤。
+
+.步驟
+. 輸入下列命令： `storage array config show`
++
+安裝驗證（及疑難排解）的第一步是執行 `storage array config show` 命令。如果 ONTAP 在後端組態中偵測到錯誤、則輸出底部會顯示下列訊息 `storage array config show` ：
+
++
+[listing]
+----
+Warning: Configuration errors were detected.  Use 'storage errors show' for detailed information.
+----
+. 採取適當行動、如下所示：
++
+|===
+| 如果... | 然後... 
+
+
+ a| 
+`storage array config show` 指示您執行 `storage errors show`
+ a| 
+請前往步驟3。
+
+
+
+ a| 
+`storage array config show` 不會指示您執行 `storage errors show`
+ a| 
+檢閱 `storage array config show` 輸出、確定輸出反映出您想要的組態。請參閱「驗證後端組態是否符合預期的輸出」一節。（您不需要繼續執行本程序的後續步驟。） xref:task_verifying_if_the_back_end_configuration_matches_the_expected_output.adoc[驗證後端組態是否符合預期的輸出]
+
+|===
+. 輸入下列命令： `storage errors show`
++
+此 `storage errors show` 命令可讓您在陣列 LUN 層級查看問題的詳細資料。
+
+. 檢閱錯誤訊息並修正顯示的任何錯誤。
++
+您必須修正所顯示的任何錯誤 `storage errors show`。請參閱 `storage errors show` 訊息及其解決方案一節、瞭解偵測到的每個問題的原因、以及如何修正問題 `storage errors show` 。 xref:reference_the_storage_errors_show_messages_and_their_resolution.adoc[儲存錯誤會顯示訊息及其解決方案]
+
+. 解決問題後、再次執行 `storage errors show` 以確認錯誤已修正。
++
+如果 `storage errors show` 問題持續發生、請再次檢閱文件、以取得更多有關該怎麼做的資訊、或聯絡技術支援部門。
+
+. 解決後端組態錯誤之後、請再次執行 `storage array config show` 、以便檢閱輸出、確保組態符合預期的輸出。
+

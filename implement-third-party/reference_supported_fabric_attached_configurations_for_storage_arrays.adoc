@@ -1,0 +1,20 @@
+---
+permalink: implement-third-party/reference_supported_fabric_attached_configurations_for_storage_arrays.html 
+sidebar: sidebar 
+keywords: support, fabric-attached, configurations 
+summary: 除非另有說明、否則所有儲存陣列廠商都支援各種光纖附加組態。 
+---
+= 支援的網路附加組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+除非另有說明、否則所有儲存陣列廠商都支援各種光纖附加組態。
+
+互通性對照表包含有關特定陣列機型的其他資訊。
+
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

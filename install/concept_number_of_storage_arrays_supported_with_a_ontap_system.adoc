@@ -1,0 +1,39 @@
+---
+permalink: install/concept_number_of_storage_arrays_supported_with_a_ontap_system.html 
+sidebar: sidebar 
+keywords: considerations, connect, multiple, storage, arrays, ontap, system 
+summary: 視 ONTAP 系統支援的儲存陣列機型而定、您可以將多個儲存陣列或單一儲存陣列連線至 ONTAP 系統。 
+---
+= 將多個儲存陣列連線至 ONTAP 系統時的考量事項
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+視 ONTAP 系統支援的儲存陣列機型而定、您可以將多個儲存陣列或單一儲存陣列連線至 ONTAP 系統。
+
+[NOTE]
+====
+互通性對照表可識別 ONTAP 系統僅支援一個儲存陣列的任何儲存陣列機型。
+
+====
+將多個儲存陣列連線至 ONTAP 系統時、請考量下列事項：
+
+* 如果您可以將多個支援相同儲存陣列機型的陣列連線至 ONTAP 系統、則您可以部署的儲存陣列數量並無限制。
+* 儲存陣列可以是來自相同支援的廠商、也可以來自不同的廠商。
++
+如果儲存陣列來自同一家廠商、則它們可以來自同一家或不同的家族。
+
+
+
+[NOTE]
+====
+同一個系列中的儲存陣列具有相同的效能和容錯移轉特性。例如、同一系列的成員都會執行主動式容錯移轉、或全部執行主動式被動式容錯移轉。可能會使用多個因素來判斷儲存陣列系列。例如、雖然其他特性可能相同、但具有不同架構的儲存陣列會位於不同的系列中。
+
+====
+*相關資訊*
+
+https://docs.netapp.com/us-en/ontap-flexarray/implement-third-party/index.html["適用於協力廠商儲存設備的虛擬化實作FlexArray"]
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

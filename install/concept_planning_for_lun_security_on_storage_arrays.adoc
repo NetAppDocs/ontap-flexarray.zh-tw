@@ -1,0 +1,22 @@
+---
+permalink: install/concept_planning_for_lun_security_on_storage_arrays.html 
+sidebar: sidebar 
+keywords: plan, lun, security, storage, arrays 
+summary: 如果您將 ONTAP 系統搭配儲存陣列使用、則必須使用 LUN 安全性方法、避免非 ONTAP 系統覆寫 ONTAP 系統擁有的陣列 LUN 、反之亦然。 
+---
+= 規劃儲存陣列上的 LUN 安全性
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您將 ONTAP 系統搭配儲存陣列使用、則必須使用 LUN 安全性方法、避免非 ONTAP 系統覆寫 ONTAP 系統擁有的陣列 LUN 、反之亦然。
+
+LUN 安全性是一種隔離可存取特定陣列 LUN 的主機的方法。LUN 安全性與交換器分區概念類似、但它是在儲存陣列上執行。_LUN 安全性 _ 和 _LUN 遮罩 _ 是描述此功能的等效詞彙。
+
+[NOTE]
+====
+ONTAP 磁碟擁有權配置可防止一個 ONTAP 系統覆寫另一個 ONTAP 系統擁有的陣列 LUN 。不過、它並不會阻止 ONTAP 系統覆寫非 ONTAP 主機可存取的陣列 LUN 。同樣地、如果沒有防止覆寫的方法、非 ONTAP 主機也可能覆寫 ONTAP 系統所使用的陣列 LUN 。
+
+====

@@ -1,0 +1,219 @@
+---
+permalink: install/reference_terminology_comparison_between_storage_array_vendors.html 
+sidebar: sidebar 
+keywords: terminology, comparison, between, storage, array, vendors 
+summary: 不同的儲存陣列廠商偶爾會使用不同的術語來描述類似的概念。相反地、陣列廠商可能會對同一個詞彙的意義有所不同。 
+---
+= 儲存陣列廠商之間的術語比較
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+不同的儲存陣列廠商偶爾會使用不同的術語來描述類似的概念。相反地、陣列廠商可能會對同一個詞彙的意義有所不同。
+
+下表提供一些常見廠商術語之間的對應：
+
+|===
+| 期限 | 廠商 | 定義 
+
+
+ a| 
+主機群組
+ a| 
+Hitachi
+ a| 
+一種組態實體、可讓您指定主機存取儲存陣列上的連接埠。您可以識別要存取 LUN 之 ONTAP 系統的 FC 啟動器連接埠 WWN ；程序會因廠商而異、有時會因同一廠商的不同儲存陣列機型而異。
+
+
+
+ a| 
+HP XP
+ a| 
+
+
+
+| 儲存群組  a| 
+EMC CX 、 EMC VNX
+ a| 
+
+
+
+| 主機定義  a| 
+3PAR
+ a| 
+
+
+
+| 主機  a| 
+3PAR 、 HP EVA 、 HP XP 、 Hitachi
+ a| 
+
+
+
+ a| 
+
+
+
+| 同位元群組  a| 
+Hitachi 、 HP XP
+ a| 
+後端的磁碟排列方式、形成定義的 RAID 層級。
+
+
+
+ a| 
+RAID 群組
+ a| 
+ONTAP 、 EMC CX 、 EMC VNX
+ a| 
+
+
+
+| 磁碟群組  a| 
+HP EVA
+ a| 
+一組實體磁碟、可形成儲存集區、您可從中建立虛擬磁碟。
+
+
+
+ a| 
+同位元集、 RAID 集
+ a| 
+3PAR
+ a| 
+一組同位檢查保護的 _chunklet_ 。（ Chunklet 是實體磁碟上 256 MB 的連續空間區塊。）
+
+
+
+ a| 
+ a| 
+|  
+
+
+| 叢集  a| 
+ONTAP
+ a| 
+在 ONTAP 中，一組節點可讓多個節點將其資源集區到大型虛擬伺服器中，並在整個叢集中散佈工作。
+
+
+
+ a| 
+| Hitachi 、 HP XP  a| 
+儲存陣列上的硬體元件、包含主機所連接的連接埠。
+
+
+
+ a| 
+ a| 
+|  
+
+
+| 控制器  a| 
+ONTAP
+ a| 
+執行 ONTAP 作業系統並與後端儲存陣列互動的儲存系統元件。控制器有時也稱為標頭或 CPU 模組。
+
+
+
+ a| 
+| Hitachi 、 HP EVA 、 HP XP  a| 
+目標連接埠所在儲存陣列上的硬體。
+
+
+
+ a| 
+節點
+ a| 
+3-PAR
+ a| 
+儲存陣列上的硬體元件、包含主機所連接的連接埠。
+
+
+
+ a| 
+Febe 電路板
+ a| 
+EMC Symmetrix
+ a| 
+
+
+
+| 儲存處理器（ SP ）  a| 
+EMC CX 、 EMC VNX
+ a| 
+
+
+
+ a| 
+LUN
+ a| 
+許多儲存陣列
+ a| 
+將一或多個磁碟或磁碟分割組成一個磁碟儲存空間範圍。在 ONTAP 文件中、這稱為 _Array LUN_ 。
+
+
+
+ a| 
+LDEV
+ a| 
+Hitachi 、 HP XP
+ a| 
+
+
+
+| LUN  a| 
+ONTAP
+ a| 
+ONTAP 系統可以虛擬化附加至它的儲存設備、並將儲存設備作為 LUN 提供給外部應用程式和用戶端（例如透過 iSCSI 和 FC ）。用戶端不知道前端 LUN 的儲存位置。
+
+
+
+ a| 
+LUN 、虛擬磁碟
+ a| 
+HP EVA
+ a| 
+虛擬磁碟（在使用者介面中稱為 _vDisk ）是在磁碟群組中建立的模擬磁碟機。您可以為虛擬磁碟指派特性組合、例如名稱、備援層級和大小。展示虛擬磁碟可將其儲存設備提供給主機。
+
+
+
+ a| 
+陣列 LUN
+ a| 
+ONTAP 文件、 ONTAP 儲存管理工具
+ a| 
+ONTAP 說明文件使用術語 _Array LUN_ 來區分儲存陣列上的 LUN 與前端 LUN （ ONTAP LUN ）。
+
+
+
+ a| 
+vLUN
+ a| 
+3PAR
+ a| 
+（ Volume - LUN ）虛擬磁碟區與邏輯單元編號（ LUN ）之間的配對。若要讓主機看到虛擬磁碟區、必須在儲存陣列上建立 vLUN 、將該磁碟區匯出為 LUN 。
+
+
+
+ a| 
+ a| 
+|  
+
+
+| Volume  a| 
+ONTAP
+ a| 
+一種邏輯實體、可保存可透過 ONTAP 支援的一或多個存取傳輸協定存取的使用者資料、包括網路檔案系統（ NFS ）、 Common Internet File System （ CIFS ）、超文字傳輸傳輸協定（ HTTP ）、光纖通道（ FC ）和網際網路 SCSI （ iSCSI ）。
+
+
+
+ a| 
+虛擬磁
+ a| 
+3PAR
+ a| 
+從一或多個邏輯磁碟對應資料所建立的虛擬儲存單元。
+
+|===

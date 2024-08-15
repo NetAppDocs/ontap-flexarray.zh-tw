@@ -1,0 +1,40 @@
+---
+permalink: install/task_preparing_a_storage_array_for_use_with_ontap_systems.html 
+sidebar: sidebar 
+keywords: prepare, storage, array, use, ontap, systems 
+summary: 在開始使用陣列 LUN 的組態設定 ONTAP 系統之前、儲存陣列管理員必須先準備好儲存設備、以便與 ONTAP 搭配使用。 
+---
+= 準備搭配ONTAP 使用的儲存陣列
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在開始使用陣列 LUN 的組態設定 ONTAP 系統之前、儲存陣列管理員必須先準備好儲存設備、以便與 ONTAP 搭配使用。
+
+*您需要的是什麼*
+
+您打算在組態中使用的儲存陣列、韌體和交換器、必須由特定ONTAP 的版本支援。
+
+* https://mysupport.netapp.com/NOW/products/interoperability["NetApp互通性"]
++
+在這個解決方案領域、您可以使用儲存解決方案欄位來選擇您的解決方案。IMT MetroCluster您可以使用*元件總管*來選取元件和ONTAP 更新版本、以精簡搜尋範圍。您可以按一下「*顯示結果*」來顯示符合條件的支援組態清單。
+
+* https://hwu.netapp.com["NetApp Hardware Universe"]
+
+
+您必須與儲存陣列管理員協調、才能在儲存陣列上執行此工作。
+
+.步驟
+. 在儲存陣列上建立至少四個 LUN 、以供 ONTAP 系統使用。
++
+HA 配對中的每個節點都需要一個用於根磁碟區的陣列 LUN 、以及一個用於核心傾印的陣列 LUN 。
+
+. 在儲存陣列上設定搭配ONTAP 使用所需的參數。
++
+** https://docs.netapp.com/us-en/ontap-flexarray/implement-third-party/index.html["適用於協力廠商儲存設備的虛擬化實作FlexArray"]
+** https://docs.netapp.com/us-en/ontap-flexarray/implement-e-series/index.html["NetApp E系列儲存設備的虛擬化實作FlexArray"]
+
+
+

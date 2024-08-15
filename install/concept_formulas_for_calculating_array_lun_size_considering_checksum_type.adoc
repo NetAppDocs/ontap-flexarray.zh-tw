@@ -1,0 +1,192 @@
+---
+permalink: install/concept_formulas_for_calculating_array_lun_size_considering_checksum_type.html 
+sidebar: sidebar 
+keywords: formulas, calculate, array, lun, size, checksum, type, usable, capacity, snapshot, reserve, maximum 
+summary: 包括 Checksum 類型在內的多個元素會影響陣列 LUN 的可用容量。您可以使用公式來計算指定大小陣列 LUN 中的可用容量、或計算陣列 LUN 提供所需儲存容量的大小。 
+---
+= 根據 Checksum 類型計算陣列 LUN 大小的公式
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+包括 Checksum 類型在內的多個元素會影響陣列 LUN 的可用容量。您可以使用公式來計算指定大小陣列 LUN 中的可用容量、或計算陣列 LUN 提供所需儲存容量的大小。
+
+包括 Checksum 類型在內的多個元素會影響您所需的陣列 LUN 大小（可用容量 _ ）。可用容量是可供儲存的空間量。
+
+下表顯示計算所需陣列 LUN 大小的方法：
+
+[cols="2*"]
+|===
+| 如果您知道 ... | 您想要瞭解 ... 
+
+
+ a| 
+陣列 LUN 的大小
+ a| 
+可用儲存容量（可用容量）。您必須考慮所有元素所需的空間量。
+
+
+
+ a| 
+陣列 LUN 中需要的儲存容量
+ a| 
+您所需的陣列 LUN 大小。您必須考量其他元素所需的儲存空間和空間量。
+
+|===
+[NOTE]
+====
+這些公式中的 2 TB 代表 2 TiB 或 2199023255552 位元組、即 2097.152 GnaB 或 2.097 TnaB 、根據 ONTAP 計算測量值的方式而定。
+
+====
+
+
+== 計算可用容量的公式
+
+當您知道陣列 LUN 的大小時、可以使用下列公式來判斷陣列 LUN 中儲存的可用容量。此公式會將 Snapshot 保留納入考量。
+
+* Y 是可用的儲存容量。
+* n 是陣列 LUN 的總容量。
+
+
+[cols="2*"]
+|===
+| Checksum 類型 | 公式 
+
+
+ a| 
+BCS- 陣列 LUN 低於 2 TB
+ a| 
+N x ｛ 0.875 x 0.9 x 0.99 x （ 1 - Snapshot 保留） ｝ = Y
+
+
+
+ a| 
+BCS- 大於 2 TB 的陣列 LUN
+ a| 
+N x ｛ 0.875 x 0.9 x 0.998 x （ 1 - Snapshot 保留） ｝ = Y
+
+
+
+ a| 
+AZCS - 陣列 LUN 低於 2 TB
+ a| 
+N x ｛ 0.984 x 0.9 x 0.99 x （ 1 - Snapshot 保留） ｝ = Y
+
+
+
+ a| 
+AZCS －大於 2 TB 的陣列 LUN
+ a| 
+N x ｛ 0.984 x 0.9 x 0.998 x （ 1 - Snapshot 保留） ｝ = Y
+
+|===
+
+
+== 範例 1 ：使用 Snapshot 保留進行計算
+
+在以下範例中、陣列 LUN 的總容量為 4 GB 、而 Volume Snapshot 保留空間則設為 Data ONTAP 8.1.1 （ 5% ）的預設值。
+
+下列範例適用於低於 2 TB 的陣列 LUN ：
+
+[cols="2*"]
+|===
+| Checksum 類型 | 公式 
+
+
+ a| 
+BCS （陣列 LUN 低於 2 TB ）
+ a| 
+4 x ｛ 0.875 x 0.9 x 0.99 x 0.95 ｝ = 2.96 GB 可用儲存空間
+
+
+
+ a| 
+AZCS （陣列 LUN 低於 2 TB ）
+ a| 
+4 x ｛ 0.984 x 0.9 x 0.99 x 0.95 ｝ = 3.33 GB 可用儲存空間
+
+|===
+
+
+== 計算所需陣列 LUN 大小上限的公式
+
+當您知道取得所需儲存容量所需的陣列 LUN 容量時、您可以使用下列公式來判斷所需的陣列 LUN 總大小、並考量需要 LUN 空間的元素。
+
+* Y 是陣列 LUN 中您想要的確切空間量。
+* 如果您使用 Snapshot 複本、則會將 Snapshot 保留納入考量。
+
+
+下列範例適用於低於 2 TB 的陣列 LUN ：
+
+[cols="2*"]
+|===
+| Checksum 類型 | 公式 
+
+
+ a| 
+BCS （陣列 LUN 低於 2 TB ）
+ a| 
+Y ÷ ｛ 0.875 x 0.9 x 0.99 x （ 1 - Snapshot 保留） ｝ = 實際所需容量
+
+
+
+ a| 
+AZCS （陣列 LUN 低於 2 TB ）
+ a| 
+Y ÷ ｛ 0.984 x 0.9 x 0.99 x （ 1 - Snapshot 保留） ｝ = 實際所需容量
+
+|===
+
+
+== 範例 2 ：使用 Snapshot 保留進行計算
+
+在此範例中、 Volume Snapshot 保留是 Data ONTAP 8.1.1 （ 5% ）的預設設定。
+
+下列範例適用於低於 2 TB 的陣列 LUN ：
+
+[cols="2*"]
+|===
+| Checksum 類型 | 公式 
+
+
+ a| 
+BCS （陣列 LUN 低於 2 TB ）
+ a| 
+10 GB ÷ ｛ 0.875 x 0.9 x 0.99 x 0.95 ｝ = 實際所需容量為 13.5 GB
+
+
+
+ a| 
+AZCS （陣列 LUN 低於 2 TB ）
+ a| 
+10 GB ÷ ｛ 0.984 x 0.9 x 0.99 x 0.95 ｝ = 實際需要 12.05 GB 容量
+
+|===
+
+
+== 範例 3 ：不含 Snapshot 保留的計算
+
+您需要 10 GB 的可用儲存容量。以下範例顯示當您不使用 Snapshot 複本時、計算實際陣列 LUN 大小。
+
+下列範例適用於低於 2 TB 的陣列 LUN ：
+
+[cols="2*"]
+|===
+| Checksum 類型 | 公式 
+
+
+ a| 
+BCS （陣列 LUN 低於 2 TB ）
+ a| 
+10 GB ÷ ｛ 0.875 x 0.9 x 0.99 ｝ = 實際所需容量為 12.8 GB
+
+
+
+ a| 
+AZCS （陣列 LUN 低於 2 TB ）
+ a| 
+10 GB ÷ ｛ 0.984 x 0.9 x 0.99 ｝ = 實際需要 11.41 GB 容量
+
+|===

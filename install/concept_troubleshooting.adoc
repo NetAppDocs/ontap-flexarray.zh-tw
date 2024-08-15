@@ -1,0 +1,14 @@
+---
+permalink: install/concept_troubleshooting.html 
+sidebar: sidebar 
+keywords: troubleshoot, configurations, storage, arrays 
+summary: 您應該在初始安裝期間驗證組態、以便在組態進入正式作業環境之前解決問題。 
+---
+= 疑難排解儲存陣列的組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您應該在初始安裝期間驗證組態、以便在組態進入正式作業環境之前解決問題。

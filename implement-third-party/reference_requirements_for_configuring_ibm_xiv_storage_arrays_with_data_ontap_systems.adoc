@@ -1,0 +1,45 @@
+---
+permalink: implement-third-party/reference_requirements_for_configuring_ibm_xiv_storage_arrays_with_data_ontap_systems.html 
+sidebar: sidebar 
+keywords: requirements, configuring, ibm xiv, arrays, ontap, systems, parameter, settings 
+summary: 儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。 
+---
+= 使用 ONTAP 系統設定 IBM XIV 陣列的需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。
+
+
+
+== 系統參數設定
+
+下表列出 IBM XIV Gen3 陣列的系統參數設定：
+
+|===
+| 參數 | 設定 
+
+
+ a| 
+`Type`
+ a| 
+預設
+
+
+
+ a| 
+`Host`
+ a| 
+使用者提供的主機名稱
+
+
+
+ a| 
+`Cluster`
+ a| 
+使用者提供的叢集名稱
+
+|===

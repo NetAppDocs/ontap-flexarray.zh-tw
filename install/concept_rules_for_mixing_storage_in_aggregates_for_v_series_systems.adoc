@@ -1,0 +1,29 @@
+---
+permalink: install/concept_rules_for_mixing_storage_in_aggregates_for_v_series_systems.html 
+sidebar: sidebar 
+keywords: rules, mix, storage, array, lun, aggregates 
+summary: 規劃集合體時、您必須考量在集合體中混合儲存的規則。您不能在同一個集合中混合來自不同廠商或廠商系列的不同儲存類型或陣列 LUN 。 
+---
+= 陣列 LUN 集合體中混合儲存設備的規則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+規劃集合體時、您必須考量在集合體中混合儲存的規則。您不能在同一個集合中混合來自不同廠商或廠商系列的不同儲存類型或陣列 LUN 。
+
+不支援將下列項目新增至相同的 Aggregate ：
+
+* 陣列 LUN 和磁碟
+* 陣列 LUN 具有不同的 Checksum 類型
+* 不同磁碟機類型（例如 FC 和 SATA ）或不同速度的陣列 LUN
+* 來自不同儲存陣列廠商的陣列 LUN
+* 不同儲存陣列機型系列的陣列 LUN
+
+
+[NOTE]
+====
+同一個系列中的儲存陣列具有相同的效能和容錯移轉特性。例如、同一系列的成員都會執行主動式容錯移轉、或全部執行主動式被動式容錯移轉。可能會使用多個因素來判斷儲存陣列系列。例如、雖然其他特性可能相同、但具有不同架構的儲存陣列會位於不同的系列中。
+
+====

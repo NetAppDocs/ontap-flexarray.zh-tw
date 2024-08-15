@@ -1,0 +1,20 @@
+---
+permalink: install/concept_supported_methods_for_connecting_a_v_series_system_to_a_storage_array.html 
+sidebar: sidebar 
+keywords: supported, methods, connect, ontap, system, storage, array 
+summary: 您可以使用儲存陣列、以光纖附加組態連接 ONTAP 系統。獨立系統和 HA 配對均支援光纖附加組態。直接附加的組態僅限於某些儲存陣列和部分 ONTAP 版本。 
+---
+= 將 ONTAP 系統連線至儲存陣列的支援方法
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用儲存陣列、以光纖附加組態連接 ONTAP 系統。獨立系統和 HA 配對均支援光纖附加組態。直接附加的組態僅限於某些儲存陣列和部分 ONTAP 版本。
+
+互通性對照表包含執行 ONTAP 的特定儲存陣列和平台所支援的連線方法資訊。
+
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

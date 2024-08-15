@@ -1,0 +1,27 @@
+---
+permalink: install/concept_requirements_for_connecting_to_storage_arrays.html 
+sidebar: sidebar 
+keywords: requirements, connect, storage, arrays 
+summary: 規劃如何將 ONTAP 系統連線至儲存陣列時、連接埠對連接埠連線計畫必須符合備援、路徑及其他準則。 
+---
+= 連線至儲存陣列的需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+規劃如何將 ONTAP 系統連線至儲存陣列時、連接埠對連接埠連線計畫必須符合備援、路徑及其他準則。
+
+設定連線的需求如下：
+
+* 儲存陣列上備援連接埠配對中的每個連線都必須連接至 ONTAP 系統上的不同 FC 啟動器連接埠。
+* FC 交換器上使用的連接埠必須是備援的。
+* 必須設定連線以避免 SPOF 。
++
+請確定您選擇存取指定 LUN 的儲存陣列連接埠來自不同的元件、以避免單點故障、例如來自替代控制器、叢集或機箱。原因是、如果某個元件故障、您不希望所有存取陣列 LUN 的權限都會遺失。
+
+* 路徑數量不能超過 ONTAP 版本支援的路徑數量。
+* 如果您要設定 FC 啟動器連接埠與多個目標連接埠共用、或目標連接埠與多個 FC 啟動器連接埠共用的組態、則必須遵循適當的規則。
+* 如果您的儲存陣列每個主機群組每個連接埠支援的 LUN 數量少於 ONTAP 系統所使用的 LUN 數量、則您需要在 ONTAP 系統和儲存陣列之間新增額外的纜線。
+

@@ -1,0 +1,36 @@
+---
+permalink: install/task_changing_array_lun_size_or_composition.html 
+sidebar: sidebar 
+keywords: change, array, lun, size, composition 
+summary: 必須在儲存陣列上重新設定陣列 LUN 的大小或組成。如果已將陣列 LUN 指派給 ONTAP 系統、則必須使用 ONTAP 將陣列 LUN 的狀態變更為「未使用」、儲存陣列管理員才能重新設定。 
+---
+= 變更陣列 LUN 大小或組成
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+必須在儲存陣列上重新設定陣列 LUN 的大小或組成。如果已將陣列 LUN 指派給 ONTAP 系統、則必須使用 ONTAP 將陣列 LUN 的狀態變更為「未使用」、儲存陣列管理員才能重新設定。
+
+*您需要的是什麼*
+
+陣列 LUN 必須是備用陣列 LUN 、才能將其狀態變更為未使用。
+
+.步驟
+. 在 ONTAP 系統上、輸入下列命令以移除擁有者資訊： `storage disk removeowner  -disk arrayLUNname`
+. 在儲存陣列上、完成下列步驟：
++
+.. 從 ONTAP 系統取消對應（不存在）陣列 LUN 、使其無法再看到陣列 LUN 。
+.. 變更陣列 LUN 的大小或組成。
+.. 如果您希望 ONTAP 再次使用陣列 LUN 、請再次向 ONTAP 系統展示陣列 LUN 。
++
+此時、陣列 LUN 所顯示的 FC 啟動器連接埠可以看到陣列 LUN 、但任何 ONTAP 系統都無法使用該 LUN 。
+
+
+
+. 在 ONTAP 系統上輸入下列命令、讓您成為陣列 LUN 的擁有者： `storage disk assign -disk arrayLUNname -owner nodename`
++
+移除擁有權資訊後、任何 ONTAP 系統都無法使用陣列 LUN 、直到陣列 LUN 再次指派給系統為止。您可以將陣列 LUN 保留為備用 LUN 、或將其新增至 Aggregate 。您必須先將陣列 LUN 新增至集合、才能將陣列 LUN 用於儲存。
+
+

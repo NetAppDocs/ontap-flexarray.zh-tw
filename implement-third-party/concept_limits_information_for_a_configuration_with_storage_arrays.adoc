@@ -1,0 +1,30 @@
+---
+permalink: implement-third-party/concept_limits_information_for_a_configuration_with_storage_arrays.html 
+sidebar: sidebar 
+keywords: limit, types, configurations, storage, arrays 
+summary: 規劃 ONTAP 組態時、您必須考量特定的儲存陣列限制。 
+---
+= 限制儲存陣列組態的類型
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+規劃 ONTAP 組態時、您必須考量特定的儲存陣列限制。
+
+Hardware Universe 包含儲存陣列和原生磁碟的特定限制值。
+
+下列限制類型僅適用於儲存陣列、不適用於原生磁碟：
+
+* ONTAP 支援的最小和最大陣列 LUN 大小
+* 根磁碟區陣列 LUN 的最小大小
+* 備用核心陣列 LUN 最小大小
+* 具有陣列 LUN 的 RAID 群組限制
+* 陣列 LUN 集合體的最小集合體大小
+* 每個平台組合的陣列 LUN 和磁碟數量上限
+
+
+*相關資訊*
+
+https://hwu.netapp.com["NetApp Hardware Universe"]

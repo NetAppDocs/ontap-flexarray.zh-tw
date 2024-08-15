@@ -1,0 +1,69 @@
+---
+permalink: install/reference_array_lun_is_either_smaller_or_larger_than_the_supported_values.html 
+sidebar: sidebar 
+keywords: array, lun, size, smaller, larger, supported, values, show, message, storage, errors 
+summary: 規劃陣列 LUN 大小時、您必須符合 ONTAP 最小和最大陣列 LUN 大小限制。這些限制因 ONTAP 版本而異。儲存錯誤顯示輸出會識別不符合大小需求的陣列 LUN 。 
+---
+= 陣列 LUN 大小小於或大於支援的值
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+規劃陣列 LUN 大小時、您必須符合 ONTAP 最小和最大陣列 LUN 大小限制。這些限制因 ONTAP 版本而異。輸出會 `storage errors show` 識別不符合大小需求的陣列 LUN 。
+
+您無法將大小有問題的陣列 LUN 指派給 ONTAP 系統。
+
+
+
+== 儲存錯誤會顯示訊息
+
+[listing]
+----
+NAME (Serial #): This array LUN is too large and is not usable. The maximum array LUN size supported is xTB
+----
+或
+
+[listing]
+----
+NAME (Serial #): This array LUN is too small and is not usable. The minimum array LUN size supported is xGB.
+----
+
+
+== 說明
+
+當陣列 LUN 小於 ONTAP 支援的最小陣列 LUN 大小、或超過支援的最大容量時、就會產生此訊息。陣列 LUN 大小大於或小於支援值的主要原因可能如下：
+
+* 儲存陣列管理員並未根據廠商的測量單位定義、將 ONTAP 陣列 LUN 大小限制轉換為同等限制。
++
+有些廠商會以不同於 ONTAP 的方式來計算陣列 LUN 大小限制、以決定陣列 LUN 大小的最小和最大限制。
+
++
+_LUN_ Hardware Universe 列出支援的最大和最小陣列 LUN 大小限制值。
+
+* 陣列 LUN 適用於大小限制與 ONTAP 限制不同的其他主機。
++
+在開放式 SAN 中、如果陣列 LUN 尚未遮罩、則 ONTAP 會暴露給其他主機專用的陣列 LUN 。
+
++
+ONTAP 會針對任何暴露於其中的陣列 LUN 、產生大小問題的錯誤訊息。
+
+
+
+
+
+== 疑難排解與問題解決
+
+. 檢閱 `storage errors show` 輸出、找出哪個陣列 LUN 有大小問題。
++
+** 如果發生大小問題的陣列 LUN 是針對 ONTAP 、則儲存陣列管理員必須調整陣列 LUN 的大小以符合 ONTAP 需求、然後再次將其呈現給 ONTAP 。
+** 如果有大小問題的陣列 LUN 是針對其他主機、則儲存陣列管理員必須遮罩陣列 LUN 、使其不會暴露於 ONTAP 。
+
+
+. 解決問題後、再次執行 `storage array config show` 以確認錯誤不會持續發生。
+
+
+*相關資訊*
+
+https://hwu.netapp.com["NetApp Hardware Universe"]

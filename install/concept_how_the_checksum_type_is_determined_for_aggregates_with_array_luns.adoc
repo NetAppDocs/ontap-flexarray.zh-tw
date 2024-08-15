@@ -1,0 +1,28 @@
+---
+permalink: install/concept_how_the_checksum_type_is_determined_for_aggregates_with_array_luns.html 
+sidebar: sidebar 
+keywords: how, checksum, type, determined, array, lun, aggregates 
+summary: 每個 ONTAP Aggregate 都有與其相關聯的 Checksum 類型。Aggregate checksum 類型是由新增到其中的陣列 LUN 的 Checksum 類型所決定。 
+---
+= 如何判斷陣列 LUN 集合體的 Checksum 類型
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+每個 ONTAP Aggregate 都有與其相關聯的 Checksum 類型。Aggregate checksum 類型是由新增到其中的陣列 LUN 的 Checksum 類型所決定。
+
+集合的 Checksum 類型是由新增至集合的第一個陣列 LUN 的 Checksum 類型所決定。Checksum 類型適用於整個 Aggregate （也就是集合體中的所有磁碟區）。不支援將不同 Checksum 類型的陣列 LUN 混合在一個集合中。
+
+* 類型為 _block_ 的陣列 LUN 必須搭配區塊 Checksum 類型的集合體使用。
+* 必須將類型為 _PARTNERY_ 的陣列 LUN 與進階分區總和檢查碼（ AZCS 或 advanced_regate ）類型的集合體一起使用。
+
+
+將陣列 LUN 新增至集合體之前、您必須知道要新增的 LUN 的 Checksum 類型、原因如下：
+
+* 您無法將不同 Checksum 類型的陣列 LUN 新增至相同的 Aggregate 。
+* 您無法將集合從一個 Checksum 類型轉換為另一個類型。
+
+
+建立集合體時、您可以指定要新增的陣列 LUN 數量、也可以指定要新增的 LUN 名稱。如果您想要指定要新增至集合體的數個陣列 LUN 、則必須有相同數量或多個該 Checksum 類型的陣列 LUN 可用。

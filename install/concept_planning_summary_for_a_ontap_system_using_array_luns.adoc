@@ -1,0 +1,71 @@
+---
+permalink: install/concept_planning_summary_for_a_ontap_system_using_array_luns.html 
+sidebar: sidebar 
+keywords: plan, summary, ontap, systems, array, luns 
+summary: 當您計畫將陣列 LUN 與 ONTAP 系統搭配使用時、必須與儲存陣列和交換器管理員通訊、以便將後端裝置設定為可與 ONTAP 系統搭配使用。 
+---
+= 規劃使用陣列 LUN 的 ONTAP 系統摘要
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當您計畫將陣列 LUN 與 ONTAP 系統搭配使用時、必須與儲存陣列和交換器管理員通訊、以便將後端裝置設定為可與 ONTAP 系統搭配使用。
+
+下表摘要說明主要規劃工作和資訊位置、以協助您完成每項工作。
+
+|===
+| 規劃工作 | 何處可以找到資訊 
+
+
+ a| 
+決定設定儲存陣列以搭配 ONTAP 運作的需求
+ a| 
+* https://docs.netapp.com/us-en/ontap-flexarray/implement-third-party/index.html["適用於協力廠商儲存設備的虛擬化實作FlexArray"]
+* https://docs.netapp.com/us-en/ontap-flexarray/implement-e-series/index.html["NetApp E系列儲存設備的虛擬化實作FlexArray"]
+* https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]
+
+
+
+
+ a| 
+陣列 LUN 搭配 ONTAP 使用的準則
+ a| 
+xref:concept_planning_for_ontap_use_of_array_luns.adoc[規劃 ONTAP 使用陣列 LUN]
+
+
+
+ a| 
+確定與陣列 LUN 有關的 ONTAP 限制
+ a| 
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+
+
+ a| 
+確定 LUN 安全方案、在儲存陣列上設定存取控制、以及在部署交換器時、在交換器上設定分區
+ a| 
+* xref:concept_planning_for_lun_security_on_storage_arrays.adoc[規劃儲存陣列上的 LUN 安全性]
+* xref:concept_zoning_for_a_configuration_with_storage_arrays.adoc[分區需求]
+
+
+
+
+ a| 
+確定 ONTAP 系統與儲存陣列之間的連接埠對連接埠連線配置
+ a| 
+* xref:concept_planning_a_port_to_port_connectivity_scheme.adoc[規劃連接埠對連接埠的連線配置]
+* https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]
+
+
+
+
+ a| 
+判斷哪個 ONTAP 系統要「擁有」哪個陣列 LUN （磁碟擁有權）
+ a| 
+* xref:concept_how_array_luns_become_available_for_ontap_storage_use.adoc[陣列 LUN 如何可供 ONTAP 儲存設備使用]
+* xref:task_assigning_ownership_of_array_luns.adoc[指派陣列LUN的擁有權]
+
+
+|===

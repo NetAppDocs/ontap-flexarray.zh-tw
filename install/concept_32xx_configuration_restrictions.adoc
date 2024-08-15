@@ -1,0 +1,16 @@
+---
+permalink: install/concept_32xx_configuration_restrictions.html 
+sidebar: sidebar 
+keywords: 32xx, system, configuration, restrictions 
+summary: 32xx 系統有一些限制、不適用於其他機型。在設定系統時、您必須注意這些問題。 
+---
+= 32xx 系統組態限制
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+32xx 系統有一些限制、不適用於其他機型。在設定系統時、您必須注意這些問題。
+
+標有 0c 和 0d 的兩個板載 FC 端口不在同一個總線上。因此、它們無法提供儲存備援。某些連接埠故障可能會導致系統發生故障。若要設定備援連接埠配對、您需要在可用的擴充插槽中使用 FC HBA 。

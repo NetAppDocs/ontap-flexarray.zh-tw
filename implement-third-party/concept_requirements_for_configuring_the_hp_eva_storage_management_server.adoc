@@ -1,0 +1,18 @@
+---
+permalink: implement-third-party/concept_requirements_for_configuring_the_hp_eva_storage_management_server.html 
+sidebar: sidebar 
+keywords: requirements, configuring, hp, eva, storage, management, server 
+summary: 共享 ONTAP 系統上存在的 FC 啟動器連接埠、以及 HP EVA 儲存管理伺服器上存在的啟動器連接埠、以及常見的 EVA 目標連接埠、都會導致相容性問題。 
+---
+= 設定 HP EVA Storage Management Server 的需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+共享 ONTAP 系統上存在的 FC 啟動器連接埠、以及 HP EVA 儲存管理伺服器上存在的啟動器連接埠、以及常見的 EVA 目標連接埠、都會導致相容性問題。
+
+相容性問題是由於 ONTAP 系統和 EVA 儲存管理伺服器啟動器連接埠上的 FC 啟動器連接埠的不同主機設定所造成。
+
+HP 建議將任何位於 Fabric 中的 HP EVA Storage Management Server 設定在與所有作業系統分開的區域內。

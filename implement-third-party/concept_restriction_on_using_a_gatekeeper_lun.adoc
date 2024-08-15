@@ -1,0 +1,14 @@
+---
+permalink: implement-third-party/concept_restriction_on_using_a_gatekeeper_lun.html 
+sidebar: sidebar 
+keywords: restriction, using, gatekeeper, luns 
+summary: 如果出現關守邏輯設備（ LUN ）、則不得將其對應至 ONTAP 系統。ONTAP 系統無法使用關守 LUN 。關守 LUN 是 Symmetrix 邏輯裝置、透過該裝置、 SYMAPI 或 ControlCenter 代理程式可與儲存陣列通訊。 
+---
+= 限制使用關守 LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果出現關守邏輯設備（ LUN ）、則不得將其對應至 ONTAP 系統。ONTAP 系統無法使用關守 LUN 。關守 LUN 是 Symmetrix 邏輯裝置、透過該裝置、 SYMAPI 或 ControlCenter 代理程式可與儲存陣列通訊。

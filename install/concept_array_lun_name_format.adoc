@@ -1,0 +1,33 @@
+---
+permalink: install/concept_array_lun_name_format.html 
+sidebar: sidebar 
+keywords: array, lun, name, format 
+summary: 指派給陣列 LUN 的名稱具有新格式、可確保該名稱在整個叢集內是唯一的。 
+---
+= 陣列 LUN 名稱格式
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+指派給陣列 LUN 的名稱具有新格式、可確保該名稱在整個叢集內是唯一的。
+
+陣列 LUN 名稱由兩個元件組成、外觀如下所示：
+
+``<array_prefix>.<offset>``，例如 `EMC-1.1`。
+
+*  `array_prefix`是 ONTAP 預設指派給每個儲存陣列的唯一首碼。
++
+此欄位在此案例中由組成 ``<array_name-array_instance> (EMC-1`` ）。
+
++
+`array_name` 可由廠商名稱的前三個字母表示。
+
++
+如果同一家廠商有多個陣列、則會以遞增順序取得的值 `array_instance` 。
+
+* 偏移量是 ONTAP 指派給每個 LUN 的遞增虛擬磁碟編號。它與主機的 LUN ID 不相關。
+
+
+您可以使用命令修改 ``<array_prefix>`` 欄位 `storage array modify -name -prefix` 。

@@ -1,0 +1,47 @@
+---
+permalink: install/concept_minimum_and_maximum_array_lun_sizes_supported_by_ontap.html 
+sidebar: sidebar 
+keywords: minimum, maximum, array, lun, sizes, supported, ontap, configurations 
+summary: 儲存陣列所呈現的陣列 LUN 必須符合具有陣列 LUN 的 ONTAP 組態的最小與最大大小需求。ONTAP 會發出錯誤訊息、指出不符合最小或最大大小需求的陣列 LUN 。 
+---
+= ONTAP 組態支援的最小和最大陣列 LUN 大小
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+儲存陣列所呈現的陣列 LUN 必須符合具有陣列 LUN 的 ONTAP 組態的最小與最大大小需求。ONTAP 會發出錯誤訊息、指出不符合最小或最大大小需求的陣列 LUN 。
+
+最小和最大陣列 LUN 大小是根據 ONTAP 定義計量單位的方式來計算。A GB 和 TB 的 ONTAP 定義如下：
+
+[cols="2*"]
+|===
+| 一 ... | 等於 ... 
+
+
+ a| 
+GB
+ a| 
+1000 x 1024 x 1024 位元組（ 1000 MB ）
+
+
+
+ a| 
+TB
+ a| 
+1000 x 1000 x 1024 x 1024 位元組（ 1000 GB ）
+
+|===
+不同的儲存陣列廠商會使用不同的公式來計算測量單位。您必須使用廠商的計量單位來計算相當於 ONTAP 組態所支援的最小和最大大小的陣列 LUN 大小。
+
+ONTAP 支援的最大 LUN 大小與 ONTAP 版本不同。如需陣列 LUN 大小下限與上限的相關資訊、請參閱 Hardware Universe 。
+
+[NOTE]
+====
+資料（儲存） LUN 的最小陣列 LUN 大小與根磁碟區的最小陣列 LUN 大小不同。
+
+====
+*相關資訊*
+
+https://hwu.netapp.com["NetApp Hardware Universe"]

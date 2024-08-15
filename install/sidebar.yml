@@ -1,0 +1,289 @@
+---
+section: install
+title: 安裝FlexArray
+url: "/install/index.html"
+entries:
+- title: FlexArray 虛擬化技術概述：使用陣列 LUN 進行儲存
+  url: "/install/concept_flexarray_virtualization_technology_overview_using_array_luns_for_storage.html"
+  entries:
+  - title: 可在儲存陣列上使用陣列 LUN 的 ONTAP 系統
+    url: "/install/concept_systems_that_can_use_array_luns_on_storage_arrays.html"
+  - title: 將多個儲存陣列連線至 ONTAP 系統時的考量事項
+    url: "/install/concept_number_of_storage_arrays_supported_with_a_ontap_system.html"
+  - title: 將 ONTAP 系統連線至儲存陣列的支援方法
+    url: "/install/concept_supported_methods_for_connecting_a_v_series_system_to_a_storage_array.html"
+  - title: 在主機之間共用儲存陣列
+    url: "/install/concept_sharing_storage_arrays_among_hosts.html"
+  - title: 使用陣列 LUN 進行 MetroCluster 組態的需求
+    url: "/install/concept_support_for_metrocluster_configurations_that_can_use_array_luns.html"
+- title: 使用儲存陣列在組態中進行分區
+  url: "/install/concept_zoning_for_a_configuration_with_storage_arrays.html"
+  entries:
+  - title: 在具有儲存陣列的組態中分區的需求
+    url: "/install/reference_requirements_for_zoning_in_a_configuration_with_storage_arrays.html"
+  - title: 針對儲存陣列組態的分區建議
+    url: "/install/concept_zoning_recommendation_for_a_configuration_with_storage_arrays.html"
+  - title: 使用儲存陣列進行組態分區的範例
+    url: "/install/concept_example_of_zoning_in_a_configuration_with_storage_arrays.html"
+- title: 規劃陣列 LUN 的組態
+  url: "/install/concept_planning_a_configuration_with_array_luns.html"
+  entries:
+  - title: 何處可以找到儲存陣列組態的資訊
+    url: "/install/concept_where_to_find_information_for_configurations_with_storage_arrays.html"
+    entries:
+    - title: 限制儲存陣列組態的類型
+      url: "/install/concept_limits_information_for_a_configuration_with_storage_arrays.html"
+    - title: 何處可以找到儲存陣列 ONTAP 支援的相關資訊
+      url: "/install/concept_where_to_find_information_about_support_for_storage_arrays.html"
+    - title: 32xx 系統組態限制
+      url: "/install/concept_32xx_configuration_restrictions.html"
+  - title: 使用陣列 LUN 的系統實作階段
+    url: "/install/concept_stages_of_implementation_for_a_system_using_array_luns.html"
+  - title: 使用原生磁碟的 V 系列系統規劃摘要
+    url: "/install/concept_planning_summary_for_a_v_series_system_using_native_disks.html"
+  - title: 規劃使用陣列 LUN 的 ONTAP 系統摘要
+    url: "/install/concept_planning_summary_for_a_ontap_system_using_array_luns.html"
+- title: 規劃 RAID 實作
+  url: "/install/concept_planning_for_raid_implementation.html"
+  entries:
+  - title: 陣列 LUN 的 RAID 保護
+    url: "/install/concept_raid_protection_for_array_luns.html"
+  - title: ONTAP RAID 群組的規劃考量事項
+    url: "/install/concept_planning_considerations_for_ontap_raid_groups.html"
+- title: 規劃 ONTAP 使用陣列 LUN
+  url: "/install/concept_planning_for_ontap_use_of_array_luns.html"
+  entries:
+  - title: 陣列 LUN 如何可供主機使用
+    url: "/install/concept_how_array_luns_are_made_available_for_host_use.html"
+  - title: 陣列 LUN 如何可供 ONTAP 儲存設備使用
+    url: "/install/concept_how_array_luns_become_available_for_ontap_storage_use.html"
+    entries:
+    - title: 規劃磁碟擁有權時的考量
+      url: "/install/concept_considerations_when_planning_for_disk_ownership.html"
+    - title: 陣列 LUN 指派變更
+      url: "/install/concept_array_lun_assignment_changes.html"
+  - title: ONTAP 支援的陣列 LUN 類型
+    url: "/install/concept_array_lun_types_supported_by_ontap.html"
+  - title: 影響所需陣列 LUN 數量和大小的因素
+    url: "/install/concept_factors_that_impact_the_number_and_size_of_array_luns_you_need.html"
+    entries:
+    - title: 影響所需陣列 LUN 數量的因素
+      url: "/install/reference_factors_impacting_the_required_number_of_array_luns.html"
+    - title: 每個 ONTAP 系統所需的陣列 LUN 數量下限
+      url: "/install/concept_minimum_number_of_array_luns_required_per_ontap_system.html"
+    - title: 核心傾印的備用陣列 LUN 需求
+      url: "/install/concept_spare_core_array_lun_requirement_for_core_dumps.html"
+    - title: ONTAP 組態支援的最小和最大陣列 LUN 大小
+      url: "/install/concept_minimum_and_maximum_array_lun_sizes_supported_by_ontap.html"
+    - title: 根磁碟區所需的陣列 LUN 大小
+      url: "/install/concept_minimum_array_lun_size_for_the_root_volume.html"
+    - title: 可減少陣列 LUN 可用空間的元素
+      url: "/install/concept_elements_that_reduce_the_usable_space_in_an_array_lun.html"
+    - title: 規劃陣列 LUN 大小和數量時、請考慮檢查值類型
+      url: "/install/concept_considering_checksum_type_when_planning_array_lun_size_and_number.html"
+      entries:
+      - title: ONTAP 支援的 Checksum 類型特性
+        url: "/install/concept_characteristics_of_checksum_types_that_ontap_supports.html"
+      - title: 根據 Checksum 類型計算陣列 LUN 大小的公式
+        url: "/install/concept_formulas_for_calculating_array_lun_size_considering_checksum_type.html"
+  - title: 根 Volume 的位置
+    url: "/install/concept_location_of_the_root_volume.html"
+- title: 規劃儲存陣列上的 LUN 安全性
+  url: "/install/concept_planning_for_lun_security_on_storage_arrays.html"
+  entries:
+  - title: 可用的 LUN 安全方法
+    url: "/install/concept_available_lun_security_methods.html"
+- title: 規劃陣列 LUN 的路徑
+  url: "/install/concept_planning_for_paths_to_array_luns.html"
+  entries:
+  - title: 路徑中元件的備援設定需求
+    url: "/install/concept_requirement_for_redundant_setup_of_components_in_a_path.html"
+    entries:
+    - title: 何時檢查到陣列 LUN 的備援路徑
+      url: "/install/concept_when_to_check_for_redundant_paths_to_array_luns.html"
+  - title: 陣列 LUN 的必要路徑數
+    url: "/install/concept_required_number_of_paths_to_an_array_lun.html"
+    entries:
+    - title: 通往陣列 LUN 的四條路徑的優點
+      url: "/install/concept_advantages_of_four_paths_to_an_array_lun_clustered_data_ontap_8_1_and_later.html"
+    - title: 陣列 LUN 的多個路徑可用於分散負載
+      url: "/install/concept_multiple_paths_to_an_array_lun_can_be_used_to_distribute_load.html"
+  - title: 使用多個 LUN 群組的優點
+    url: "/install/concept_using_lun_groups_to_partition_the_load_over_v_series_connections.html"
+    entries:
+    - title: 多個 LUN 群組組組態的實作需求
+      url: "/install/concept_implementation_requirements_for_a_multiple_lun_group_configuration.html"
+    - title: 具有多個 LUN 群組的組態範例
+      url: "/install/concept_example_of_a_configuration_with_multiple_lun_groups.html"
+  - title: 陣列 LUN 名稱格式
+    url: "/install/concept_array_lun_name_format.html"
+  - title: 叢集前陣列 LUN 名稱格式
+    url: "/install/concept_pre_cluster_array_lun_name_format.html"
+  - title: 陣列 LUN 名稱在 ONTAP 中的顯示方式
+    url: "/install/concept_how_the_array_lun_name_is_displayed_in_ontap.html"
+  - title: 有效路徑：單一雙連接埠陣列 LUN 群組的獨立系統
+    url: "/install/concept_valid_pathing_standalone_system_with_a_single_2_port_array_lun_group.html"
+  - title: 有效路徑：光纖附加組態中的單一 4 埠陣列 LUN 群組
+    url: "/install/concept_valid_pathing_a_single_4_port_array_lun_group_in_a_fabric_attached_configuration.html"
+  - title: 有效路徑：八埠陣列 LUN 群組組組態
+    url: "/install/concept_valid_pathing_eight_port_array_lun_group_configuration.html"
+- title: 規劃連接埠對連接埠的連線配置
+  url: "/install/concept_planning_a_port_to_port_connectivity_scheme.html"
+  entries:
+  - title: 使用 FC 啟動器連接埠的需求
+    url: "/install/concept_requirements_for_v_series_fc_initiator_port_usage.html"
+  - title: 如何標記 FC 啟動器連接埠
+    url: "/install/concept_how_fc_initiator_ports_are_labeled.html"
+  - title: 將 FC 連接埠設定為啟動器
+    url: "/install/task_configuring_fc_ports_as_initiators_clustered_data_ontap.html"
+  - title: 與多個目標連接埠共用 FC 啟動器連接埠的規則
+    url: "/install/concept_rules_for_sharing_an_fc_initiator_port_with_multiple_target_ports.html"
+  - title: 組態範例：共用 FC 啟動器連接埠
+    url: "/install/concept_example_configuration_shared_fc_initiator_ports.html"
+  - title: 與多個 FC 啟動器連接埠共用目標連接埠的規則
+    url: "/install/concept_rules_for_sharing_a_target_port_with_multiple_fc_initiator_ports.html"
+  - title: 組態範例：共用目標連接埠
+    url: "/install/concept_example_configuration_shared_target_ports.html"
+  - title: 檢查 FC 啟動器連接埠上可見的陣列 LUN 數量
+    url: "/install/task_checking_the_number_of_array_luns_visible_on_an_fc_initiator_port.html"
+  - title: 連線至儲存陣列的需求
+    url: "/install/concept_requirements_for_connecting_to_storage_arrays.html"
+  - title: 將 V 系列系統連接至原生磁碟櫃的準則
+    url: "/install/concept_guidelines_for_connecting_a_v_series_system_to_native_disk_shelves.html"
+  - title: 連接至原生磁碟所需的 FC 啟動器連接埠
+    url: "/install/reference_fc_initiator_ports_required_for_connection_with_disks.html"
+  - title: 未最佳化使用儲存陣列目標連接埠的範例
+    url: "/install/concept_example_of_non_optimized_usage_of_a_storage_array_target_port.html"
+- title: 判斷特定集合體的陣列 LUN
+  url: "/install/concept_determining_the_array_luns_for_specific_aggregates.html"
+  entries:
+  - title: 陣列 LUN 集合體中混合儲存設備的規則
+    url: "/install/concept_rules_for_mixing_storage_in_aggregates_for_v_series_systems.html"
+  - title: 如何判斷陣列 LUN 集合體的 Checksum 類型
+    url: "/install/concept_how_the_checksum_type_is_determined_for_aggregates_with_array_luns.html"
+  - title: 將備用陣列 LUN 新增至集合體的 Checksum 類型考量
+    url: "/install/concept_considerations_for_checking_the_checksum_type_of_spare_array_luns.html"
+  - title: 儲存陣列來自同一個系列時的集合規則
+    url: "/install/concept_aggregate_rules_when_the_storage_arrays_are_from_the_same_family.html"
+  - title: 當儲存陣列來自不同廠商或系列時、彙總規則
+    url: "/install/concept_aggregate_rules_when_the_storage_arrays_are_from_different_vendor_or_family.html"
+- title: 準備搭配ONTAP 使用的儲存陣列
+  url: "/install/task_preparing_a_storage_array_for_use_with_ontap_systems.html"
+- title: 將 ONTAP 系統連接至儲存陣列
+  url: "/install/task_connecting_an_ontap_system_to_a_storage_array.html"
+- title: 設定交換器
+  url: "/install/task_setting_up_the_switches.html"
+- title: 設定 LUN 安全性
+  url: "/install/task_configuring_lun_security.html"
+- title: 設定 ONTAP 以使用陣列 LUN
+  url: "/install/concept_overview_of_setting_up_ontap_to_work_with_array_luns.html"
+  entries:
+  - title: 在ONTAP 僅使用陣列LUN的系統上設定功能
+    url: "/install/task_configuring_ontap_on_a_system_that_uses_only_array_luns.html"
+  - title: 安裝使用陣列 LUN 的授權
+    url: "/install/task_installing_the_license_for_using_array_luns.html"
+  - title: 指派陣列LUN的擁有權
+    url: "/install/task_assigning_ownership_of_array_luns.html"
+- title: 用於檢查後端組態的命令
+  url: "/install/reference_commands_for_checking_back_end_configuration.html"
+  entries:
+  - title: ONTAP 命令偵測到後端組態錯誤
+    url: "/install/concept_back_end_configuration_errors_detected_by_ontap_commands.html"
+  - title: 檢查後端組態的命令無法識別情況
+    url: "/install/concept_situations_not_identified_by_commands_that_check_back_end_configuration.html"
+- title: 使用儲存陣列驗證安裝
+  url: "/install/concept_verifying_an_installation_with_storage_arrays.html"
+  entries:
+  - title: 檢查後端組態錯誤、以防止系統運作
+    url: "/install/task_checking_for_back_end_configuration_errors_preventing_system_operation.html"
+    entries:
+    - title: 儲存錯誤會顯示訊息及其解決方案
+      url: "/install/reference_the_storage_errors_show_messages_and_their_resolution.html"
+    - title: 陣列 LUN 大小小於或大於支援的值
+      url: "/install/reference_array_lun_is_either_smaller_or_larger_than_the_supported_values.html"
+    - title: 同一個 LDEV 的 LUN ID 不相符
+      url: "/install/reference_lun_ids_for_the_same_ldev_do_not_match.html"
+    - title: Volume Set 定址不一致
+      url: "/install/reference_volume_set_addressing_is_inconsistent.html"
+    - title: 目標連接埠上的 LUN ID 重複
+      url: "/install/reference_duplicate_lun_ids_on_a_target_port.html"
+    - title: 到陣列 LUN 的路徑少於兩條
+      url: "/install/reference_fewer_than_two_paths_to_an_array_lun.html"
+    - title: 存取控制 LUN 會呈現給 ONTAP
+      url: "/install/reference_an_access_control_lun_is_presented_to_ontap.html"
+    - title: 陣列 LUN 的所有路徑都位於同一個儲存陣列控制器上
+      url: "/install/reference_all_paths_to_an_array_lun_are_on_the_same_storage_array_controller.html"
+    - title: 陣列 LUN 的容錯移轉模式發生衝突
+      url: "/install/reference_array_luns_are_configured_with_conflicting_failover_modes_clustered_data_ontap_8_2_and_later.html"
+    - title: 陣列 LUN 標示為外部、並具有保留
+      url: "/install/reference_array_lun_is_marked_foreign_and_has_a_reservation_data_ontap_8_3_and_later.html"
+  - title: 驗證後端組態是否符合預期的組態
+    url: "/install/task_verifying_if_the_back_end_configuration_matches_the_expected_output.html"
+    entries:
+    - title: 陣列 LUN 群組中沒有 LUN 的原因
+      url: "/install/reference_reasons_for_no_luns_in_the_array_lun_group.html"
+    - title: 陣列 LUN 群組數量少於預期的原因
+      url: "/install/reference_reasons_for_fewer_array_lun_groups_than_expected.html"
+    - title: 陣列 LUN 群組數量超出預期的原因
+      url: "/install/reference_reasons_for_more_array_lun_groups_than_expected.html"
+    - title: 通往陣列 LUN 的路徑比預期更多的原因
+      url: "/install/reference_reasons_for_more_paths_to_an_array_lun_than_expected.html"
+    - title: 陣列 LUN 群組中 LUN 數量不正確的原因
+      url: "/install/reference_reasons_for_the_incorrect_number_of_luns_in_array_lun_groups.html"
+    - title: 命令輸出中缺少儲存陣列的原因
+      url: "/install/reference_reasons_storage_arrays_are_missing_from_command_output.html"
+- title: 使用 ONTAP 管理陣列 LUN
+  url: "/install/concept_managing_array_luns_using_data_ontap.html"
+  entries:
+  - title: 修改備用陣列 LUN 的指派
+    url: "/install/task_modifying_assignment_of_spare_array_luns.html"
+  - title: 檢查備用陣列 LUN 的 Checksum 類型
+    url: "/install/task_checking_the_checksum_type_of_spare_array_luns.html"
+  - title: 變更陣列 LUN 的 Checksum 類型
+    url: "/install/task_changing_the_checksum_type_of_an_array_lun.html"
+  - title: 在儲存陣列上重新設定陣列 LUN 的先決條件
+    url: "/install/concept_prerequisites_to_reconfiguring_an_array_lun_on_the_storage_array.html"
+  - title: 變更陣列 LUN 大小或組成
+    url: "/install/task_changing_array_lun_size_or_composition.html"
+  - title: 移除一個陣列 LUN 以供 ONTAP 使用
+    url: "/install/task_removing_one_array_lun_from_use_by_data_ontap.html"
+  - title: 從服務中移除 ONTAP 系統之前、請先準備陣列 LUN
+    url: "/install/task_preparing_array_luns_before_removing_a_v_series_system_from_service.html"
+- title: 疑難排解儲存陣列的組態
+  url: "/install/concept_troubleshooting.html"
+  entries:
+  - title: 開始疑難排解陣列 LUN 的 ONTAP 組態
+    url: "/install/task_getting_started_with_troubleshooting.html"
+  - title: 無效的路徑設定範例
+    url: "/install/concept_invalid_path_setup_examples.html"
+    entries:
+    - title: 無效的路徑設定：未設定替代路徑
+      url: "/install/concept_invalid_path_setup_alternate_paths_are_not_configured.html"
+  - title: 發生連結故障時會發生什麼情況
+    url: "/install/concept_what_happens_when_a_link_failure_occurs.html"
+  - title: 分區與主機群組組組態之間的關係
+    url: "/install/reference_relationship_between_zoning_and_host_group_configuration.html"
+    entries:
+    - title: 區域與主機群組定義之間的相依性
+      url: "/install/concept_dependency_between_zone_and_host_group_definitions.html"
+    - title: 串聯分區和主機群組組組態錯誤範例
+      url: "/install/concept_example_of_cascading_zoning_and_host_group_configuration_errors.html"
+- title: 使用陣列 LUN 安裝及測試 ONTAP 組態後的其他工作
+  url: "/install/concept_additional_tasks_after_installing_and_testing_a_ontap_configuration_with_array_luns.html"
+- title: 手動取得 WWPN
+  url: "/install/task_obtaining_wwns_manually.html"
+- title: 目標佇列深度自訂
+  url: "/install/concept_target_queue_depth_customization.html"
+  entries:
+  - title: 指定適當目標佇列深度的準則
+    url: "/install/concept_guidelines_for_specifying_the_appropriate_target_queue_depth.html"
+  - title: 設定目標佇列深度（ 8.2 之前的 ONTAP ）
+    url: "/install/task_setting_the_target_queue_depth_clustered_data_ontap_prior_to_8_2.html"
+  - title: 設定目標佇列深度
+    url: "/install/task_setting_the_target_queue_depth_clustered_data_ontap_8_2_and_later.html"
+  - title: 顯示目標佇列深度統計資料
+    url: "/install/task_displaying_target_port_queue_depth_statistics_clustered_data_ontap_8_2_and_later.html"
+  - title: 目標連接埠使用率原則設定
+    url: "/install/concept_target_port_utilization_policy_settings.html"
+- title: 儲存陣列廠商之間的術語比較
+  url: "/install/reference_terminology_comparison_between_storage_array_vendors.html"

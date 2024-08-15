@@ -1,0 +1,28 @@
+---
+permalink: install/concept_elements_that_reduce_the_usable_space_in_an_array_lun.html 
+sidebar: sidebar 
+keywords: elements, reduce, usable, space, array, lun 
+summary: 數個因素會影響陣列 LUN 中的可用空間。規劃陣列 LUN 的必要數量和大小時、您必須根據所使用的 Checksum 類型、以及您可能設定的元素、來考慮陣列 LUN 中的可用空間。 
+---
+= 可減少陣列 LUN 可用空間的元素
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+數個因素會影響陣列 LUN 中的可用空間。規劃陣列 LUN 的必要數量和大小時、您必須根據所使用的 Checksum 類型、以及您可能設定的元素、來考慮陣列 LUN 中的可用空間。
+
+計算陣列 LUN 中的可用空間時、您必須考量下列因素、以減少 LUN 的可用空間：
+
+* 保留給 ONTAP 使用的空間
+* 核心傾印空間
+* Volume 層級 Snapshot 保留
+* Aggregate 層級 Snapshot 複本
+* Checksum 類型（您指派一種類型）：
++
+** 區塊 Checksum （ BCS ）
+** 進階分區總和檢查碼（ AZCS ）
+
+
+

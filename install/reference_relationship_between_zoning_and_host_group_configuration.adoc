@@ -1,0 +1,14 @@
+---
+permalink: install/reference_relationship_between_zoning_and_host_group_configuration.html 
+sidebar: sidebar 
+keywords: relationship, between, zone, host, group, configuration 
+summary: 修正分區組態錯誤時、有時也必須變更主機群組組組態、反之亦可。 
+---
+= 分區與主機群組組組態之間的關係
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+修正分區組態錯誤時、有時也必須變更主機群組組組態、反之亦可。

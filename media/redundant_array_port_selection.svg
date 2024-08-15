@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 12.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 51448)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_svg "http://www.w3.org/2000/svg">
+	<!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
+]>
+<svg  version="1.1" id="Layer_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="365.427" height="131"
+	 viewBox="0 0 365.427 131" overflow="visible" enable-background="new 0 0 365.427 131" xml:space="preserve">
+<line fill="none" stroke="#010101" x1="222.103" y1="73.442" x2="302.147" y2="73.442"/>
+<g>
+	<rect x="104.743" y="34.291" fill="#FFFFFF" stroke="#010101" stroke-width="0.4" width="29.167" height="57.206"/>
+	<polyline fill="none" stroke="#010101" stroke-width="0.4" points="131.542,90.042 131.542,36.011 107.011,36.011 107.071,90.042 	
+		"/>
+	<path fill="#FFFFFF" stroke="#010101" stroke-width="0.4" d="M108.881,93.461c0.479,0,0.867-0.389,0.867-0.865
+		c0-0.478-0.388-0.865-0.867-0.865c-0.477,0-0.865,0.388-0.865,0.865C108.017,93.073,108.404,93.461,108.881,93.461"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="108.226" y1="91.602" x2="108.226" y2="91.412"/>
+	<path fill="none" stroke="#010101" stroke-width="0.4" d="M109.378,91.602 M107.073,91.602h2.305v-0.19h-2.305V91.602z"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="108.242" y1="92.612" x2="108.242" y2="91.588"/>
+	<path fill="none" stroke="#010101" stroke-width="0.4" d="M108.449,92.612 M108.033,92.612h0.417v-1.023h-0.417V92.612z"/>
+	<path fill="#FFFFFF" stroke="#010101" stroke-width="0.4" d="M131.145,93.461c0.477,0,0.865-0.389,0.865-0.865
+		c0-0.478-0.388-0.865-0.865-0.865s-0.865,0.388-0.865,0.865C130.28,93.073,130.668,93.461,131.145,93.461"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="130.487" y1="91.602" x2="130.487" y2="91.412"/>
+	<path fill="none" stroke="#010101" stroke-width="0.4" d="M131.642,91.602 M129.335,91.602h2.307v-0.19h-2.307V91.602z"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="130.503" y1="92.612" x2="130.503" y2="91.588"/>
+	<path fill="none" stroke="#010101" stroke-width="0.4" d="M130.713,92.612 M130.296,92.612h0.417v-1.023h-0.417V92.612z"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="104.73" y1="89.896" x2="133.813" y2="89.896"/>
+	<rect x="127.649" y="62.666" fill="none" stroke="#010101" stroke-width="0.4" width="1.373" height="8.237"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="106.925" y1="37.691" x2="131.626" y2="37.691"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="106.925" y1="44.549" x2="131.626" y2="44.549"/>
+</g>
+<text transform="matrix(1 0 0 1 136.6929 83.0244)"><tspan x="0" y="0" fill="#010101" font-family="'Helvetica'" font-size="9">Storage</tspan><tspan x="0" y="8.235" fill="#010101" font-family="'Helvetica'" font-size="9">array</tspan></text>
+<text transform="matrix(1 0 0 1 89.0913 114.1519)" fill="#010101" font-family="'Helvetica'" font-size="9">Controller 2</text>
+<text transform="matrix(1 0 0 1 286.7578 114.1519)" fill="#010101" font-family="'Helvetica'" font-size="9">Controller 2</text>
+<text transform="matrix(1 0 0 1 4.7168 114.1519)" fill="#010101" font-family="'Helvetica'" font-size="9">Controller 1</text>
+<text transform="matrix(1 0 0 1 201.3828 114.1519)" fill="#010101" font-family="'Helvetica'" font-size="9">Controller 1</text>
+<rect x="18.264" y="46.859" fill="#D2D3D4" stroke="#010101" stroke-width="0.4" width="8.746" height="58.56"/>
+<rect x="102.809" y="46.859" fill="#D2D3D4" stroke="#010101" stroke-width="0.4" width="8.746" height="58.56"/>
+<ellipse fill="#FFFFFF" stroke="#010101" stroke-width="0.5" cx="111.518" cy="57.157" rx="5.9" ry="5.785"/>
+<text transform="matrix(1 0 0 1 107.5869 59.2749)" fill="#010101" font-family="'Helvetica-Bold'" font-size="6.5882"> A</text>
+<path fill="#010101" d="M103.778,57.804c0,0.767,0.622,1.389,1.391,1.389c0.767,0,1.389-0.622,1.389-1.389s-0.622-1.39-1.389-1.39
+	C104.4,56.414,103.778,57.037,103.778,57.804"/>
+<path fill="#010101" d="M115.673,58.49c0,0.767,0.622,1.389,1.391,1.389c0.767,0,1.388-0.622,1.388-1.389s-0.622-1.39-1.388-1.39
+	C116.295,57.1,115.673,57.723,115.673,58.49"/>
+<ellipse fill="#FFFFFF" stroke="#010101" stroke-width="0.5" cx="17.928" cy="57.663" rx="5.9" ry="5.787"/>
+<text transform="matrix(1 0 0 1 13.6089 59.7817)" fill="#010101" font-family="'Helvetica-Bold'" font-size="6.5882"> A</text>
+<path fill="#010101" d="M22.497,57.804c0,0.767,0.622,1.389,1.391,1.389s1.39-0.622,1.39-1.389s-0.622-1.39-1.39-1.39
+	S22.497,57.037,22.497,57.804"/>
+<path fill="#010101" d="M10.606,57.804c0,0.767,0.622,1.389,1.39,1.389c0.769,0,1.391-0.622,1.391-1.389s-0.622-1.39-1.391-1.39
+	C11.228,56.414,10.606,57.037,10.606,57.804"/>
+<path fill="#231F20" d="M8.678,57.804"/>
+<line fill="none" stroke="#010101" x1="25.004" y1="57.625" x2="104.728" y2="57.625"/>
+<g>
+	<rect x="34.77" y="47.912" fill="#FFFFFF" stroke="#010101" stroke-width="0.5" width="59.135" height="19.313"/>
+	<text transform="matrix(1 0 0 1 43.3408 60.2627)" fill="#010101" font-family="'Helvetica'" font-size="9">LUNs 1-10</text>
+</g>
+<path fill="#231F20" d="M8.678,78.81"/>
+<g>
+	<ellipse fill="#FFFFFF" stroke="#010101" stroke-width="0.5" cx="17.7" cy="73.217" rx="5.9" ry="5.787"/>
+	<text transform="matrix(1 0 0 1 13.3804 75.3364)" fill="#010101" font-family="'Helvetica-Bold'" font-size="6.5882"> B</text>
+</g>
+<g>
+	<ellipse fill="#FFFFFF" stroke="#010101" stroke-width="0.5" cx="111.258" cy="73.217" rx="5.9" ry="5.787"/>
+	<text transform="matrix(1 0 0 1 106.938 75.3364)" fill="#010101" font-family="'Helvetica-Bold'" font-size="6.5882"> B</text>
+</g>
+<polyline fill="none" stroke="#010101" stroke-linecap="round" points="12.028,57.663 0.5,57.663 0.5,20.416 "/>
+<polyline fill="none" stroke="#010101" stroke-linecap="round" points="117.417,58.072 142.552,58.072 142.552,20.416 "/>
+<g>
+	<rect x="301.83" y="34.347" fill="#FFFFFF" stroke="#010101" stroke-width="0.4" width="29.285" height="57.438"/>
+	<polyline fill="none" stroke="#010101" stroke-width="0.4" points="328.737,90.324 328.737,36.075 304.107,36.075 304.168,90.324 	
+		"/>
+	<path fill="#FFFFFF" stroke="#010101" stroke-width="0.4" d="M305.985,93.756c0.481,0,0.87-0.39,0.87-0.868
+		c0-0.479-0.389-0.869-0.87-0.869c-0.479,0-0.868,0.39-0.868,0.869C305.117,93.367,305.507,93.756,305.985,93.756"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="305.327" y1="91.89" x2="305.327" y2="91.698"/>
+	<path fill="none" stroke="#010101" stroke-width="0.4" d="M306.484,91.89 M304.17,91.89h2.314v-0.192h-2.314V91.89z"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="305.344" y1="92.904" x2="305.344" y2="91.875"/>
+	<path fill="none" stroke="#010101" stroke-width="0.4" d="M305.552,92.904 M305.134,92.904h0.418v-1.028h-0.418V92.904z"/>
+	<path fill="#FFFFFF" stroke="#010101" stroke-width="0.4" d="M328.339,93.756c0.479,0,0.869-0.39,0.869-0.868
+		c0-0.479-0.39-0.869-0.869-0.869c-0.479,0-0.868,0.39-0.868,0.869C327.471,93.367,327.86,93.756,328.339,93.756"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="327.679" y1="91.89" x2="327.679" y2="91.698"/>
+	<path fill="none" stroke="#010101" stroke-width="0.4" d="M328.838,91.89 M326.521,91.89h2.316v-0.192h-2.316V91.89z"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="327.695" y1="92.904" x2="327.695" y2="91.875"/>
+	<path fill="none" stroke="#010101" stroke-width="0.4" d="M327.905,92.904 M327.487,92.904h0.418v-1.028h-0.418V92.904z"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="301.817" y1="90.177" x2="331.018" y2="90.177"/>
+	<rect x="324.829" y="62.836" fill="none" stroke="#010101" stroke-width="0.4" width="1.378" height="8.27"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="304.021" y1="37.761" x2="328.822" y2="37.761"/>
+	<line fill="none" stroke="#010101" stroke-width="0.4" x1="304.021" y1="44.646" x2="328.822" y2="44.646"/>
+</g>
+<text transform="matrix(1 0 0 1 333.9092 83.2778)"><tspan x="0" y="0" fill="#010101" font-family="'Helvetica'" font-size="9">Storage</tspan><tspan x="0" y="8.269" fill="#010101" font-family="'Helvetica'" font-size="9">array</tspan></text>
+<rect x="215.002" y="46.966" fill="#D2D3D4" stroke="#010101" stroke-width="0.4" width="8.781" height="58.796"/>
+<rect x="299.889" y="46.966" fill="#D2D3D4" stroke="#010101" stroke-width="0.4" width="8.781" height="58.796"/>
+<ellipse fill="#FFFFFF" stroke="#010101" stroke-width="0.5" cx="308.632" cy="57.305" rx="5.924" ry="5.808"/>
+<text transform="matrix(1 0 0 1 304.6855 59.4321)" fill="#010101" font-family="'Helvetica-Bold'" font-size="6.6148"> A</text>
+<path fill="#010101" d="M300.862,57.955c0,0.77,0.624,1.395,1.396,1.395c0.77,0,1.395-0.625,1.395-1.395
+	c0-0.77-0.625-1.396-1.395-1.396C301.486,56.559,300.862,57.185,300.862,57.955"/>
+<ellipse fill="#FFFFFF" stroke="#010101" stroke-width="0.5" cx="214.665" cy="57.813" rx="5.924" ry="5.81"/>
+<text transform="matrix(1 0 0 1 210.3271 59.9409)" fill="#010101" font-family="'Helvetica-Bold'" font-size="6.6148"> A</text>
+<path fill="#010101" d="M219.252,57.955c0,0.77,0.625,1.395,1.396,1.395s1.396-0.625,1.396-1.395c0-0.77-0.624-1.396-1.396-1.396
+	S219.252,57.185,219.252,57.955"/>
+<path fill="#010101" d="M207.313,57.955c0,0.77,0.625,1.395,1.396,1.395s1.396-0.625,1.396-1.395c0-0.77-0.624-1.396-1.396-1.396
+	S207.313,57.185,207.313,57.955"/>
+<path fill="#231F20" d="M205.377,57.955"/>
+<line fill="none" stroke="#010101" x1="221.77" y1="57.775" x2="301.814" y2="57.775"/>
+<g>
+	<rect x="231.574" y="56.023" fill="#FFFFFF" stroke="#010101" stroke-width="0.5" width="59.374" height="19.392"/>
+	<text transform="matrix(1 0 0 1 240.2666 68.4233)" fill="#010101" font-family="'Helvetica'" font-size="9">LUNs 1-10</text>
+</g>
+<path fill="#231F20" d="M205.377,79.046"/>
+<g>
+	<ellipse fill="#FFFFFF" stroke="#010101" stroke-width="0.5" cx="214.436" cy="73.431" rx="5.924" ry="5.81"/>
+	<text transform="matrix(1 0 0 1 210.0977 75.5586)" fill="#010101" font-family="'Helvetica-Bold'" font-size="6.6148"> B</text>
+</g>
+<g>
+	<ellipse fill="#FFFFFF" stroke="#010101" stroke-width="0.5" cx="308.371" cy="73.431" rx="5.924" ry="5.81"/>
+	<text transform="matrix(1 0 0 1 304.0342 75.5586)" fill="#010101" font-family="'Helvetica-Bold'" font-size="6.6148"> B</text>
+</g>
+<polyline fill="none" stroke="#010101" stroke-linecap="round" points="208.741,57.813 197.166,57.813 197.166,20.416 "/>
+<polyline fill="none" stroke="#010101" stroke-linecap="round" points="208.741,73.813 184.832,73.813 184.832,19.415 "/>
+<path fill="#010101" d="M219.585,73.621c0,0.77,0.625,1.395,1.396,1.395s1.396-0.625,1.396-1.395c0-0.77-0.624-1.396-1.396-1.396
+	S219.585,72.852,219.585,73.621"/>
+<path fill="#010101" d="M300.862,73.333c0,0.77,0.624,1.395,1.396,1.395c0.77,0,1.395-0.625,1.395-1.395
+	c0-0.77-0.625-1.396-1.395-1.396C301.486,71.937,300.862,72.563,300.862,73.333"/>
+<path fill="#010101" d="M207.313,73.621c0,0.77,0.625,1.395,1.396,1.395s1.396-0.625,1.396-1.395c0-0.77-0.624-1.396-1.396-1.396
+	S207.313,72.852,207.313,73.621"/>
+<line fill="#010101" stroke="#010101" stroke-width="2" stroke-linecap="round" x1="175.334" y1="130" x2="175.334" y2="1"/>
+<rect x="45.667" y="10" fill="none" width="37.333" height="9.667"/>
+<text transform="matrix(1 0 0 1 49.6665 19)" font-family="'Helvetica'" font-size="9">Correct</text>
+<rect x="240" y="12.667" fill="none" width="37.667" height="9.333"/>
+<text transform="matrix(1 0 0 1 240 19.1284)" font-family="'Helvetica'" font-size="9">Incorrect</text>
+</svg>

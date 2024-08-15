@@ -1,0 +1,97 @@
+---
+permalink: install/reference_commands_for_checking_back_end_configuration.html 
+sidebar: sidebar 
+keywords: commands, check, back-end, configuration 
+summary: 多個 ONTAP 命令提供有關儲存陣列組態的資訊、包括後端組態錯誤。這些命令在安裝驗證和疑難排解期間特別有用。 
+---
+= 用於檢查後端組態的命令
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+多個 ONTAP 命令提供有關儲存陣列組態的資訊、包括後端組態錯誤。這些命令在安裝驗證和疑難排解期間特別有用。
+
+此 `storage array config show` 命令是安裝驗證期間第一個使用的命令。如果您注意到系統未如預期運作、或收到錯誤訊息、這也是第一個要使用的命令。
+
+下表顯示了對安裝驗證和疑難排解特別有用的命令：
+
+|===
+| 命令 | 說明 
+
+
+ a| 
+`storage array config show`
+ a| 
+在儲存陣列層級提供有關使用陣列 LUN 的 ONTAP 系統部署中後端裝置組態的資訊。此命令顯示儲存陣列如何連線至叢集。如果 ONTAP 偵測到問題、導致使用陣列 LUN 和儲存陣列的 ONTAP 系統無法正常運作、則 `storage array config show` 會指示您執行 `storage errors show` 以取得有關錯誤的詳細資料。
+
+此命令也可用於驗證設定是否符合您的預期。例如、您可以查看輸出、確認您想要建立的陣列 LUN 群組數目。
+
+
+
+ a| 
+`storage array show -name array_name`
+ a| 
+顯示叢集可見的所有儲存陣列資訊、或您指定的儲存陣列相關資訊。如果陣列 LUN 的數量超過系統容量、「錯誤」文字欄位會顯示 ONTAP 無法探索的 LUN 數量。您應該特別注意低記憶體系統上的這個問題。
+
+
+
+ a| 
+`storage path quiesce`
+ a| 
+在特定路徑上暫時暫停特定陣列 LUN 的 I/O 。重新開機或執行時、路徑會再次變成作用中 `storage path resume`。某些儲存陣列需要一段時間停止 I/O 、才能移除或移動陣列 LUN 。
+
+[NOTE]
+====
+此 `storage path quiesce` 命令無法與 IBM DS 儲存陣列搭配使用。
+
+====
+
+
+ a| 
+`storage path resume`
+ a| 
+允許 I/O 再次開始流動、這是靜止的反函數。此 `storage path resume` 命令主要用於硬體維護（例如纜線或 GBIC 拉動）、或是陣列 LUN 路徑意外靜止之後。在停止路徑之後、並不一定需要執行此命令。例如、 ONTAP 可以探索新對應的陣列 LUN 。
+
+
+
+ a| 
+`storage array show`
+ a| 
+顯示叢集可見的儲存陣列相關資訊、例如名稱、廠商、機型、 和容錯移轉類型。
+
+
+
+ a| 
+`storage disk show`
+ a| 
+輸入 `storage disk show` 時若無參數、則會顯示下列所有磁碟和陣列 LUN ：名稱、可用大小、容器類型、位置、 Aggregate 、 和擁有者。以磁碟名稱或陣列 LUN 名稱作為參數輸入 `storage disk show` 、會顯示個別磁碟或陣列 LUN 的詳細資料、例如、狀態（已指派或未指派）、擁有者及陣列 LUN 的路徑。輸出分為三個區段：陣列 LUN 的相關資訊、陣列 LUN 路徑的相關資訊、以及與陣列 LUN 相關的任何錯誤。
+
+
+
+ a| 
+`storage disk show -errors _**_`
+ a| 
+使用參數輸入 `storage disk show` ``-errors` 可提供磁碟和陣列 LUN 層級的組態錯誤詳細資料。雖然命令輸出與命令的輸出類似、但仍 `storage disk error show` 提供額外選項、 `storage disk show -errors` 可根據節點、叢集和 Bay 位置等參數來篩選輸出。
+
+
+
+ a| 
+`storage disk error show`
+ a| 
+提供磁碟與陣列 LUN 層級後端組態錯誤的詳細資料。以陣列 LUN 名稱作為參數輸入 `storage disk error` show 可顯示與指定陣列 LUN 相關的組態錯誤詳細資料。您必須先修正這些錯誤、才能將 ONTAP 設定為使用儲存陣列。
+
+
+
+ a| 
+`storage errors show`
+ a| 
+在陣列 LUN 層級提供有關後端組態錯誤的詳細資料、這些錯誤會妨礙 ONTAP 系統和儲存陣列一起運作。您必須先修正識別的錯誤 `storage errors show` 、才能將 ONTAP 設定為使用儲存陣列。
+
+[NOTE]
+====
+此 `storage errors show` 命令不提供有關磁碟組態錯誤的資訊。若要同時檢視磁碟和陣列 LUN 組態錯誤的相關資訊、您可以使用 `storage disk show -errors` 命令或 `storage disk error show` 命令。
+
+====
+|===

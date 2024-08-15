@@ -1,0 +1,20 @@
+---
+permalink: install/concept_where_to_find_information_for_configurations_with_storage_arrays.html 
+sidebar: sidebar 
+keywords: where, find, information, configurations, storage, arrays 
+summary: 規劃使用 ONTAP 系統搭配儲存陣列的組態時、除了產品文件外、您還應查看各種來源、以取得有關陣列 LUN 組態的資訊。 
+---
+= 何處可以找到儲存陣列組態的資訊
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+規劃使用 ONTAP 系統搭配儲存陣列的組態時、除了產品文件外、您還應查看各種來源、以取得有關陣列 LUN 組態的資訊。
+
+NetApp 支援網站提供的工具可在中央位置提供特定版本支援哪些功能、組態和儲存陣列模型的特定資訊。
+
+*相關資訊*
+
+https://mysupport.netapp.com/site/global/dashboard["NetApp支援"]

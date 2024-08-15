@@ -1,0 +1,85 @@
+---
+permalink: install/reference_the_storage_errors_show_messages_and_their_resolution.html 
+sidebar: sidebar 
+keywords: storage, errors, show, messages, resolution 
+summary: 當儲存錯誤顯示旗標指出錯誤狀況時、您需要判斷錯誤發生的原因、以及如何修正錯誤。 
+---
+= 儲存錯誤會顯示訊息及其解決方案
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當標記錯誤狀況時 `storage errors show` 、您需要判斷錯誤發生的原因、以及如何修正錯誤。
+
+下表列出偵測到的後端組態錯誤 `storage errors show` 、並提供每個錯誤原因及其解決方法的詳細資訊。
+
+|===
+| `storage errors show` 訊息 | 如需此訊息的詳細資訊、請參閱 ... 
+
+
+ a| 
+`NAME (Serial #): All paths to this array LUN are connected to the same fault domain. This is a single point of failure``。
+ a| 
+xref:reference_all_paths_to_an_array_lun_are_on_the_same_storage_array_controller.adoc[陣列 LUN 的所有路徑都位於同一個儲存陣列控制器上]
+
+
+
+ a| 
+`NAME (Serial #), port WWPN1: LUN 1 occurs more than once. LUNs cannot be reused on the same array target port`。
+ a| 
+xref:reference_duplicate_lun_ids_on_a_target_port.adoc[目標連接埠上重複的 LUN ID]
+
+
+
+ a| 
+`NAME (Serial #): This array LUN is an access control LUN. It is not supported and should be masked off or disabled``。
+ a| 
+xref:reference_an_access_control_lun_is_presented_to_ontap.adoc[已顯示存取控制 LUN]
+
+
+
+ a| 
+`NAME (Serial #) This array LUN is configured with conflicting failover modes. Each path to this LUN must use the same mode`。
+ a| 
+xref:reference_array_luns_are_configured_with_conflicting_failover_modes_clustered_data_ontap_8_2_and_later.adoc[陣列 LUN 的容錯移轉模式發生衝突]
+
+
+
+ a| 
+`NAME (Serial #): This Array LUN is only available on one path. Proper configuration requires two paths`。
+ a| 
+xref:reference_fewer_than_two_paths_to_an_array_lun.adoc[到陣列 LUN 的路徑少於兩條]
+
+
+
+ a| 
+`NAME (Serial #): This array LUN is too large and is not usable. The maximum array LUN size supported is xTB`。
+ a| 
+xref:reference_array_lun_is_either_smaller_or_larger_than_the_supported_values.adoc[陣列 LUN 太小或太大]
+
+
+
+ a| 
+`NAME (Serial #): This array LUN is too small and is not usable. The minimum array LUN size supported is 1GB`。
+ a| 
+xref:reference_array_lun_is_either_smaller_or_larger_than_the_supported_values.adoc[陣列 LUN 太小或太大]
+
+
+
+ a| 
+`NAME (Serial #): This Array LUN is using multiple LUN IDs. Only one LUN ID per serial number is supported`。
+ a| 
+xref:reference_lun_ids_for_the_same_ldev_do_not_match.adoc[同一個 LDEV 的 LUN ID 不相符]
+
+Volume Set 定址不一致
+
+
+
+ a| 
+`NAME (Serial #): This array LUN is marked foreign and has a reservation`。
+ a| 
+xref:reference_array_lun_is_marked_foreign_and_has_a_reservation_data_ontap_8_3_and_later.adoc[陣列 LUN 標示為外部、並具有保留]
+
+|===

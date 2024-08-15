@@ -1,0 +1,28 @@
+---
+permalink: install/reference_reasons_storage_arrays_are_missing_from_command_output.html 
+sidebar: sidebar 
+keywords: reasons, storage, arrays, miss, command, output 
+summary: 未連接至 ONTAP 系統的儲存陣列不會出現在儲存陣列組態 show 輸出中。佈線、分區和主機群組組組態的問題可能會妨礙兩個裝置之間的連線。 
+---
+= 命令輸出中缺少儲存陣列的原因
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+未連接至 ONTAP 系統的儲存陣列不會出現在輸出中 `storage array config show` 。佈線、分區和主機群組組組態的問題可能會妨礙兩個裝置之間的連線。
+
+
+
+== 解決問題
+
+. 檢查佈線、主機群組組組態和分區、如下所示：
++
+** 檢查纜線是否已連接。
+** 檢查 ONTAP 系統上 FC 啟動器的 WWPN 是否位於主機群組中。
+** 檢查儲存陣列和 FC 啟動器是否位於相同的區域。
+
+
+. 解決問題之後、請在 ONTAP 中執行、 `storage array config show` 確認問題已解決。
+

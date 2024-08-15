@@ -1,0 +1,20 @@
+---
+permalink: implement-e-series/reference_supported_fabric_attached_configurations_for_storage_arrays.html 
+sidebar: sidebar 
+keywords: supported, fabric-attached, configurations, e-series, storage, arrays 
+summary: 您只能將特定 E-Series 儲存陣列連接至 ONTAP 系統、並以光纖附加組態進行。 
+---
+= E-Series 儲存陣列支援的光纖附加組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您只能將特定 E-Series 儲存陣列連接至 ONTAP 系統、並以光纖附加組態進行
+
+互通性對照表包含有關特定陣列機型的其他資訊。
+
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

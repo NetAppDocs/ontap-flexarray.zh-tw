@@ -1,0 +1,20 @@
+---
+permalink: implement-third-party/concept_requirement_for_8_gb_array_port_initialization.html 
+sidebar: sidebar 
+keywords: requirement, 8-Gb array, port, initialization 
+summary: 在典型的光纖通道（ FC ）架構中、儲存陣列連接埠會初始化為 N 連接埠（節點連接埠）、而其對應的交換器連接埠會初始化為 F 連接埠（光纖連接埠）。在某些情況下、這些 F 連接埠可能會離線、並以 L 連接埠（迴圈連接埠）的形式繼續運作、導致架構錯誤。 
+---
+= 8 GB 陣列連接埠初始化的需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在典型的光纖通道（ FC ）架構中、儲存陣列連接埠會初始化為 N 連接埠（節點連接埠）、而其對應的交換器連接埠會初始化為 F 連接埠（光纖連接埠）。在某些情況下、這些 F 連接埠可能會離線、並以 L 連接埠（迴圈連接埠）的形式繼續運作、導致架構錯誤。
+
+此行為是由 Brocade 交換器中的拓撲自動交涉問題所造成。
+
+為了確保交換器連接埠一律初始化為 F 連接埠、您必須在連接至儲存陣列的 Brocade 交換器連接埠上執行 `portcfggport` ``<portnumber> 1` 命令。您必須在開始設定系統以避免此問題時執行此命令、如果發生此問題、您必須修正此問題。
+
+若要提升整個架構的效率、您也可以在連接至 ONTAP 啟動器連接埠的任何 Brocade 連接埠上使用此因應措施。

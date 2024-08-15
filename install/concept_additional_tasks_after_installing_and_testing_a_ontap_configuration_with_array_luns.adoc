@@ -1,0 +1,23 @@
+---
+permalink: install/concept_additional_tasks_after_installing_and_testing_a_ontap_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: additional, tasks, after, install, test, ontap, configuration, array, luns, netapp 
+summary: 使用陣列 LUN 完成 ONTAP 組態的安裝與測試之後、您可以將額外的陣列 LUN 指派給 ONTAP 系統、並在系統上設定各種 ONTAP 功能。 
+---
+= 使用陣列 LUN 安裝及測試 ONTAP 組態後的其他工作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用陣列 LUN 完成 ONTAP 組態的安裝與測試之後、您可以將額外的陣列 LUN 指派給 ONTAP 系統、並在系統上設定各種 ONTAP 功能。
+
+以下是在使用陣列 LUN 完成 ONTAP 系統的安裝和測試之後、您可以執行的一些工作：
+
+* 視需要將額外的陣列 LUN 指派給 ONTAP 系統。
+* 視需要建立 ONTAP 集合體和磁碟區。
+* 視需要在系統上設定額外的 ONTAP 功能、例如備份與還原功能。
+
+
+如需設定各種 ONTAP 功能的相關資訊、請參閱適當的 ONTAP 指南。

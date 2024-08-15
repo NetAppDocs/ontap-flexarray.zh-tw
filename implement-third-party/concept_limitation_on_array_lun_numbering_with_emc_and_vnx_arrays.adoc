@@ -1,0 +1,14 @@
+---
+permalink: implement-third-party/concept_limitation_on_array_lun_numbering_with_emc_and_vnx_arrays.html 
+sidebar: sidebar 
+keywords: limitation, array, lun, numbering, emc, vnx, array 
+summary: EMC VNX 儲存陣列僅支援從 0 到 255 的陣列 LUN 編號。超過此範圍的陣列 LUN 無法在 ONTAP 中看到。 
+---
+= EMC VNX 陣列的陣列 LUN 編號限制
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+EMC VNX 儲存陣列僅支援從 0 到 255 的陣列 LUN 編號。超過此範圍的陣列 LUN 無法在 ONTAP 中看到。

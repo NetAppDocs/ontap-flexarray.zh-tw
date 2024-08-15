@@ -1,0 +1,40 @@
+---
+permalink: install/concept_characteristics_of_checksum_types_that_ontap_supports.html 
+sidebar: sidebar 
+keywords: characteristics, checksum, types, ontap, supports, block, advanced, zoned 
+summary: ONTAP 支援區塊總和檢查碼類型（ BCS ）和進階分區總和檢查碼類型（ AZCS ）、用於陣列 LUN 、磁碟和集合體。 
+---
+= ONTAP 支援的 Checksum 類型特性
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 支援區塊總和檢查碼類型（ BCS ）和進階分區總和檢查碼類型（ AZCS ）、用於陣列 LUN 、磁碟和集合體。
+
+在 ONTAP 中指派給陣列 LUN 的 Checksum 類型、可能會影響陣列 LUN 的效能或可用空間。因此、您需要的陣列 LUN 數量和大小可能會受到影響、視您指派給陣列 LUN 的 Checksum 類型而定。
+
+
+
+== 區塊 Checksum （ BCS ）
+
+BCS 是陣列 LUN 的預設及建議的 Checksum 類型。BCS 為陣列 LUN 提供比 AZCS 更好的效能。
+
+比起 AZCS 、 BCS 對陣列 LUN 中的可用空間影響更大。BCS 使用陣列 LUN 中 12.5% 的可用空間。
+
+
+
+== 進階分區總和檢查碼（ AZCS ）
+
+AZCS 是 BCS 的替代方案。AZCS 對陣列 LUN 可用空間的影響小於 BCS ； AZCS 使用的裝置容量為 1.56% 。不過、您必須權衡對更多可用空間的需求、而非效能。AZCS 有時可能會對陣列 LUN 造成效能問題。
+
+不建議將 AZCS 用於高效能隨機工作負載的陣列 LUN 。不過、您可以將 AZCS 搭配陣列 LUN 、用於 DR 、歸檔或類似工作負載。
+
+對原生磁碟沒有 AZCS 效能影響。
+
+Checksum 類型的準則會根據磁碟大小和類型而有所不同。如需詳細資訊、請參閱 _TR3838 儲存子系統組態指南 _ 。
+
+*相關資訊*
+
+https://www.netapp.com/pdf.html?item=/media/19675-tr-3838.pdf["NetApp技術報告3838：儲存子系統組態指南"^]

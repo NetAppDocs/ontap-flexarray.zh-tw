@@ -1,0 +1,14 @@
+---
+permalink: implement-third-party/concept_general_configuration_guidelines_for_all_storage_arrays.html 
+sidebar: sidebar 
+keywords: configuration, guidelines, storage, arrays 
+summary: 對於 ONTAP 支援的任何儲存陣列、您必須遵循某些組態準則。 
+---
+= 所有儲存陣列的一般組態準則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+對於 ONTAP 支援的任何儲存陣列、您必須遵循某些組態準則。

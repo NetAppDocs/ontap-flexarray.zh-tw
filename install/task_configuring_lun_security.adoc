@@ -1,0 +1,32 @@
+---
+permalink: install/task_configuring_lun_security.html 
+sidebar: sidebar 
+keywords: configure, lun, security 
+summary: 儲存陣列管理員必須設定儲存陣列並建立主機群組、以便其他主機無法存取 ONTAP 所要使用的陣列 LUN 。 
+---
+= 設定 LUN 安全性
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+儲存陣列管理員必須設定儲存陣列並建立主機群組、以便其他主機無法存取 ONTAP 所要使用的陣列 LUN 。
+
+LUN 安全性的概念與分區類似、只是儲存陣列上已設定 LUN 安全性。LUN 安全性可防止不同的伺服器在 SAN 上使用彼此的儲存設備。LUN 安全性也可能稱為 _LUN 遮罩 _ 。
+
+.步驟
+. 在儲存陣列上設定 LUN 安全性。
++
+如需設定 LUN 安全性的相關資訊、請參閱儲存陣列文件。
+
++
+您也應該參閱、以瞭 https://docs.netapp.com/us-en/ontap-flexarray/implement-third-party/index.html["適用於協力廠商儲存設備的虛擬化實作FlexArray"] 解廠商儲存陣列的 LUN 安全性相關其他詳細資料。某些儲存陣列必須專供 ONTAP 系統使用。
+
+. 為 ONTAP 系統建立主機群組或等效群組。
++
+術語 _host group_ 用於某些儲存陣列、用來描述可讓您指定主機存取儲存陣列上特定連接埠的組態參數。不同的儲存陣列會使用不同的術語來描述此組態參數。每個儲存陣列廠商都有自己的程序來建立主機群組或同等的主機群組。
+
+
+
+*相關資訊*

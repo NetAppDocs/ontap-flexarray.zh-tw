@@ -1,0 +1,32 @@
+---
+permalink: install/concept_when_to_check_for_redundant_paths_to_array_luns.html 
+sidebar: sidebar 
+keywords: when, check, redundant, paths, array, luns 
+summary: 安裝後和在架構維護活動期間、您需要檢查陣列 LUN 的備援路徑。 
+---
+= 何時檢查到陣列 LUN 的備援路徑
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+安裝後和在架構維護活動期間、您需要檢查陣列 LUN 的備援路徑。
+
+執行下列活動時、您應該重新檢查路徑備援：
+
+* 初始安裝
+* 架構維護、例如：
++
+** 基礎架構升級之前、期間和之後
+** 在關閉交換器進行維護之前和之後
++
+在您移除 ONTAP 系統與儲存陣列之間的交換器之前、請確定路徑已設定為備援路徑、以便不中斷對陣列 LUN 的存取。
+
+** 在維護儲存陣列上的硬體之前和之後
++
+例如、在維護主機介面卡和連接埠所在的硬體元件時、您應該重新檢查路徑備援。（此元件的名稱會因不同的儲存陣列機型而異）。
+
+
+
+

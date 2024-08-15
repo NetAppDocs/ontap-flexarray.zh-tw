@@ -1,0 +1,32 @@
+---
+permalink: install/concept_prerequisites_to_reconfiguring_an_array_lun_on_the_storage_array.html 
+sidebar: sidebar 
+keywords: prerequisites, reconfigure, array. lun, storage, array 
+summary: 如果已（透過 ONTAP ）將陣列 LUN 指派給特定的 ONTAP 系統、則必須先移除 ONTAP 寫入陣列 LUN 的資訊、儲存管理員才能嘗試重新設定儲存陣列上的陣列 LUN 。 
+---
+= 在儲存陣列上重新設定陣列 LUN 的先決條件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果已（透過 ONTAP ）將陣列 LUN 指派給特定的 ONTAP 系統、則必須先移除 ONTAP 寫入陣列 LUN 的資訊、儲存管理員才能嘗試重新設定儲存陣列上的陣列 LUN 。
+
+當儲存陣列將陣列 LUN 呈現給 ONTAP 時、 ONTAP 會收集有關陣列 LUN 的資訊（例如其大小）、並將該資訊寫入陣列 LUN 。ONTAP 無法動態更新寫入陣列 LUN 的資訊。因此、在儲存陣列管理員重新設定陣列 LUN 之前、您必須使用 ONTAP 將陣列 LUN 的狀態變更為 _ 未使用 _ 。從 ONTAP 的角度來看、陣列 LUN 並未使用。
+
+將陣列 LUN 的狀態變更為「未使用」時、 ONTAP 會執行下列動作：
+
+* 終止對陣列 LUN 的 I/O 作業
+* 從陣列 LUN 移除 RAID 組態資訊和持續保留的標籤、這會使陣列 LUN 不歸任何 ONTAP 系統所有
+
+
+此程序完成後、陣列 LUN 中不會保留任何 ONTAP 資訊。
+
+將陣列 LUN 的狀態變更為「未使用」後、您可以執行下列動作：
+
+* 移除陣列 LUN 與 ONTAP 之間的對應關係、並將陣列 LUN 提供給其他主機使用。
+* 調整陣列 LUN 的大小或變更其組成。
+
+
+如果您希望 ONTAP 在變更陣列 LUN 的大小或組成之後繼續使用陣列 LUN 、則必須再次將陣列 LUN 呈現給 ONTAP 、然後再次將陣列 LUN 指派給 ONTAP 系統。ONTAP 知道新的陣列 LUN 大小或組成。

@@ -1,0 +1,24 @@
+---
+permalink: implement-third-party/concept_single_4_port_array_lun_group_configuration.html 
+sidebar: sidebar 
+keywords: single, 4-port, array, lun, group, configuration 
+summary: 此組態包含單一的 4 埠 LUN 群組、每個目標連接埠均由 HA 配對的單一 ONTAP FC 啟動器連接埠存取。由於分區、每個 ONTAP 系統只能有兩條路徑通往特定陣列 LUN 。 
+---
+= 單一 4 埠陣列 LUN 群組組組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此組態包含單一的 4 埠 LUN 群組、每個目標連接埠均由 HA 配對的單一 ONTAP FC 啟動器連接埠存取。由於分區、每個 ONTAP 系統只能有兩條路徑通往特定陣列 LUN 。
+
+此組態支援與互操作性對照表中所列的所有儲存陣列搭配使用、並支援在您的系統上執行的 ONTAP 版本。
+
+下圖顯示此組態：
+
+image::../media/one_4_port_array_lun_gp.gif[此圖形由其周邊文字說明。]
+
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

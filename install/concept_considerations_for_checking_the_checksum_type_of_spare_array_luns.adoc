@@ -1,0 +1,28 @@
+---
+permalink: install/concept_considerations_for_checking_the_checksum_type_of_spare_array_luns.html 
+sidebar: sidebar 
+keywords: checksum, type, considerations, add, spare, array, luns, aggregates 
+summary: 在將備用陣列 LUN 新增至集合體時、您必須考量某些與 Checksum 類型相關的考量事項。例如、如果您打算透過指定其名稱將備用陣列 LUN 新增至集合、則必須確保陣列 LUN 和集合具有相同的 Checksum 類型。 
+---
+= 將備用陣列 LUN 新增至集合體的 Checksum 類型考量
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在將備用陣列 LUN 新增至集合體時、您必須考量某些與 Checksum 類型相關的考量事項。例如、如果您打算透過指定其名稱將備用陣列 LUN 新增至集合、則必須確保陣列 LUN 和集合具有相同的 Checksum 類型。
+
+以下是新增備用陣列 LUN 至集合體的一些 Checksum 類型考量：
+
+* 您無法在陣列 LUN 集合中混合使用不同 Checksum 類型的陣列 LUN 。
+* 如果您指定要新增至集合體的多個備用陣列 LUN 、則 ONTAP 預設會選取與集合體相同總和類型的陣列 LUN 。
+* 當新增至現有分區總和檢查碼集合時、分區總和檢查碼類型的陣列 LUN 會繼續分區為 Checksum 陣列 LUN 。
+* 分區 Checksum 備用陣列 LUN 新增至進階區域 Checksum （ AZCS ）類型 Aggregate 、使用 AZCS Checksum 方案。
+
+
+[NOTE]
+====
+您可以使用命令檢查備用陣列 LUN 的 Checksum 類型 `storage disk show` 。如需命令的詳細資訊、請參閱手冊頁。
+
+====

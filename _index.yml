@@ -1,0 +1,27 @@
+---
+indexpage:
+  title: ONTAP FlexArray 文件
+  summary: ONTAP FlexArray 文件
+  keywords: flexarray, ontap, array
+  lead: ONTAP FlexArray 文件
+  tiles:
+  - title: 實作 E-Series 儲存設備
+    links:
+    - title: 設定 E-Series 儲存陣列的需求
+      url: "/implement-e-series/reference_requirements_for_configuring_e_series_storage_arrays.html"
+    - title: E-Series 儲存陣列支援的光纖附加組態
+      url: "/implement-e-series/reference_supported_fabric_attached_configurations_for_storage_arrays.html"
+    - title: 支援 E-Series 儲存陣列的直接附加組態
+      url: "/implement-e-series/reference_supported_direct_attached_configurations_for_e_series_storage_arrays.html"
+  - title: 實作協力廠商儲存設備
+    links:
+    - title: 所有儲存陣列的組態準則
+      url: "/implement-third-party/concept_general_configuration_guidelines_for_all_storage_arrays.html"
+    - title: 支援的網路附加組態
+      url: "/implement-third-party/reference_supported_fabric_attached_configurations_for_storage_arrays.html"
+  - title: 安裝FlexArray
+    links:
+    - title: 規劃陣列 LUN 的組態
+      url: "/install/concept_planning_a_configuration_with_array_luns.html"
+    - title: 準備搭配ONTAP 使用的儲存陣列
+      url: "/install/task_preparing_a_storage_array_for_use_with_ontap_systems.html"

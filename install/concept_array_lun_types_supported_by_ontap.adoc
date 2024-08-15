@@ -1,0 +1,20 @@
+---
+permalink: install/concept_array_lun_types_supported_by_ontap.html 
+sidebar: sidebar 
+keywords: array, lun, type, supported, ontap 
+summary: 您只能將儲存陣列 LUN 對應至 ONTAP 。如果 LUN 為儲存類型 LUN 、您可以將 LUN 0 對應至 ONTAP 。 
+---
+= ONTAP 支援的陣列 LUN 類型
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您只能將儲存陣列 LUN 對應至 ONTAP 。如果 LUN 為儲存類型 LUN 、您可以將 LUN 0 對應至 ONTAP 。
+
+某些儲存陣列具有 Nonstorage _command_ LUN 。您無法將命令類型 LUN 對應至 ONTAP 系統。
+
+*相關資訊*
+
+https://docs.netapp.com/us-en/ontap-flexarray/implement-third-party/index.html["適用於協力廠商儲存設備的虛擬化實作FlexArray"]

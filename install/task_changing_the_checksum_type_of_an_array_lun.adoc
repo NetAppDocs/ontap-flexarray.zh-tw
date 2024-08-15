@@ -1,0 +1,48 @@
+---
+permalink: install/task_changing_the_checksum_type_of_an_array_lun.html 
+sidebar: sidebar 
+keywords: change, checksum, type, array, lun 
+summary: 如果您要將陣列 LUN 的 Checksum 類型新增至與 LUN 的 Checksum 類型不同的集合、則必須變更陣列 LUN 的 Checksum 類型。 
+---
+= 變更陣列 LUN 的 Checksum 類型
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您要將陣列 LUN 的 Checksum 類型新增至與 LUN 的 Checksum 類型不同的集合、則必須變更陣列 LUN 的 Checksum 類型。
+
+*您需要的是什麼*
+
+您必須已檢閱某些類型工作負載的效能與每種 Checksum 類型的儲存容量使用率之間的取捨。
+
+您也可以聯絡您的銷售工程師、以取得使用 Checksum 的詳細資訊。
+
+* 您必須將 * 分區 * checksum 類型指派給您計畫新增至進階分區 Checksum （ AZCS ）集合體的陣列 LUN 。當分區 Checksum 陣列 LUN 新增至 AZCS 集合體時、它會變成進階分區 Checksum 陣列 LUN 。同樣地、當分區式 Checksum 陣列 LUN 新增至分區式 Aggregate 時、則是分區式 Checksum 類型。
+* 指派擁有權時、您無法修改陣列 LUN 的 Checksum 。您只能在已分配的陣列 LUN 上修改 Checksum 。
+
+
+.步驟
+. 輸入下列命令以變更 Checksum 類型： `storage disk assign -disk disk name -owner owner -c new_checksum_type`
++
+_disk name_ 是您要變更其 Checksum 類型的陣列 LUN 。
+
++
+_Owner_ 是指派陣列 LUN 的節點。
+
++
+_new_checksum 類型 _ 可以封鎖或分區。
+
++
+`storage disk assign -disk EMC-1.1 -owner system147b -c block`
+
++
+陣列 LUN 的 Checksum 類型會變更為您指定的新 Checksum 類型。
+
+. 輸入下列命令以存取 nodesdesh以下 命令： `system node run -node node_name`
++
+節點名稱 _ 是此系統的名稱。
+
+. 輸入以下命令以退出 nodesdesh以下 命令： `exit`
+

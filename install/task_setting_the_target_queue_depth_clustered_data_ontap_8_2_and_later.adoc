@@ -1,0 +1,41 @@
+---
+permalink: install/task_setting_the_target_queue_depth_clustered_data_ontap_8_2_and_later.html 
+sidebar: sidebar 
+keywords: set, target, queue, depth 
+summary: 大多數實作都可以接受預設目標佇列深度、但如果發生效能問題、則可以變更目標佇列深度。 
+---
+= 設定目標佇列深度
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+大多數實作都可以接受預設目標佇列深度、但如果發生效能問題、則可以變更目標佇列深度。
+
+您可以依儲存陣列或個別目標連接埠來設定目標佇列深度。
+
+.步驟
+. 使用下列其中一個命令、在所有目標連接埠或儲存陣列的特定目標連接埠上設定目標連接埠佇列深度。
++
+|===
+| 如果您想要... | 使用此命令序列 ... 
+
+
+ a| 
+在儲存陣列的所有目標連接埠上設定目標連接埠佇列深度
+ a| 
+`set advanced` `storage array port modify -name array_name -max-queue-depth value`
+
+
+
+ a| 
+在儲存陣列上的特定目標連接埠上設定目標連接埠佇列深度
+ a| 
+`set advanced` `storage array port modify -name array_name -wwnn value -wwpn value -max-queue-depth value`
+
+|===
++
+如需這些命令的詳細資訊、請參閱手冊頁。
+
+

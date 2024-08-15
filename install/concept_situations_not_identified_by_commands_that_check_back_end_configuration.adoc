@@ -1,0 +1,27 @@
+---
+permalink: install/concept_situations_not_identified_by_commands_that_check_back_end_configuration.html 
+sidebar: sidebar 
+keywords: situations, not, identified, commands, check, back end, configuration 
+summary: 您可能會認為有問題、但從 ONTAP 的角度來看、這並不是錯誤、因為這種情況不會妨礙系統運作。檢查後端組態的 ONTAP 命令無法識別不會妨礙系統運作的組態。 
+---
+= 檢查後端組態的命令無法識別情況
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能會認為有問題、但從 ONTAP 的角度來看、這並不是錯誤、因為這種情況不會妨礙系統運作。檢查後端組態的 ONTAP 命令無法識別不會妨礙系統運作的組態。
+
+和等命令 `storage errors show` `storage disk error show` `storage disk show -errors` 不會在下列情況下發出警示：
+
+* 不符合最佳實務建議的組態；也就是說、不需要這些組態
+* 在過渡狀態期間可能發生的情況
++
+例如、在 LUN 從一個 LUN 群組移轉至另一個 LUN 群組完成之前、您可能會看到比預期輸出中的 LUN 群組更多 `storage array config show` 。
+
+* 不符合預期組態的情況
++
+例如、如果您想要設定多個 LUN 群組、但只有一個已設定、 ONTAP 就不會將其視為錯誤、因為支援單一 LUN 群組。
+
+

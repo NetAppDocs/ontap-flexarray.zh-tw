@@ -1,0 +1,86 @@
+---
+permalink: implement-third-party/reference_workaround_when_luns_are_not_visible_with_hitachi_storage_arrays.html 
+sidebar: sidebar 
+keywords: workaround, luns, not, visible, hitachi, storage, arrays, aggregates, created, ontap, system, 
+summary: 在將使用陣列 LUN 的 ONTAP 系統連接至 Hitachi 儲存陣列之前、應先設定 Hitachi 儲存陣列（系統執行 ONTAP ）所需參數中指定的儲存陣列參數、並將 LUN 對應至主機群組。 
+---
+= 當 Hitachi 儲存陣列無法看見 LUN 時的因應措施
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在將使用陣列 LUN 的 ONTAP 系統連接至 Hitachi 儲存陣列之前、應先設定 Hitachi 儲存陣列（系統執行 ONTAP ）所需參數中指定的儲存陣列參數、並將 LUN 對應至主機群組。
+
+xref:reference_required_parameters_for_hitachi_storage_arrays_with_ontap_systems.adoc[Hitachi 儲存陣列所需的參數、系統執行 ONTAP]
+
+如果在設定參數之前已設定分區、並將 LUN 對應至主機群組、您可以透過執行路徑重新初始化來解決 LUN 無法顯示的問題。路徑重新初始化會強制重新探索從 Hitachi 儲存陣列對應的陣列 LUN 。
+
+您使用的程序取決於 ONTAP 系統上是否已設定與 Hitachi 陣列 LUN 的集合體。（在下列程序中、假設節點 1 和節點 2 是 ONTAP 節點的名稱。）
+
+
+
+== 如果已在使用陣列 LUN 的 ONTAP 系統上建立與 Hitachi 陣列 LUN 的集合體
+
+. 請執行下列命令、以確保 ONTAP 系統上已啟用 HA 組態： *`cluster ha show`*
++
+將顯示下列輸出：
+
++
+[listing]
+----
+
+High Availability Configured: true
+----
+. 執行下列命令、確保 ONTAP 系統上已設定儲存容錯移轉： *`storage failover show`*
++
+將顯示下列輸出：
+
++
+[listing]
+----
+          Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+Node-1    Node-2    true     Connected to Node-2
+Node-2    Node-1    true     Connected to Node-1
+2 entries were displayed.
+----
+. 執行下列命令、在 Node-1 上執行接管作業： *`storage failover takeover -ofnode Node-1`*
+. 再次執行下列命令、確認 Node-2 已準備好進行恢復作業： *`storage failover show`*
++
+將顯示下列輸出：
+
++
+[listing]
+----
+          Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+Node-2    Node-1    false    In takeover, Auto giveback will be
+                                      initiated in 348 seconds
+Node-1    Node-2    -        Waiting for giveback (HA mailboxes)
+2 entries were displayed.
+----
+. 執行下列命令、在 Node-1 上執行恢復作業： *`storage failover giveback -ofnode Node-1 -require-partner-waiting true`*
+. 從叢集中的其他節點、重複步驟 3 到步驟 5 。
+
+
+
+
+== 如果尚未在使用陣列 LUN 的 ONTAP 系統上建立與 Hitachi 陣列 LUN 的集合體
+
+. 執行下列命令、列出所有連接至 Hitachi 儲存陣列的 ONTAP FC 啟動器連接埠： *`system node run -node <node name> -command "sysconfig -v"`*
++
+例如： *`system node run -node Node-1 -command "sysconfig -v"`*
+
+. 執行下列命令、將所有列出的連接埠離線： *`system node run -node <node name> -command "priv set advanced;fcadmin offline <adapter>"`*
++
+例如： *`system node run -node Node-1 -command "priv set advanced;fcadmin offline 0a"`*
+
+. 執行下列命令、將所有列出的連接埠上線： *`system node run -node <node name> -command "priv set advanced;fcadmin online <adapter>"`*
++
+例如： *`system node run -node Node-1 -command "priv set advanced;fcadmin online 0a"`*
+
+

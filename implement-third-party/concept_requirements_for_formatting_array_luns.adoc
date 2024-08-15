@@ -1,0 +1,36 @@
+---
+permalink: implement-third-party/concept_requirements_for_formatting_array_luns.html 
+sidebar: sidebar 
+keywords: requirements, formatting, array, luns 
+summary: 您可以執行不同類型的陣列 LUN 格式化。每種類型都會影響 LUN 或整個儲存陣列的可用度。 
+---
+= 格式化陣列 LUN 的需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以執行不同類型的陣列 LUN 格式化。每種類型都會影響 LUN 或整個儲存陣列的可用度。
+
+如果您必須立即向 ONTAP 系統顯示新的 LUN 、則應使用快速格式化。如果您打算在未來將 LUN 呈現給 ONTAP 系統、建議您快速格式化、但線上格式化是可以接受的。
+
+建議使用快速格式化、因為線上和離線格式化都會延遲磁碟探索、直到 LUN 格式化完成為止、如下表所述：
+
+* 線上格式化會使格式化完全離線的陣列 LUN 、而且陣列 LUN 不會回應任何 SCSI 命令。
++
+格式化會一次在一個陣列 LUN 上執行、直到所有陣列 LUN 都格式化為止。
+
+* 離線格式化會使整個儲存陣列離線、而且儲存陣列不會回應任何 SCSI 命令。
++
+陣列 LUN 每個控制器每次格式化六個、直到格式化完成為止。
+
++
+儲存陣列在所有格式化完成之前不會回應。
+
+* 如果您是在 ONTAP 系統初始設定後建立陣列 LUN （適用於任何主機）、而且使用離線格式化、系統會出現問題。
++
+任何對應至 ONTAP 系統的陣列 LUN 、包括根磁碟區中的陣列 LUN 、都會在格式化完成之前無法使用。
+
+* 線上快速格式化其他主機的 LUN 、不會影響 ONTAP 系統。
+

@@ -1,0 +1,28 @@
+---
+permalink: install/concept_how_array_luns_become_available_for_ontap_storage_use.html 
+sidebar: sidebar 
+keywords: how, array, luns, available, ontap, storage, use 
+summary: ONTAP 系統必須先將 ONTAP 設定為使用陣列 LUN 、才能使用提供給它的陣列 LUN 。 
+---
+= 陣列 LUN 如何可供 ONTAP 儲存設備使用
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 系統必須先將 ONTAP 設定為使用陣列 LUN 、才能使用提供給它的陣列 LUN 。
+
+雖然儲存陣列管理員讓 ONTAP 能夠存取陣列 LUN 、但 ONTAP 在完成下列兩項工作之前、無法使用陣列 LUN 進行儲存：
+
+. 必須將一個 ONTAP 系統（授權使用陣列 LUN ）指派為陣列 LUN 的擁有者 _ 。
+. 必須將陣列 LUN 新增至 Aggregate 。
+
+
+當您將陣列 LUN 指派給 ONTAP 系統時、 ONTAP 會將資料寫入陣列 LUN 、以將指派的系統識別為陣列 LUN 的擁有者。這種邏輯關係稱為 _ 磁碟擁有權 _ 。
+
+當您將陣列 LUN 指派給 ONTAP 系統時、它會成為該系統擁有的備用 LUN 、而不再提供給任何其他 ONTAP 系統使用。
+
+在您將備用陣列 LUN 新增至 Aggregate 之前、無法將其用於儲存。之後、 ONTAP 會確保只有陣列 LUN 的擁有者才能將資料寫入 LUN 、並從 LUN 讀取資料。
+
+在 HA 配對中、兩個節點必須能夠看到相同的儲存設備、但配對中只有一個節點是陣列 LUN 的擁有者。如果所屬節點發生故障、合作夥伴節點會接管陣列 LUN 的讀取 / 寫入存取權。在修復導致節點不可用性的問題之後、原始擁有節點會恢復擁有權。

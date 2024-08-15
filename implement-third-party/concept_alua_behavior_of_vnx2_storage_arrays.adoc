@@ -1,0 +1,22 @@
+---
+permalink: implement-third-party/concept_alua_behavior_of_vnx2_storage_arrays.html 
+sidebar: sidebar 
+keywords: alua, behavior, vnx2, storage, arrays 
+summary: 雖然所有 EMC CLARiiON 和 VNX 陣列都使用 ALUA （非對稱式雙主動式）容錯移轉模式、但 VNX2 儲存陣列的 ALUA 行為可能有所不同。 
+---
+= VNX2 儲存陣列的 ALUA 行為
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+雖然所有 EMC CLARiiON 和 VNX 陣列都使用 ALUA （非對稱式雙主動式）容錯移轉模式、但 VNX2 儲存陣列的 ALUA 行為可能有所不同。
+
+如同所有其他 EMC 陣列 LUN 、 VNX2 陣列 LUN 從動態磁碟集區呈現給 ONTAP 系統時、使用 ALUA 容錯移轉模式。但是、從傳統 RAID 群組呈現給 ONTAP 系統的 VNX2 陣列 LUN 使用雙主動式容錯移轉模式、所有路徑都會回報為 *`AO`* （主動式最佳化）。陣列 LUN 的這種行為會在某些作業期間變更、例如在後端陣列中建立 Snapshot 。
+
+因此、為了維持 VNX2 陣列 LUN 的一致行為、 ONTAP 會將這些 LUN 視為 ALUA 、無論這些陣列 LUN 是來自傳統 RAID 群組或來自動態磁碟集區。
+
+在這種情況下、特定 VNX2 LUN 的 I/O 要求只會透過報告為 * （使用中）狀態的路徑來散佈、而不會散佈 *`INU`報告為 * （主動最佳化）的所有路徑 *`AO`。
+
+例如、如果您有四條路徑通往 VNX2 陣列 LUN 、並從傳統 RAID 群組呈現給 ONTAP 系統、則所有路徑都會報告為 *`AO`* ； 不過、只有兩條路徑處於 *`INU`* 狀態、而其他兩條路徑則未使用、但處於 *`RDY`* （就緒）狀態。

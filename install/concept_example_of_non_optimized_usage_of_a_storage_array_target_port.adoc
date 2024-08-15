@@ -1,0 +1,40 @@
+---
+permalink: install/concept_example_of_non_optimized_usage_of_a_storage_array_target_port.html 
+sidebar: sidebar 
+keywords: example, non-optimized, usage, storage, array, target, port, errors, detect, output 
+summary: 當指定儲存陣列目標連接埠上佇列的 I/O 要求數超過連接埠可以處理的要求數時、就會導致目標連接埠的使用率未最佳化。 
+---
+= 未最佳化使用儲存陣列目標連接埠的範例
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當指定儲存陣列目標連接埠上佇列的 I/O 要求數超過連接埠可以處理的要求數時、就會導致目標連接埠的使用率未最佳化。
+
+您可以在命令的輸出顯示中偵測指定目標連接埠的這類未最佳化使用 `storage array show` 。
+
+
+
+== 顯示偵測目標連接埠未最佳化使用情形時發生錯誤的輸出範例
+
+下列範例顯示命令在偵測指定目標連接埠未最佳化使用情況時傳回的錯誤 `storage array show` ：
+
+[listing]
+----
+vgv3070f50ab::> storage array show -name HP_HSV450_2
+
+                Name: HP_HSV450_2
+              Prefix:
+              Vendor: HP
+               Model: HSV450
+             options:
+       Serial Number: 50014380025d1500
+ Optimization Policy: iALUA
+            Affinity: AAA
+
+
+Errors:
+Warning: HP_HSV450_2 Detected non optimized usage of a target port. WWPN: 2703750270235, average service time: 215ms, average latency: 30ms
+----

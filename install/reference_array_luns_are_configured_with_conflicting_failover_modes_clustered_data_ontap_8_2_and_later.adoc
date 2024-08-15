@@ -1,0 +1,130 @@
+---
+permalink: install/reference_array_luns_are_configured_with_conflicting_failover_modes_clustered_data_ontap_8_2_and_later.html 
+sidebar: sidebar 
+keywords: array, luns, configured, conflict, failover, modes 
+summary: ONTAP 要求將特定 ONTAP 系統可見的陣列 LUN 設定為相同的容錯移轉模式。在某些儲存陣列上、您可以在通往陣列 LUN 的不同路徑上設定不一致的容錯移轉模式。 
+---
+= 陣列 LUN 的容錯移轉模式發生衝突
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 要求將特定 ONTAP 系統可見的陣列 LUN 設定為相同的容錯移轉模式。在某些儲存陣列上、您可以在通往陣列 LUN 的不同路徑上設定不一致的容錯移轉模式。
+
+
+
+== 儲存錯誤會顯示訊息
+
+[listing]
+----
+NAME(UID): This array LUN is configured with conflicting failover modes. Each path to this LUN must use the same mode.
+----
+
+
+== 說明
+
+在某些儲存陣列（例如 EMC CLARiiON 儲存陣列）上、容錯移轉模式可由 FC 啟動器連接埠設定。在這類儲存陣列上、可以針對相同 ONTAP 系統上的 FC 啟動器所看到的陣列 LUN 、設定不一致的容錯移轉模式。對於從特定 ONTAP 系統通往陣列 LUN 的路徑、 ONTAP 不支援不一致的容錯移轉模式。
+
+如果您的儲存陣列允許 FC 啟動器設定陣列 LUN 的容錯移轉模式、則安裝驗證程序的一部分應包括檢查、以確保 ONTAP 系統可以看到陣列 LUN 的容錯移轉模式設定沒有問題。此命令會 `storage errors show` 針對陣列 LUN 的容錯移轉模式設定不一致發出警示、並產生 EMS 訊息。
+
+雖然您的系統可以使用不一致的陣列 LUN 容錯移轉模式設定來運作、但您仍需要盡快修正此問題。否則、如果路徑故障、 ONTAP 系統可能無法正常運作、可能不會發生容錯移轉、或系統可能會出現恐慌。
+
+[NOTE]
+====
+ONTAP 支援執行 ONTAP 的節點之間的不同容錯移轉模式設定。例如、節點 A 可以使用「主動 / 被動」模式來設定陣列 LUN 的路徑、而節點 B 可以使用 ALUA 來設定通往相同陣列 LUN 的路徑。
+
+====
+
+
+== 疑難排解與問題解決
+
+ONTAP 在 LUN 初始化期間發現的第一個路徑的容錯移轉模式、是 ONTAP 對於特定 ONTAP 系統通往 LUN 的所有路徑所預期的容錯移轉模式。如果後續探索到的路徑的容錯移轉模式與第一個路徑的容錯移轉模式不符、 ONTAP 就會發出錯誤訊息。
+
+在以下範例中 `storage errors show` 、 ONTAP 告訴您 LUN EMC-1.128 的容錯移轉模式（可在 mysystem1 FC 啟動器 0A 上看到）是 _專 屬的、而且容錯移轉模式與 ONTAP 在該陣列 LUN 第一條路徑上發現的容錯移轉模式不同。
+
+[listing]
+----
+
+mysystem1::> storage errors show
+EMC-1.128 (60060160e1b0220008071baf6046e211): hba 0a port 500601603ce014de mode Proprietary: This array LUN is configured with conflicting failover modes. Each path to this LUN must use the same mode.
+
+Disk: EMC-1.128
+UID: 60060160:E1B02200:1C65EB20:BFF7E111:00000000:00000000:00000000:...
+----
+您需要修正儲存陣列上的容錯移轉不相符問題。不過、修復不相符情形的整個程序、取決於 ONTAP 在第一條路徑上偵測到的容錯移轉模式、是否是您想要用於該 ONTAP 系統上通往陣列 LUN 的所有路徑的容錯移轉模式。
+
+. 如果您尚未在安裝驗證程序中輸入、請輸入 `storage errors show` 。
++
+[NOTE]
+====
+ `storage array config`如果有需要修正的問題、命令會告訴您執行 `storage error show` 。
+
+====
+. 檢閱 `storage errors show` 輸出、以判斷陣列 LUN 的容錯移轉模式設定是否與 ONTAP 預期的容錯移轉模式不一致。
++
+|===
+| 如果系統在第一個路徑上偵測到的容錯移轉模式是 ... | 範例 | 您需要 ... 
+
+
+ a| 
+您想要的
+ a| 
+您想要使用 ALUA 和 ALUA 的容錯移轉模式、這是 ONTAP 針對第一個路徑所偵測到的容錯移轉模式。
+ a| 
+變更儲存陣列上 ONTAP 在錯誤訊息中識別的啟動器容錯移轉模式。請前往步驟3。
+
+
+
+ a| 
+不是你想要的
+ a| 
+您想要使用「主動 / 被動」容錯移轉模式、但 ALUA 是 ONTAP 在第一個路徑上偵測到的容錯移轉模式。
+ a| 
+從 ONTAP 系統檢視中移除陣列 LUN 。請前往步驟4。
+
+|===
+. 如果您需要變更啟動器的容錯移轉模式、請依照下列步驟修正不相符的問題。
++
+如果系統在第一個路徑上偵測到的容錯移轉模式是您想要的、您可以使用此步驟。
+
++
+.. 在 ONTAP 中、將第二條路徑離線。
+.. 在儲存陣列上、變更 ONTAP 在錯誤訊息中識別的啟動器容錯移轉模式。
+.. 在 ONTAP 中、將第二條路徑重新上線。
+
+
+. 如果您需要從 ONTAP 系統的檢視中移除陣列 LUN 來修正不相符的問題、請根據陣列 LUN 是備援或是集合體、選擇下列其中一種方法。
++
+如果系統在第一個路徑上偵測到的容錯移轉模式不是您想要的、您可以使用其中一種方法。
+
++
+|===
+| 方法 1 ：受影響的陣列 LUN 為備援磁碟機（非集合體的一部分） | 方法 2 ：受影響的 LUN 位於集合體中 
+
+
+ a| 
+使用此方法、 ONTAP 系統不需要重新開機。
+
+.. 在 ONTAP 中、針對每個受影響的備用 LUN 執行下列命令： `disk remove_ownership LUNfullname`
+.. 在儲存陣列上、在通往 ONTAP 系統的所有路徑上遮罩每個受影響的陣列 LUN 。
+.. 等待約一分鐘、然後確認 ONTAP 系統不再顯示陣列 LUN 。
+.. 為 ONTAP 系統上的每個 FC 啟動器設定相同的容錯移轉模式。
+.. 將所有受影響的陣列 LUN 再次呈現至 ONTAP 系統。
++
+ONTAP 下次執行 LUN 探索時、應該會探索 LUN
+
+.. 執行 `storage errors show` 以確認不再發生容錯移轉模式錯誤。
+
+ a| 
+使用此方法時、必須重新啟動 ONTAP 系統。
+
+.. 重新啟動 ONTAP 系統、並在 Loader 提示下按住。
+.. 在儲存陣列上、檢閱此系統的 FC 啟動器上的容錯移轉模式設定、並視需要將其更新至所需的容錯移轉模式。
+.. 重新啟動 ONTAP 系統。
+.. 執行 `storage errors show` 以確認不再發生容錯移轉模式錯誤。
+
+
+|===
+

@@ -1,0 +1,57 @@
+---
+permalink: install/reference_volume_set_addressing_is_inconsistent.html 
+sidebar: sidebar 
+keywords: volume, set, address, inconsistent, show, message, troubleshoot, problem, resolution 
+summary: ONTAP 可以在儲存陣列的路徑集上偵測不一致的 LUN ID 。對於設定 Volume Set 定址的儲存陣列、 LUN 對應連接埠上的設定不相符是導致 LUN ID 不相符的問題之一。 
+---
+= Volume Set 定址不一致
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 可以在儲存陣列的路徑集上偵測不一致的 LUN ID 。對於設定 Volume Set 定址的儲存陣列、 LUN 對應連接埠上的設定不相符是導致 LUN ID 不相符的問題之一。
+
+例如、在 EMC Symmetrix 儲存陣列上、 LUN 對應的通道導向器連接埠上的 Volume Set Addressing 參數設定不一致會觸發 LUN 不相符的錯誤。
+
+
+
+== 儲存錯誤會顯示訊息
+
+[listing]
+----
+
+EMC-1.128 (4849544143484920443630303035323430303132): This Array LUN is using multiple LUN IDs.  Only one LUN ID per serial number is supported.
+----
+
+
+== 說明
+
+有許多組態錯誤可能會導致錯誤訊息。此說明是關於在設定不一致的 Volume Set 定址時顯示此訊息。
+
+ONTAP 會在 LUN 對應的連接埠上、明確檢查 Volume Set 定址參數的設定是否不一致。如果設定不同、 ONTAP 會將此報告為輸出和 EMS 訊息中的 LUN ID 不相符 `storage errors show` 。
+
+[NOTE]
+====
+如果未如預期設定 Volume Set 定址、不會發出警示；只有在 LUN 對應的通道導向器連接埠之間的組態不一致時、 ONTAP 才會發出警示。
+
+====
+
+
+== 疑難排解與問題解決
+
+如果 `storage errors show` 命令顯示特定錯誤訊息、而您的儲存陣列是 EMC Symmetrix 、請執行下列其中一項操作、協助您識別問題是否是因為 Volume Set 定址不一致所造成：
+
+* 在 ONTAP 中、針對識別的陣列 LUN 執行 `storage disk show -disk` 。
++
+此命令會顯示陣列 LUN 的所有路徑、以及指派給每個路徑的 LUN ID 。
+
+* 在儲存陣列上、檢查已識別 LUN 對應至的通道導向器連接埠的 Volume Set 定址設定。
+
+
+如果您確定設定不一致、請修正儲存陣列上的組態問題、確定您將兩個通道導向器連接埠上的參數設定為 ONTAP 所需的設定。
+
+*相關資訊*
+
+https://docs.netapp.com/us-en/ontap-flexarray/implement-third-party/index.html["適用於協力廠商儲存設備的虛擬化實作FlexArray"]

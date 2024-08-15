@@ -1,0 +1,42 @@
+---
+permalink: implement-third-party/concept_3par_storage_array_families.html 
+sidebar: sidebar 
+keywords: 3par, storage, array, families 
+summary: ONTAP 不支援在集合體中混合某些類型的儲存設備。為了協助您判斷可混合在集合中的陣列 LUN 、每家廠商的儲存陣列會分組為不同的系列。建立集合體時、您無法在同一個集合體中混合來自不同廠商和不同儲存陣列系列的陣列 LUN 。 
+---
+= 3PAR 儲存陣列系列
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 不支援在集合體中混合某些類型的儲存設備。為了協助您判斷可混合在集合中的陣列 LUN 、每家廠商的儲存陣列會分組為不同的系列。建立集合體時、您無法在同一個集合體中混合來自不同廠商和不同儲存陣列系列的陣列 LUN 。
+
+同一個系列中的儲存陣列具有相同的效能和容錯移轉特性。例如、同一系列的成員都會執行主動式容錯移轉、或全部執行主動式被動式容錯移轉。可能會使用多個因素來判斷儲存陣列系列。例如、雖然其他特性可能相同、但具有不同架構的儲存陣列會位於不同的系列中。
+
+下表顯示了按不同系列組織的受支持 3PAR 存儲陣列：
+
+* 系列 1 ： 3PAR InServ 儲存設備
++
+** Tx00
+
+
+* 系列 2 ： 3PAR InServ 儲存設備
++
+** Fx00
+
+
+* 系列 3 ： 3PAR StoreServ 儲存設備
++
+** 20000
+** 208xx
+
+
+
+
+互通性對照表是每家廠商所支援儲存陣列資訊的最終授權單位。
+
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

@@ -1,0 +1,25 @@
+---
+permalink: install/task_removing_one_array_lun_from_use_by_data_ontap.html 
+sidebar: sidebar 
+keywords: remove, one, array, lun, use, ontap 
+summary: 如果儲存陣列管理員不再想要使用特定的陣列 LUN for ONTAP 、則必須先移除 ONTAP 寫入 LUN 的資訊（例如大小和擁有權）、系統管理員才能重新設定 LUN 以供其他主機使用。 
+---
+= 移除一個陣列 LUN 以供 ONTAP 使用
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果儲存陣列管理員不再想要使用特定的陣列 LUN for ONTAP 、則必須先移除 ONTAP 寫入 LUN 的資訊（例如大小和擁有權）、系統管理員才能重新設定 LUN 以供其他主機使用。
+
+*您需要的是什麼*
+
+如果儲存陣列管理員不再想要 ONTAP 使用的 LUN 位於集合體中、則必須先將集合體離線並銷毀、才能開始此程序。將彙總資料離線並銷毀、會將資料 LUN 變更為備用 LUN 。
+
+.步驟
+. 輸入下列命令： `storage disk removeowner -disk LUN_name`
++
+_LUN_NAME_ 是陣列 LUN 的名稱。
+
+

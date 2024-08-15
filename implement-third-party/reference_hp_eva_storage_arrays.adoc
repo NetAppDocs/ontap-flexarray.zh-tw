@@ -1,0 +1,14 @@
+---
+permalink: implement-third-party/reference_hp_eva_storage_arrays.html 
+sidebar: sidebar 
+keywords: hp, eva, storage, arrays 
+summary: 設定儲存陣列以搭配 ONTAP 系統使用時、您必須符合特定需求。這些需求包括在儲存陣列上設定組態參數、以及僅部署支援的組態。 
+---
+= HP EVA 儲存陣列
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+設定儲存陣列以搭配 ONTAP 系統使用時、您必須符合特定需求。這些需求包括在儲存陣列上設定組態參數、以及僅部署支援的組態。

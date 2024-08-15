@@ -1,0 +1,36 @@
+---
+permalink: implement-third-party/reference_required_settings_for_ibm_ds_storage_arrays_with_ontap_systems.html 
+sidebar: sidebar 
+keywords: required, settings, ibm ds, storage, arrays, ontap, systems. host type, ds8xxx, configuring, ds8300 9a2 lpar models 
+summary: 儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。 
+---
+= ONTAP 系統的 IBM DS 儲存陣列所需的設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。
+
+
+
+== DS8xxx 儲存陣列所需的主機類型
+
+下表顯示必要的主機類型設定：
+
+|===
+| 參數 | 設定 
+
+
+ a| 
+`Host type`
+ a| 
+N 系列閘道
+
+|===
+
+
+== 設定 DS法律 專業人員協會（ DS法律 專業人員協會） 9A2 LPAR 機型的需求
+
+當設定 DS悉 力 9A2 LPAR （系統邏輯分割區）模型與 ONTAP 系統互動時、您必須設定每個陣列 LUN 的存取權、以便備援路徑都能存取相同的 LPAR 。

@@ -1,0 +1,14 @@
+---
+permalink: install/concept_array_lun_assignment_changes.html 
+sidebar: sidebar 
+keywords: array, lun, assignment, changes 
+summary: 您可以將備用陣列 LUN 的指派從一個 ONTAP 系統變更為另一個系統。您可能想要變更節點負載平衡的擁有權。 
+---
+= 陣列 LUN 指派變更
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以將 _spare 陣列 LUN 的指派從一個 ONTAP 系統變更為另一個系統。您可能想要變更節點負載平衡的擁有權。

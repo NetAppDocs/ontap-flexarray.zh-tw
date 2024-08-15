@@ -1,0 +1,12 @@
+---
+permalink: install/index.html 
+sidebar: sidebar 
+keywords: flexarray, virtualization, installation, requirements, reference 
+summary: 歡迎使用 ONTAP FlexArray 資訊庫。您可在此找到如何設定叢集以搭配儲存陣列使用的相關資訊。 
+---
+= FlexArray ® 虛擬化安裝需求與參考資料
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+

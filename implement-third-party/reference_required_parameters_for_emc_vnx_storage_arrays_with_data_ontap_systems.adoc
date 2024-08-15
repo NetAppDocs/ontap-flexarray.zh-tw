@@ -1,0 +1,62 @@
+---
+permalink: implement-third-party/reference_required_parameters_for_emc_vnx_storage_arrays_with_data_ontap_systems.html 
+sidebar: sidebar 
+keywords: required, parameters, emc, vnx, storage, arrays, ontap, systems 
+summary: 儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。 
+---
+= ONTAP 系統的 EMC VNX 儲存陣列所需的參數
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。
+
+下表列出了必須在儲存陣列上設定的主機組態參數。
+
+|===
+| 參數 | 設定 
+
+
+ a| 
+`Initiator type`
+ a| 
+CLARiiON / VNX
+
+
+
+ a| 
+`Array Com Path`
+ a| 
+已啟用
+
+
+
+ a| 
+`Failover mode`
+ a| 
+4
+
+
+
+ a| 
+`Unit serial number`
+ a| 
+LUN
+
+
+
+ a| 
+`Host name`
+ a| 
+使用者提供的主機名稱和連接埠號碼
+
+
+
+ a| 
+`IP address`
+ a| 
+唯一的假 IP 位址您必須確定您沒有在儲存陣列組態的任何其他地方輸入此 IP 位址、而且它不是網路上的 IP 位址。
+
+|===

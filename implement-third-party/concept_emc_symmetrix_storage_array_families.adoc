@@ -1,0 +1,26 @@
+---
+permalink: implement-third-party/concept_emc_symmetrix_storage_array_families.html 
+sidebar: sidebar 
+keywords: emc, symmetrix, storage, array, families 
+summary: ONTAP 不支援在集合體中混合某些類型的儲存設備。為了協助您判斷可混合在集合中的陣列 LUN 、每家廠商的儲存陣列會分組為不同的系列。建立集合體時、您無法在同一個集合體中混合來自不同廠商和不同儲存陣列系列的陣列 LUN 。 
+---
+= EMC Symmetrix 儲存陣列系列
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 不支援在集合體中混合某些類型的儲存設備。為了協助您判斷可混合在集合中的陣列 LUN 、每家廠商的儲存陣列會分組為不同的系列。建立集合體時、您無法在同一個集合體中混合來自不同廠商和不同儲存陣列系列的陣列 LUN 。
+
+ONTAP 系統支援下列 EMC Symmetrix 儲存陣列系列：
+
+* 系列 1 ： Vmax
+* 系列 2 ： VMAX3
+
+
+互通性對照表是每家廠商所支援儲存陣列資訊的最終授權單位。
+
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

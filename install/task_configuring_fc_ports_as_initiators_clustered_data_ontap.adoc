@@ -1,0 +1,57 @@
+---
+permalink: install/task_configuring_fc_ports_as_initiators_clustered_data_ontap.html 
+sidebar: sidebar 
+keywords: configure, fc ports, initiators 
+summary: 您可以將個別 FC 連接埠設定為 ONTAP 系統上的啟動器。啟動器模式可讓連接埠連線至儲存陣列。 
+---
+= 將 FC 連接埠設定為啟動器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以將個別 FC 連接埠設定為 ONTAP 系統上的啟動器。啟動器模式可讓連接埠連線至儲存陣列。
+
+.步驟
+. * 選用： * 如果介面卡連接埠已經設定了生命、請使用命令刪除所有生命 `network interface delete` 。
++
+如果 LIF 位於連接埠集中、您必須先從連接埠集移除 LIF 、才能刪除 LIF 。
+
++
+以下範例顯示如何刪除 SVM VS3 上的生命： `network interface delete -vserver vs3 -lif lif2,lif0`
+
+. 使用命令將連接埠離線 `network fcp adapter modify` 。
++
+以下範例顯示如何將節點 sysnode 的連接埠 0c 離線： `network fcp adapter modify -node sysnode1 -adapter 0c -state down`
+
+. 使用 `system hardware unified-connect modify` 命令將離線連接埠從目標變更為啟動器。
++
+以下範例說明如何將 0c 的連接埠類型從目標變更為啟動器： `system node hardware unified-connect modify -node sysnode1 -adapter 0c -type initiator`
+
+. 重新啟動裝載您所變更介面卡的節點。
+. 使用 `system hardware unified-connect show` 命令驗證是否已針對您的組態正確設定 FC 連接埠。
++
+以下範例顯示 0c 連接埠類型的變更：
+
++
+`system node hardware unified-connect show -node sysnode1`
+
++
+[listing]
+----
+
+
+                       Current  Current    Pending  Pending
+Node          Adapter  Mode     Type       Mode     Type       Status
+------------  -------  -------  ---------  -------  ---------  -----------
+sysnode1      0a       fc       target     -        -          online
+sysnode1      0b       fc       target     -        -          online
+sysnode1      0c       fc       initiator  -        -          offline
+sysnode1      0d       fc       target     -        -          online
+----
+. 使用 `storage enable adapter` 命令將離線連接埠重新上線。
++
+以下範例說明如何讓連接埠 0c 連線： `node run -node sysnode1 -command storage enable adapter -e 0c`
+
+

@@ -1,0 +1,93 @@
+---
+permalink: install/task_verifying_if_the_back_end_configuration_matches_the_expected_output.html 
+sidebar: sidebar 
+keywords: verify, back-end, configuration, matches, intended, configuration 
+summary: 解決儲存錯誤所偵測到的後端組態錯誤後、您必須檢查現有的後端組態是否符合您預期的組態、並修正因任何不符而產生的問題。 
+---
+= 驗證後端組態是否符合預期的組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+解決所偵測到的後端組態錯誤之後 `storage errors show`、您必須檢查現有的後端組態是否符合您預期的組態、並修正因任何不相符而產生的問題。
+
+.步驟
+. 輸入下列命令： `storage array config show`
++
+輸出會 `storage array config show` 依儲存陣列將 LUN 群組、 LUN 計數和路徑的相關資訊分組、如以下 HA 配對範例所示：
+
++
+[listing]
+----
+
+mysystem1::> storage array config show
+             LUN   LUN
+Node         Group Count  Array Name      Array Target Port   Initiator
+------------ ----- ----- ---------------  ------------------  ---------
+mysystem1a    0    10     DGC_RAID5_1      5005076303030124       1a
+                                           5005076303088124       1b
+                                           5005076303130124       1c
+                                           5005076303188124       1d
+mysystem1b    0    10     DGC_RAID5_1      5005076303030124       1a
+                                           5005076303088124       1b
+                                           5005076303130124       1c
+                                           5005076303188124       1d
+8 entries were displayed.
+----
+. 請查看 `storage array config show` 下表中每項問題陳述的輸出、並參閱適當的解決方案資訊。
++
+|===
+| 如果您發現此問題 ... | 請參閱此資訊 ... 
+
+
+ a| 
+清空 LUN 群組
+ a| 
+xref:reference_reasons_for_no_luns_in_the_array_lun_group.adoc[陣列 LUN 群組中沒有 LUN 的原因]
+
+
+
+ a| 
+缺少預期的儲存陣列
+ a| 
+xref:reference_reasons_storage_arrays_are_missing_from_command_output.adoc[您可能看不到所有預期儲存陣列的原因]
+
+
+
+ a| 
+陣列 LUN 群組數量超出預期
+ a| 
+xref:reference_reasons_for_more_array_lun_groups_than_expected.adoc[陣列 LUN 群組數量超出預期的原因]
+
+
+
+ a| 
+陣列 LUN 群組數量比預期的少
+ a| 
+xref:reference_reasons_for_fewer_array_lun_groups_than_expected.adoc[陣列 LUN 群組數量少於預期的原因]
+
+
+
+ a| 
+陣列 LUN 群組不會顯示預期的 LUN 數量
+ a| 
+xref:reference_reasons_for_the_incorrect_number_of_luns_in_array_lun_groups.adoc[陣列 LUN 群組中 LUN 數量不正確的原因]
+
+
+
+ a| 
+路徑比預期的少
+ a| 
+xref:reference_fewer_than_two_paths_to_an_array_lun.adoc[到陣列 LUN 的路徑少於兩條]
+
+
+
+ a| 
+路徑數量超出預期
+ a| 
+xref:reference_reasons_for_more_paths_to_an_array_lun_than_expected.adoc[通往陣列 LUN 的路徑比預期更多的原因]
+
+|===
+

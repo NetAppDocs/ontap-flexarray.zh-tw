@@ -1,0 +1,56 @@
+---
+permalink: install/concept_rules_for_sharing_an_fc_initiator_port_with_multiple_target_ports.html 
+sidebar: sidebar 
+keywords: rules, share, fc initiator, port, multiple, target, connect, storage, arrays 
+summary: 您可以將 ONTAP 系統上的 FC 啟動器連接埠連接至個別儲存陣列上最多四個目標連接埠。若要將使用的 FC 啟動器連接埠數量減至最少、與多個目標共用 FC 啟動器連接埠是很有用的。 
+---
+= 與多個目標連接埠共用 FC 啟動器連接埠的規則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以將 ONTAP 系統上的 FC 啟動器連接埠連線至 _ 分隔 _ 儲存陣列上最多四個目標連接埠。若要將使用的 FC 啟動器連接埠數量減至最少、與多個目標共用 FC 啟動器連接埠是很有用的。
+
+如果陣列可以根據所存取的目標連接埠、將不同的邏輯裝置集呈現給 FC 啟動器、您也可以將 FC 啟動器連接埠連接至相同 _ 儲存陣列上最多四個目標連接埠。
+
+在 FC 啟動器連接埠上可以看到的陣列 LUN 數量有限。這些限制因版本而異。
+
+
+
+== 當 FC 啟動器連接埠連接至 _ 分隔 _ 儲存陣列上的多個目標連接埠時、會有規則
+
+此組態的規則如下：
+
+* 所有儲存陣列都必須來自相同的廠商機型系列。
++
+同一個系列中的儲存陣列具有相同的效能和容錯移轉特性。例如、同一系列的成員都會執行主動式容錯移轉、或全部執行主動式被動式容錯移轉。可能會使用多個因素來判斷儲存陣列系列。例如、雖然其他特性可能相同、但具有不同架構的儲存陣列會位於不同的系列中。
+
+* MetroCluster 組態支援將單一 FC 啟動器連接埠連接至多個目標連接埠。
+* 單一 FC 啟動器連接埠最多可連接至多四個儲存陣列上的目標連接埠。
+* 即使同一個 FC 啟動器連接埠正在存取多個目標連接埠、您也必須將每個 FC 啟動器目標連接埠配對放在不同的區域（ 1 ： 1 ）中。
+
+
+
+
+== 將 FC 啟動器連接埠連接至 _ 相同 _ 儲存陣列上的多個目標連接埠時的規則
+
+此組態僅可用於儲存陣列、其 LUN 遮罩、呈現或主機群組功能可根據所存取的目標連接埠、將不同的 LUN 群組呈現給相同的 FC 啟動器。
+
+某些儲存陣列可以根據所存取的目標連接埠、將不同的邏輯裝置集呈現給 FC 啟動器。這些類型的儲存陣列可讓同一個 FC 啟動器位於多個主機群組中。在具有此功能的儲存陣列上、每個 FC 啟動器連接埠都可以存取同一個儲存陣列上的多個陣列目標連接埠、每個目標連接埠會向 FC 啟動器顯示不同的 LUN 群組。請參閱儲存陣列文件、以判斷儲存陣列是否允許同一個 FC 啟動器位於多個主機群組中。
+
+以下是此組態的規則：
+
+* 單一 FC 啟動器連接埠最多可連接至儲存陣列上的四個目標連接埠。
+* MetroCluster 組態支援將單一 FC 啟動器連接埠連接至多個目標連接埠。
+* 您必須將每個 FC 啟動器目標連接埠配對放在不同的區域（ 1 ： 1 ）中、即使同一個 FC 啟動器正在存取多個目標連接埠。
+
+
+*相關資訊*
+
+https://docs.netapp.com/us-en/ontap-flexarray/implement-third-party/index.html["適用於協力廠商儲存設備的虛擬化實作FlexArray"]
+
+https://docs.netapp.com/us-en/ontap-flexarray/implement-e-series/index.html["NetApp E系列儲存設備的虛擬化實作FlexArray"]
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Fabric附加MetroCluster 的安裝與組態"]

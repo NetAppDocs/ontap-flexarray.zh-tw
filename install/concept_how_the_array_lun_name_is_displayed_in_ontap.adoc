@@ -1,0 +1,37 @@
+---
+permalink: install/concept_how_the_array_lun_name_is_displayed_in_ontap.html 
+sidebar: sidebar 
+keywords: how, array, lun, name, displayed, ontap, output, example, storage, disk 
+summary: 即使陣列 LUN 有多個路徑、整個叢集的唯一名稱也會指派給每個陣列 LUN 。這與早期版本不同、每個陣列 LUN 在指定時間內、都會根據存取 LUN 的路徑、擁有多個名稱。 
+---
+= 陣列 LUN 名稱在 ONTAP 中的顯示方式
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+即使陣列 LUN 有多個路徑、整個叢集的唯一名稱也會指派給每個陣列 LUN 。這與早期版本不同、每個陣列 LUN 在指定時間內、都會根據存取 LUN 的路徑、擁有多個名稱。
+
+您可以執行命令、檢視對應至每個陣列 LUN 的舊名稱 `storage disk show --disk <disk name> -fields diskpathnames` 。
+
+
+
+== 儲存磁碟 show --disk <disk name> -fields diskpathnames 命令的輸出範例
+
+[listing]
+----
+vgv3270f47ab::*> storage disk show -type LUN
+                     Usable           Disk    Container   Container
+Disk                   Size Shelf Bay Type    Type        Name      Owner
+---------------- ---------- ----- --- ------- ----------- --------- --------
+EMC-1.7              8.66GB     -   - LUN     spare       Pool0     vgv3270f47a
+EMC-1.8              8.66GB     -   - LUN     spare       Pool0     vgv3270f47a
+EMC-1.9              8.66GB     -   - LUN     spare       Pool0     vgv3270f47a
+EMC-1.10             8.66GB     -   - LUN     spare       Pool0     vgv3270f47a
+
+vgv3270f47ab::*> storage disk show -disk EMC-1.10 -fields diskpathnames
+disk     diskpathnames
+-------- -------------------------------------------------------------------------------------------------------------------------------
+EMC-1.10 vgv3270f47a:vgbr300s181:5.126L9,vgv3270f47a:vgbr300s139:5.126L9,vgv3270f47b:vgbr300s181:5.126L9,vgv3270f47b:vgbr300s139:5.126L9
+----

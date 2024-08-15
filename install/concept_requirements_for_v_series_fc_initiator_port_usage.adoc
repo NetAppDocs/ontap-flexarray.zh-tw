@@ -1,0 +1,62 @@
+---
+permalink: install/concept_requirements_for_v_series_fc_initiator_port_usage.html 
+sidebar: sidebar 
+keywords: requirements, use, fc initiator, ports 
+summary: 如果您想在 ONTAP 組態中使用 FC 啟動器連接埠搭配陣列 LUN 、則必須遵循特定要求、以取得連接埠配對備援、 HBA 連接埠設定、連線至目標連接埠、陣列 LUN 限制、以及連線至不同的儲存設備和裝置。 
+---
+= 使用 FC 啟動器連接埠的需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您想在 ONTAP 組態中使用 FC 啟動器連接埠搭配陣列 LUN 、則必須遵循特定要求、以取得連接埠配對備援、 HBA 連接埠設定、連線至目標連接埠、陣列 LUN 限制、以及連線至不同的儲存設備和裝置。
+
+|===
+| 針對此功能 ... | 要求是 ... 
+
+
+ a| 
+連接埠配對備援
+ a| 
+將 ONTAP 系統連接至陣列 LUN 時、您必須使用備援 FC 啟動器連接埠配對。
+
+
+
+ a| 
+HBA 的連接埠設定
+ a| 
+您必須將用於存取磁碟或陣列 LUN 的所有 HBA 設定為 _initiator 連接埠。
+
+
+
+ a| 
+連線至儲存陣列目標連接埠
+ a| 
+您可以將同一個 FC 啟動器連接埠連接至儲存陣列上的多個目標連接埠。
+
+您最多可以將兩個 FC 啟動器連接埠連線至單一目標連接埠。
+
+
+
+ a| 
+陣列 LUN 限制
+ a| 
+在 FC 啟動器連接埠上可以看到的陣列 LUN 數量有限。這些限制因 ONTAP 版本而異。
+
+
+
+ a| 
+連線至不同的儲存設備
+ a| 
+您必須使用獨立的 FC 啟動器連接埠、將 ONTAP 系統連接至下列各項：
+
+* 磁碟櫃
+* 陣列LUN
+* 磁帶設備
+
+
+如果 ONTAP 系統沒有足夠的內部連接埠來滿足您的需求、您必須訂購額外的 HBA 。
+
+|===

@@ -1,0 +1,32 @@
+---
+permalink: implement-third-party/concept_requirements_for_implementing_lun_security_on_emc_symmetrix_storage_arrays.html 
+sidebar: sidebar 
+keywords: requirements, implementing, lun, security, emc, symmetrix, storage, arrays 
+summary: 您可以使用 LUN 安全性來排除主機將資料寫入該主機未擁有的 LUN 的可能性。 
+---
+= 在 EMC Symmetrix 儲存陣列上實作 LUN 安全性的需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 LUN 安全性來排除主機將資料寫入該主機未擁有的 LUN 的可能性。
+
+若要避免非 ONTAP 主機覆寫 ONTAP 系統擁有的 EMC Symmetrix 陣列 LUN 、或反之、您必須以下列其中一種方式、透過主機（通道）導向器連接埠呈現 Symmetrix 邏輯裝置：
+
+* 在專用於 ONTAP 使用的特定 Symmetrix 主機（通道）導向器連接埠上、僅顯示 ONTAP 的 Symmetrix 邏輯裝置。
++
+如果連接埠無法專用於 ONTAP 、您應該確認使用這些連接埠的所有其他主機都與 ONTAP 需求相容。這是因為連接至 Symmetrix 陣列的每個主機都需要不同的連接埠屬性設定。在連接至 Symmetrix 儲存陣列的多個主機之間共用連接埠、可能會導致無法實作的組態。
+
+* 對於 VMAX 儲存陣列、請建立連接埠群組、儲存群組和啟動器群組、以建立所需對應和遮罩的遮罩檢視。
++
+若要達成此目的、您必須先在 VMAX 儲存陣列連接埠上啟用 ACLX 連接埠屬性。
+
+
+
+[NOTE]
+====
+依預設、請勿將 VCMDB LUN 呈現給所有主機。設定全域設定、以限制 VCMDB 的可見度、除非特定主機已明確顯示該設定。
+
+====

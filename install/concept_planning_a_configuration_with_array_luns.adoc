@@ -1,0 +1,20 @@
+---
+permalink: install/concept_planning_a_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: plan, configuration, array, luns 
+summary: 若要規劃具有陣列 LUN 的 ONTAP 組態、您必須驗證特定 ONTAP 版本是否支援儲存陣列。此外、您必須檢查互通性和支援資訊、以確保所有系統都符合陣列 LUN 組態的需求。 
+---
+= 規劃陣列 LUN 的組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+若要規劃具有陣列 LUN 的 ONTAP 組態、您必須驗證特定 ONTAP 版本是否支援儲存陣列。此外、您必須檢查互通性和支援資訊、以確保所有系統都符合陣列 LUN 組態的需求。
+
+*相關資訊*
+
+https://mysupport.netapp.com/site/global/dashboard["NetApp支援"]
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

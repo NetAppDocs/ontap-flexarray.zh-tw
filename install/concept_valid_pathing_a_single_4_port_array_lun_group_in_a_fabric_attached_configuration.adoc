@@ -1,0 +1,36 @@
+---
+permalink: install/concept_valid_pathing_a_single_4_port_array_lun_group_in_a_fabric_attached_configuration.html 
+sidebar: sidebar 
+keywords: valid, path, single, 4, port, array, lun, group, fabric attached, configuration 
+summary: 單一 4 埠陣列 LUN 群組組組態可搭配所有 ONTAP 版本的所有儲存陣列使用。 
+---
+= 有效路徑：光纖附加組態中的單一 4 埠陣列 LUN 群組
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+單一 4 埠陣列 LUN 群組組組態可搭配所有 ONTAP 版本的所有儲存陣列使用。
+
+下圖顯示單一 4 埠陣列 LUN 群組組組態中的路徑：
+
+image::../media/one_4_port_array_lun_gp.gif[此圖形由其周邊文字說明。]
+
+在此具有單一 4 埠 LUN 群組的組態中、陣列 LUN 會對應至儲存陣列上的四個連接埠。陣列 LUN 群組會呈現給不同陣列目標連接埠上 HA 配對中的兩個節點。不過、每個節點只能透過兩條路徑、看到陣列 LUN 的端點對端點。已設定分區、以便節點上的每個 FC 啟動器連接埠只能存取單一目標陣列連接埠。
+
+當您檢查預期的 LUN 群組數目是否已設定時、比較輸出與有效輸出是很有幫助的 `storage array config show` 。以下 `storage array config show` 輸出範例顯示此組態的預期輸出：單一陣列 LUN 群組：
+
+[listing]
+----
+vs::> storage array config show
+             LUN   LUN
+Node         Group Count  Array Name     Array Target Port     Initiator
+------------ ----- ----- ------------- ----------------------- ---------
+vs1            1    10   DGC_RAID5_1      50050763030301241A     0a
+                                          50050763031301242A     0c
+vs2            1    10   DGC_RAID5_1      50050763030881241B     0a
+                                          50050763031881242B     0c
+
+4 entries were displayed.
+----

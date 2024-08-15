@@ -1,0 +1,33 @@
+---
+permalink: install/concept_support_for_metrocluster_configurations_that_can_use_array_luns.html 
+sidebar: sidebar 
+keywords: requirements, metrocluster, configurations, array, luns 
+summary: 在使用陣列 LUN 設定 MetroCluster 組態之前、您必須確保組態中使用的 ONTAP 系統和儲存設備符合基本的支援需求。 
+---
+= 使用陣列 LUN 進行 MetroCluster 組態的需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用陣列 LUN 設定 MetroCluster 組態之前、您必須確保組態中使用的 ONTAP 系統和儲存設備符合基本的支援需求。
+
+使用陣列 LUN 支援 MetroCluster 組態的基本需求如下：
+
+* 您可以在 MetroCluster 組態中同時使用支援陣列 LUN 的 V 系列系統和 FAS 系統。
++
+不過、您必須確保 MetroCluster 組態中使用的所有 ONTAP 系統都是相同的機型。
+
+* ONTAP 系統只能使用原生磁碟、僅限儲存陣列上的 LUN 、或兩者皆可使用。
+* 如果您同時使用原生磁碟和陣列 LUN 來設定 MetroCluster 組態、則必須使用這些橋接器所支援的 FC 對 SAS 橋接器和原生磁碟。
+* ONTAP 系統和儲存陣列必須在 _ 互通性對照表 _ 中識別為 MetroCluster 組態支援。
+
+
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Fabric附加MetroCluster 的安裝與組態"]
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/index.html["延伸MetroCluster 安裝與組態"]

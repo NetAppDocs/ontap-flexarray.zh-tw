@@ -1,0 +1,111 @@
+---
+permalink: implement-third-party/reference_required_parameters_for_hitachi_storage_arrays_with_ontap_systems.html 
+sidebar: sidebar 
+keywords: required, parameters, hitachi, storage, arrays, ontap, systems, ams, hus, vsp, hus vm, workaround 
+summary: 儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。 
+---
+= 採用 ONTAP 系統的 Hitachi 儲存陣列所需的參數
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。
+
+
+
+== AMS 和 Hus 儲存陣列所需的系統參數
+
+下表列出了必須設定的參數：
+
+|===
+| 參數 | 設定 
+
+
+ a| 
+`Mapping mode`
+ a| 
+已啟用
+
+
+
+ a| 
+`Host group security`
+ a| 
+已啟用
+
+
+
+ a| 
+`Mode Setting > Common Setting`
+ a| 
+標準模式
+
+
+
+ a| 
+`Platform`
+ a| 
+未指定
+
+
+
+ a| 
+`Middleware`
+ a| 
+未指定
+
+|===
+
+
+== VSP 和 Hus VM 儲存陣列所需的系統參數
+
+下表列出了必須設定的參數：
+
+|===
+| 參數 | 設定 
+
+
+ a| 
+`Host mode`
+ a| 
+標準或 00
+
+
+
+ a| 
+`Port security`
+ a| 
+已啟用
+
+
+
+ a| 
+[NOTE]
+====
+應為每個啟動器目標連接埠配對建立與預設主機群組分開的主機群組。
+
+====
+|===
+應先設定儲存陣列參數、並將 LUN 對應至主機群組、然後再將交換器分區為將 ONTAP 系統連接至 Hitachi 儲存陣列。
+
+如果在設定儲存陣列參數之前、 ONTAP FC 啟動器連接埠已與 Hitachi 陣列目標連接埠分區、且 LUN 已對應至主機群組、則您可能無法看到任何呈現給 ONTAP 介面的 LUN 。
+
+在此情況下、 ONTAP 會產生下列其中一項 EMS 訊息：
+
+[listing]
+----
+[fci.device.login.reject:info] The PLOGI transmitted by port XX was rejected by port_id 0xYYYY with reason code 0x9 'Invalid R_CTL Field', explanation code 0x29 'Insufficient Resources to Support Login'
+----
+[listing]
+----
+[fci.device.login.reject:info]: The PLOGI transmitted by port XX was rejected by port_id 0xYYYY with reason code 0x3 'Nx_Port Not Available, Temporary', explanation code 0x29 'Insufficient Resources to Support Login'
+----
+
+
+== 因應措施
+
+如果在設定參數之前已設定分區、並將 LUN 對應至主機群組、您可以執行路徑重新初始化來強制重新探索從 Hitachi 儲存陣列對應的陣列 LUN 、以解決 LUN 無法顯示的問題。如需此問題的因應措施、請參閱「當 Hitachi 儲存陣列無法看見 LUN 時的因應措施」一節。
+
+xref:reference_workaround_when_luns_are_not_visible_with_hitachi_storage_arrays.adoc[當 Hitachi 儲存陣列無法看見 LUN 時的因應措施]

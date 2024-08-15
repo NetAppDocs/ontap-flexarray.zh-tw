@@ -1,0 +1,75 @@
+---
+permalink: install/concept_target_port_utilization_policy_settings.html 
+sidebar: sidebar 
+keywords: target, port, utilization, policy, settings, output, examples, array 
+summary: ONTAP 可以在目標連接埠上偵測資源爭用事件、例如 I/O 佇列已滿、命令逾時或 HBA 資源耗盡。 
+---
+= 目標連接埠使用率原則設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 可以在目標連接埠上偵測資源爭用事件、例如 I/O 佇列已滿、命令逾時或 HBA 資源耗盡。
+
+如果在指定的陣列目標連接埠上偵測到這類事件、您可以使用命令來設定目標連接埠使用率原則 `storage array port modify` 。
+
+下表說明與目標連接埠相關的兩個使用率原則：
+
+|===
+| 原則 | 說明 
+
+
+ a| 
+* 正常 *
+ a| 
+當 ONTAP 偵測到指定陣列目標連接埠上的目標連接埠資源爭用時、它會減少目標連接埠的佇列深度、並將 I/O 節流至目標連接埠。在此模式中、目標連接埠佇列深度的縮減小於每個目標連接埠資源爭用事件的 * 延遲 * 原則。目標連接埠佇列深度的後續增加速度比 *EQUE* 原則快。*normal* 是預設原則。
+
+
+
+ a| 
+* 延後處理 *
+ a| 
+當 ONTAP 偵測到指定陣列目標連接埠上的目標連接埠資源爭用時、它會減少目標連接埠的佇列深度、並將 I/O 節流至目標連接埠。在此模式中、目標連接埠佇列深度的縮減大於每個目標連接埠資源爭用事件的 * 正常 * 原則。目標連接埠佇列深度的後續增加速度比 * 正常 * 使用率原則慢。
+
+|===
+
+
+== 檢視及修改陣列目標連接埠使用率原則的輸出範例
+
+下列命令會顯示與陣列目標連接埠相關聯的目標連接埠使用率原則：
+
+[listing]
+----
+vgv3170_jon::> storage array port show -wwnn 2703750270235
+        Array Name: HITACHI_DF600F_1
+              WWNN: 2703750270235
+              WWPN: 2703750270235
+   Connection Type: fabric
+       Switch Port: vgbr300s89:9
+        Link Speed: 4 GB/s
+   Max Queue Depth: 1024
+Utilization Policy: defer
+                              LUN                                        Link
+Node              Initiator  Count   IOPS    KB/s    %busy    %waiting   Errs
+----------------  ---------  -----  ------  ------  -------  ----------  ----
+     vgv3170f54a         0a      2       50   1956       85           0     0
+     vgv3170f54b         0a      2      350  15366      100          40     0
+----
+依預設、指定陣列目標連接埠的 I/O 原則為 * 正常 * 。您可以執行下列命令來修改與連接埠相關的 I/O 原則：
+
+[listing]
+----
+vgv3070f50ab::> storage array port modify -wwpn 50014380025d1509 -utilization-policy ?
+
+
+
+normal      This policy aggressively competes for target port resources, in effect competing with other hosts.
+             (normal)
+
+defer      	This policy does not aggressively compete for target port resources, in effect deferring to other hosts.
+
+vgv3070f50ab::> storage array port modify -wwpn 50014380025d1509 -utilization-policy defer
+1 record updated.
+----

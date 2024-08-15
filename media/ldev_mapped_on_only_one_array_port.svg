@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 12.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 51448)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_svg "http://www.w3.org/2000/svg">
+	<!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
+]>
+<svg  version="1.1" id="Layer_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="189" height="147.602"
+	 viewBox="0 0 189 147.602" overflow="visible" enable-background="new 0 0 189 147.602" xml:space="preserve">
+<rect x="160.134" y="66.87" fill="#D2D3D4" stroke="#010101" stroke-width="0.4" width="9.559" height="64.006"/>
+<rect x="20.134" y="66.87" fill="#D2D3D4" stroke="#010101" stroke-width="0.4" width="9.559" height="64.006"/>
+<g>
+	<ellipse fill="#FFFFFF" stroke="#231F20" stroke-width="0.5" cx="21.486" cy="79.219" rx="6.448" ry="6.323"/>
+	<g>
+		<text transform="matrix(1 0 0 1 17.1929 81.5298)" fill="#231F20" font-family="'Helvetica-Bold'" font-size="7.2"> A</text>
+	</g>
+</g>
+<g>
+	<ellipse fill="#FFFFFF" stroke="#231F20" stroke-width="0.5" cx="168.582" cy="78.667" rx="6.447" ry="6.323"/>
+	<g>
+		<text transform="matrix(1 0 0 1 164.2891 80.9771)" fill="#231F20" font-family="'Helvetica-Bold'" font-size="7.2"> A</text>
+	</g>
+</g>
+<g>
+	<ellipse fill="#FFFFFF" stroke="#231F20" stroke-width="0.5" cx="21.486" cy="114.351" rx="6.448" ry="6.323"/>
+	<g>
+		<text transform="matrix(1 0 0 1 17.1929 116.6616)" fill="#231F20" font-family="'Helvetica-Bold'" font-size="7.2"> B</text>
+	</g>
+</g>
+<g>
+	<ellipse fill="#FFFFFF" stroke="#231F20" stroke-width="0.5" cx="168.582" cy="113.798" rx="6.447" ry="6.323"/>
+	<g>
+		<text transform="matrix(1 0 0 1 164.2891 116.1089)" fill="#231F20" font-family="'Helvetica-Bold'" font-size="7.2"> B</text>
+	</g>
+</g>
+<rect y="136.102" fill="none" width="48.5" height="11.5"/>
+<text transform="matrix(1 0 0 1 0 142.564)" fill="#231F20" font-family="'Helvetica'" font-size="9">Controller 1</text>
+<rect x="140.5" y="136.102" fill="none" width="48.5" height="11.5"/>
+<text transform="matrix(1 0 0 1 140.5 142.564)" fill="#231F20" font-family="'Helvetica'" font-size="9">Controller 2</text>
+<rect x="70.814" y="66.602" fill="none" stroke="#231F20" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" width="48.186" height="39.5"/>
+<rect x="74" y="72.102" fill="none" width="43.5" height="40.5"/>
+<text transform="matrix(1 0 0 1 86.9971 78.564)"><tspan x="0" y="0" font-family="'Helvetica'" font-size="9">Map </tspan><tspan x="-12.006" y="10.8" font-family="'Helvetica'" font-size="9">LDEV Z to </tspan><tspan x="-12.753" y="21.6" font-family="'Helvetica'" font-size="9">array ports</tspan></text>
+<rect x="75.314" y="0.25" fill="none" stroke="#231F20" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" width="40.686" height="33.352"/>
+<rect x="73" y="7.602" fill="none" width="43.5" height="23.5"/>
+<text transform="matrix(1 0 0 1 81.2461 14.064)"><tspan x="0" y="0" font-family="'Helvetica'" font-size="9">Create </tspan><tspan x="-2.25" y="10.8" font-family="'Helvetica'" font-size="9">LDEV Z</tspan></text>
+<rect x="35.833" y="69.102" fill="none" width="28.167" height="9.5"/>
+<text transform="matrix(1 0 0 1 37.1641 75.564)" font-family="'Helvetica'" font-size="9">LUN 3</text>
+<g>
+	
+		<line fill="none" stroke="#231F20" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" x1="38.196" y1="78.886" x2="70" y2="78.886"/>
+	<polygon fill="#231F20" points="38.803,78.913 38.803,81.546 34.58,80.229 30.357,78.913 34.58,77.595 38.803,76.279 	"/>
+</g>
+<g>
+	
+		<line fill="none" stroke="#231F20" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" x1="94.985" y1="59.545" x2="94.985" y2="33.757"/>
+	<polygon fill="#231F20" points="95.012,59.053 97.646,59.053 96.328,62.477 95.012,65.901 93.694,62.477 92.378,59.053 	"/>
+</g>
+</svg>

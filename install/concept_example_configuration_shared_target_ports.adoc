@@ -1,0 +1,62 @@
+---
+permalink: install/concept_example_configuration_shared_target_ports.html 
+sidebar: sidebar 
+keywords: example, configuration, shared, target, ports, multiple, initiator 
+summary: 最多可將兩個 ONTAP FC 啟動器連接埠連接至儲存陣列上的單一目標連接埠。 
+---
+= 組態範例：共用目標連接埠
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+最多可將兩個 ONTAP FC 啟動器連接埠連接至儲存陣列上的單一目標連接埠。
+
+分區的最佳做法是將每個 FC 啟動器目標連接埠配對放在獨立的分區（ 1 ： 1 ）中。
+
+
+
+== 連接至多個啟動器連接埠的共用目標連接埠
+
+下圖顯示連線和分區功能、以便與不同 ONTAP 系統上的多個 FC 啟動器連接埠共用目標連接埠。
+
+下圖中的實線顯示來自系統 VS1 上 FC 啟動器連接埠的連線、虛線則顯示來自系統 VS2 上 FC 啟動器連接埠的連線。
+
+image::../media/shared_target_ports.gif[共享目標連接埠組態的連線和分區會在周圍的文字中說明。]
+
+下表顯示一對 HA 控制器共用兩個 FC 啟動器連接埠的目標連接埠範例的 1:1 分區定義：
+
+|===
+| 區域 | ONTAP 系統和 FC 啟動器連接埠 | 儲存陣列 
+
+
+ a| 
+*交換器1*
+
+
+
+ a| 
+z1
+| VS1 ： 0A | 控制器 1 ：連接埠 1A 
+
+
+ a| 
+z3
+| VS2 ： 0A |  
+
+
+ a| 
+*交換器2*
+
+
+
+ a| 
+z2
+| VS1 ： 0c | 控制器 2 ：連接埠 2A 
+
+
+ a| 
+z4
+| VS2 ： 0c |  
+|===

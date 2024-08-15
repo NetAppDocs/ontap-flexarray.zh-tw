@@ -1,0 +1,32 @@
+---
+permalink: install/concept_planning_considerations_for_ontap_raid_groups.html 
+sidebar: sidebar 
+keywords: plan, considerations, ontap, raid, groups 
+summary: 在為陣列 LUN 設定 ONTAP RAID 群組之前、您必須規劃集合體的大小、 RAID 群組的數量和大小、以及陣列 LUN 的大小。RAID 群組最符合您的資料需求、可確保陣列上的資料及可用度獲得適當的保護。 
+---
+= ONTAP RAID 群組的規劃考量事項
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在為陣列 LUN 設定 ONTAP RAID 群組之前、您必須規劃集合體的大小、 RAID 群組的數量和大小、以及陣列 LUN 的大小。RAID 群組最符合您的資料需求、可確保陣列上的資料及可用度獲得適當的保護。
+
+規劃 ONTAP RAID 群組涉及下列工作：
+
+. 規劃最符合資料需求的集合體大小。
+. 規劃 Aggregate 大小所需的 RAID 群組數量和大小。
+. 規劃 ONTAP RAID 群組中所需的陣列 LUN 大小：
++
+** 為了避免效能受到影響、特定 ONTAP RAID 群組中的所有陣列 LUN 都應該相同大小。
+** 陣列 LUN 在同一個集合中的所有 RAID 群組中的大小應相同。
+
+
+. 與儲存陣列管理員通訊、建立您需要的集合所需大小陣列 LUN 數量。
++
+應根據儲存陣列廠商文件中的指示、針對陣列 LUN 的效能進行最佳化。
+
+
+
+如需設定 ONTAP RAID 群組以搭配儲存陣列使用的更多建議，請參閱 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["_ 磁碟與集合體管理 _"]。

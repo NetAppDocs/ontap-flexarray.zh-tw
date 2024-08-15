@@ -1,0 +1,16 @@
+---
+permalink: implement-third-party/concept_alua_support_for_hp_eva_storage_arrays.html 
+sidebar: sidebar 
+keywords: alua, support, hp eva, storage, arrays 
+summary: 已新增支援 HP EVA 陣列的非對稱式邏輯單元存取（ ALUA ）。 
+---
+= ALUA 支援 HP EVA 儲存陣列
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+已新增支援 HP EVA 陣列的非對稱式邏輯單元存取（ ALUA ）。
+
+根據預設、在 ONTAP 以及所有 HP EVA 儲存陣列上都會啟用對 ALUA 的支援。

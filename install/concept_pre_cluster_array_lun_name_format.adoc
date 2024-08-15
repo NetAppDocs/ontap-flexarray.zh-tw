@@ -1,0 +1,58 @@
+---
+permalink: install/concept_pre_cluster_array_lun_name_format.html 
+sidebar: sidebar 
+keywords: pre cluster, array, lun, name, format, ontap, systems 
+summary: 在節點加入叢集之前、或系統處於維護模式時、陣列 LUN 名稱會遵循 Data ONTAP 8.3 （叢集前格式）之前使用的格式。 
+---
+= 叢集前陣列 LUN 名稱格式
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+節點加入叢集之前、或系統處於維護模式時、陣列 LUN 名稱會遵循 Data ONTAP 8.3 之前使用的格式、即 _pre-cluster _ 格式。
+
+在此格式中、陣列 LUN 名稱是以路徑為基礎的名稱、其中包括 ONTAP 系統與儲存陣列之間路徑中的裝置、使用的連接埠、以及儲存陣列外部路徑上的 SCSI LUN ID 、以便對應至主機。
+
+在支援陣列 LUN 的 ONTAP 系統上、每個陣列 LUN 都可以有多個名稱、因為每個 LUN 都有多個路徑。
+
+
+
+== ONTAP 系統的陣列 LUN 名稱格式
+
+|===
+| 組態 | 陣列 LUN 名稱格式 | 元件說明 
+
+
+ a| 
+直接附加
+ a| 
+`node-name.adapter.idlun-id`
+ a| 
+`node-name` 為叢集節點的名稱。使用 ONTAP 時、節點名稱會預先附加至 LUN 名稱、以便在叢集中以路徑為基礎的名稱是唯一的。 介面卡是 ONTAP 系統上的介面卡編號。
+
+`id` 是儲存陣列上的通道配接器連接埠。
+
+`lun-id` 是儲存陣列提供給主機的陣列 LUN 編號。
+
+範例： `node1.0a.0L1`
+
+
+
+ a| 
+光纖附加
+ a| 
+`node-name:switch-name:port.idlun-id`
+ a| 
+`node-name` 為節點的名稱。使用 ONTAP 時、節點名稱會預先附加至 LUN 名稱、以便在叢集中以路徑為基礎的名稱是唯一的。 `switch-name` 是交換器的名稱。
+
+`port` 是連接至目標連接埠（終點）的交換器連接埠。
+
+`id` 為裝置 ID 。
+
+`lun-id` 是儲存陣列提供給主機的陣列 LUN 編號。
+
+範例： `node1:brocade3:6.126L1`
+
+|===

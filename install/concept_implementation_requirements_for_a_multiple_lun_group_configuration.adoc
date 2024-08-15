@@ -1,0 +1,43 @@
+---
+permalink: install/concept_implementation_requirements_for_a_multiple_lun_group_configuration.html 
+sidebar: sidebar 
+keywords: implementation, requirements, multiple, lun, group, configuration 
+summary: 您可以在儲存環境中實作多個 LUN 群組組組態、藉此改善系統效能。必須在 ONTAP 系統和儲存陣列上執行某些設定工作、才能實作此組態。 
+---
+= 多個 LUN 群組組組態的實作需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在儲存環境中實作多個 LUN 群組組組態、藉此改善系統效能。必須在 ONTAP 系統和儲存陣列上執行某些設定工作、才能實作此組態。
+
+大多數儲存陣列都支援多個 LUN 群組組組態。請參閱 _ 互通性對照表 _ 、確認您的特定儲存陣列支援此組態。
+
+您必須與儲存陣列管理員合作、在儲存陣列 _ 上設定下列項目、以進行多個 LUN 群組組組態：
+
+* 請盡可能多使用連接埠、以存取分配給 ONTAP 系統的陣列 LUN 。
+* 使用主機群組（或廠商的等效群組）來定義哪些陣列 LUN 群組會呈現給 ONTAP 系統上的每個 FC 啟動器連接埠。
+
+
+您可以在 ONTAP 系統上設定下列項目、以實作多個 LUN 群組組組態：
+
+* 每個陣列 LUN 群組使用一個 FC 啟動器連接埠配對。
++
+每個 FC 啟動器連接埠配對都會透過備援路徑存取儲存陣列上的不同 LUN 群組。
+
+* 在 ONTAP 組態中建立大型集合體、並將多個 RAID 群組（同位元群組）的陣列 LUN 新增至集合體。
++
+如此一來、 I/O 就會分散在更多磁碟上。將 I/O 分散到各個 RAID 群組、並建立一個大型集合體、可大幅提升效能。
+
+
+
+您必須在 _switch_ 上設定下列項目、才能實作多個 LUN 群組組組態：
+
+* 設定交換器分區、以定義 ONTAP 系統上的 FC 啟動器連接埠應該使用哪些目標連接埠來存取每個陣列 LUN 群組。
+
+
+*相關資訊*
+
+https://mysupport.netapp.com/matrix["NetApp 互通性對照表工具"]

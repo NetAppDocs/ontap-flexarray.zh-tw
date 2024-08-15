@@ -1,0 +1,60 @@
+---
+permalink: install/reference_reasons_for_more_paths_to_an_array_lun_than_expected.html 
+sidebar: sidebar 
+keywords: reasons, paths, array, lun, expected, output, show, config, issue 
+summary: 到陣列 LUN 的非預期額外路徑的主要原因是分區問題和太多纜線。通往陣列 LUN 的三條路徑並非最佳實務做法、但您不需要修正此問題。 
+---
+= 通往陣列 LUN 的路徑比預期更多的原因
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+到陣列 LUN 的非預期額外路徑的主要原因是分區問題和太多纜線。通往陣列 LUN 的三條路徑並非最佳實務做法、但您不需要修正此問題。
+
+
+
+== 儲存陣列組態 show 輸出範例
+
+ONTAP 系統上的 FC 啟動器連接埠配對為 0A 和 0c 。以下範例顯示輸出中的額外路徑 0b `storage array config show` ：
+
+[listing]
+----
+
+mysystem1::> storage array config show
+             LUN   LUN
+Node         Group Count   Array Name       Array Target Port   Initiator
+----------   ----- -----  ----------------  ------------------  ----------
+mysystem1a    1     3     HITACHI_DF600F_1  50060e80004291c0    0a
+                                            50060e80004291c1    0b
+                                                                0c
+
+3 entries were displayed.
+----
+[NOTE]
+====
+如果輸出中的啟動器前面沒有陣列目標連接埠、則 `storage array config show` 啟動器將連線至與其上方啟動器相同的陣列目標連接埠。
+
+====
+
+
+== 說明
+
+LUN 群組內的三個路徑表示有額外的路徑。對於 ONTAP 組態、最佳實務做法是兩或四個路徑。
+
+路徑可能比預期的多、原因如下：
+
+* 連接的纜線數量超過所需數量。
+* 分區組態錯誤導致額外路徑。
+
+
+
+
+== 解決問題
+
+使用額外路徑並非最佳做法、但從系統的角度來看、這並不正確。您不需要修正此問題。如果您想要修正問題以符合您預期的組態、請完成下列步驟：
+
+. 檢查纜線和分區組態是否有問題、然後修正造成額外路徑的問題。
+. 解決問題後、再次執行 `storage array config show` 以確認額外路徑已消失。
+

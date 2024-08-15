@@ -1,0 +1,36 @@
+---
+section: implement-e-series
+title: 實作 E-Series 儲存設備
+url: "/implement-e-series/index.html"
+entries:
+- title: 何處可以找到儲存陣列組態的資訊
+  url: "/implement-e-series/concept_where_to_find_information_for_configurations_with_storage_arrays.html"
+  entries:
+  - title: 何處可以找到儲存陣列 ONTAP 支援的相關資訊
+    url: "/implement-e-series/concept_where_to_find_information_about_support_for_storage_arrays.html"
+- title: 可在儲存陣列上使用陣列 LUN 的 ONTAP 系統
+  url: "/implement-e-series/concept_systems_that_can_use_array_luns_on_storage_arrays.html"
+- title: 設定 E-Series 儲存陣列的需求
+  url: "/implement-e-series/reference_requirements_for_configuring_e_series_storage_arrays.html"
+  entries:
+  - title: E-Series 儲存陣列所需的主機類型
+    url: "/implement-e-series/reference_required_host_type_for_e_series_storage_arrays_reference.html"
+- title: E-Series 儲存陣列支援的光纖附加組態
+  url: "/implement-e-series/reference_supported_fabric_attached_configurations_for_storage_arrays.html"
+  entries:
+  - title: 獨立式基本組態
+    url: "/implement-e-series/concept_stand_alone_basic_configuration.html"
+  - title: 獨立式系統、具有兩個雙埠陣列 LUN 群組
+    url: "/implement-e-series/concept_stand_alone_system_with_two_2_port_array_lun_groups.html"
+  - title: 單一 4 埠陣列 LUN 群組組組態
+    url: "/implement-e-series/concept_single_4_port_array_lun_group_configuration.html"
+  - title: 兩個 4 埠陣列 LUN 群組組組態
+    url: "/implement-e-series/concept_two_4_port_array_lun_group_configuration.html"
+  - title: 八埠陣列 LUN 群組組組態
+    url: "/implement-e-series/concept_eight_port_array_lun_group_configuration.html"
+  - title: 將 FC 啟動器連接埠連接至多個目標連接埠
+    url: "/implement-e-series/concept_attaching_fc_initiator_port_to_multiple_targets_ports.html"
+  - title: 與兩個 FC 啟動器連接埠共用目標連接埠
+    url: "/implement-e-series/concept_sharing_a_target_port_with_two_fc_initiator_ports.html"
+- title: 支援 E-Series 儲存陣列的直接附加組態
+  url: "/implement-e-series/reference_supported_direct_attached_configurations_for_e_series_storage_arrays.html"

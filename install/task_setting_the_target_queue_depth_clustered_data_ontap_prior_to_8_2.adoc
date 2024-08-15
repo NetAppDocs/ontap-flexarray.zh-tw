@@ -1,0 +1,20 @@
+---
+permalink: install/task_setting_the_target_queue_depth_clustered_data_ontap_prior_to_8_2.html 
+sidebar: sidebar 
+keywords: set, target, queue, depth, ontap, 8.2 
+summary: 大多數實作都可以接受預設目標佇列深度、但您可以視需要變更預設值。 
+---
+= 設定目標佇列深度（ 8.2 之前的 ONTAP ）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+大多數實作都可以接受預設目標佇列深度、但您可以視需要變更預設值。
+
+此設定適用於每個 ONTAP 系統、適用於所有儲存陣列上的所有目標連接埠。對於執行 8.2 之前版本的 ONTAP 系統、您可以使用此選項。
+
+.步驟
+. 使用下列選項設定目標佇列深度： `options disk.target_port.cmd_queue_depth value`
+

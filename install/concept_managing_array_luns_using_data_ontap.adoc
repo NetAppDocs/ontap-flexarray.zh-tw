@@ -1,0 +1,14 @@
+---
+permalink: install/concept_managing_array_luns_using_data_ontap.html 
+sidebar: sidebar 
+keywords: manage, array, luns, ontap 
+summary: 如果儲存陣列管理員想要在陣列 LUN 指派給某個節點之後對其進行組態變更、例如調整其大小、您可能需要在 ONTAP 中執行一些活動、才能在儲存陣列上重新設定 LUN 。 
+---
+= 使用 ONTAP 管理陣列 LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果儲存陣列管理員想要在陣列 LUN 指派給某個節點之後對其進行組態變更、例如調整其大小、您可能需要在 ONTAP 中執行一些活動、才能在儲存陣列上重新設定 LUN 。

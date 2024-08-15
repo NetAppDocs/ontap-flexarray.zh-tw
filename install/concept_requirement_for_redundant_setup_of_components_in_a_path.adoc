@@ -1,0 +1,39 @@
+---
+permalink: install/concept_requirement_for_redundant_setup_of_components_in_a_path.html 
+sidebar: sidebar 
+keywords: requirements, redundant, setup, components, path, fc switch, ontap, systems, storage, array 
+summary: ONTAP 系統必須透過備援光纖通道（ FC ）網路連線至儲存陣列。需要兩個 FC 網路來防範連線故障、以便在不影響 ONTAP 系統的情況下、將 Fabric 連接埠或交換器離線進行升級和更換。 
+---
+= 路徑中元件的備援設定需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 系統必須透過備援光纖通道（ FC ）網路連線至儲存陣列。需要兩個 FC 網路來防範連線故障、以便在不影響 ONTAP 系統的情況下、將 Fabric 連接埠或交換器離線進行升級和更換。
+
+
+
+== ONTAP 系統備援需求
+
+* 您必須將每個連線連接至 ONTAP 系統上連接埠配對中的不同 FC 啟動器連接埠。
+* 同一 FC 啟動器連接埠配對中的每個 FC 啟動器連接埠都必須位於不同的匯流排上。
+
+
+
+
+== FC 交換器備援需求
+
+* 您必須使用備援交換器。
+
+
+
+
+== 儲存陣列備援需求
+
+請確定您選擇存取指定 LUN 的儲存陣列連接埠來自不同的元件、以避免單點故障、例如來自替代控制器、叢集或機箱。原因是、如果某個元件故障、您不希望所有存取陣列 LUN 的權限都會遺失。
+
+下圖顯示正確且不正確的儲存陣列連接埠選擇、以提供備援。左側範例中的路徑設定正確、因為陣列 LUN 的路徑是備援的、每個連線都是儲存陣列上不同控制器上的連接埠。
+
+image::../media/redundant_array_port_selection.gif[陣列 LUN 的路徑必須是備援的。兩條路徑都通往相同的儲存陣列控制器、這是不正確的。]

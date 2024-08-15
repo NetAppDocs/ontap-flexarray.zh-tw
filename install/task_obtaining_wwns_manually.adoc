@@ -1,0 +1,35 @@
+---
+permalink: install/task_obtaining_wwns_manually.html 
+sidebar: sidebar 
+keywords: obtain, wwpns, manually 
+summary: 如果 ONTAP 系統未連線至 SAN 交換器、您需要取得系統 FC 啟動器連接埠的全球連接埠名稱（ WWPN ）、以便將系統連接至交換器。 
+---
+= 手動取得 WWPN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果 ONTAP 系統未連線至 SAN 交換器、您需要取得系統 FC 啟動器連接埠的全球連接埠名稱（ WWPN ）、以便將系統連接至交換器。
+
+讓交換器自動探索 WWPN 是取得 WWPN 的首選方法、因為您可以避免在交換器組態中輸入 WWPN 所產生的潛在錯誤。
+
+.步驟
+. 將系統的主控台連線連接至筆記型電腦。
+. 開啟系統電源。
++
+當您在主控台上看到下列訊息時、按 Ctrl-c 來中斷開機程序：
+
++
+[listing]
+----
+Press CTRL-C for boot menu
+----
+. 選取開機選項功能表上的維護模式選項。
+. 輸入下列命令以列出系統 FC 啟動器連接埠的 WWPN ： `storage show adapter`
++
+若要列出特定介面卡 WWPN 、請新增介面卡名稱、例如儲存設備 show 介面卡 0A 。
+
+. 記錄將使用的 WWPN 、並結束維護模式。
+

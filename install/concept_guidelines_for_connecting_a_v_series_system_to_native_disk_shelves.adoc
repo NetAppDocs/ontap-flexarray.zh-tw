@@ -1,0 +1,106 @@
+---
+permalink: install/concept_guidelines_for_connecting_a_v_series_system_to_native_disk_shelves.html 
+sidebar: sidebar 
+keywords: guidelines, connect, v-series, system, native, disk, shelves, fc initiator, ports 
+summary: 當規劃如何將 V 系列系統連接至原生磁碟櫃時、連接埠對連接埠連線計畫應能解決備援問題及其他準則。 
+---
+= 將 V 系列系統連接至原生磁碟櫃的準則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當規劃如何將 V 系列系統連接至原生磁碟櫃時、連接埠對連接埠連線計畫應能解決備援問題及其他準則。
+
+
+
+== 磁碟所需的 FC 啟動器連接埠數量
+
+將 V 系列系統連接至磁碟櫃所需的 FC 啟動器連接埠數量、取決於您的 V 系列系統是獨立式系統還是 HA 配對
+
+[cols="2*"]
+|===
+| 組態 | FC 啟動器連接埠數量 
+
+
+ a| 
+獨立式系統
+ a| 
+* 如果您使用一個迴圈：一個 FC 啟動器連接埠。
+* 如果您要連接兩個迴圈：兩個 FC 啟動器連接埠、每個迴圈一個。
+
+
+
+
+ a| 
+在 HA 配對中
+ a| 
+* 如果您使用的是多重路徑儲存設備、則每個迴圈會有兩個 FC 啟動器連接埠。
+* 如果您不使用多重路徑儲存設備、則在組態中的每個迴圈中、每個控制器都有一個 FC 啟動器連接埠。
+
+
+|===
+
+
+== V 系列系統與磁碟之間的連線
+
+您可以依照相同的程序、將 V 系列系統連接至原生磁碟機櫃、就像將 FAS 系統連接至原生磁碟機櫃一樣。建立連接埠對連接埠連線配置時、本指南以及下表中的 ONTAP 和硬體指南提供有關磁碟和磁碟櫃的設定和管理資訊。
+
+[cols="2*"]
+|===
+| 如需相關資訊 ... | 請參閱 ... 
+
+
+ a| 
+磁碟支援、包括支援的磁碟速度和磁碟容量
+ a| 
+https://mysupport.netapp.com/site/global/dashboard["NetApp支援"]
+
+
+
+ a| 
+在機架或系統機櫃中安裝 V 系列系統
+ a| 
+在新系統上、此工作通常由原廠執行。如需相關指示、請參閱機櫃指南。
+
+
+
+ a| 
+將磁碟櫃連接至獨立的 V 系列系統
+ a| 
+平台的安裝與設定指示。
+
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1213632["32xx 系統的安裝與設定說明"]
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1147995["安裝與設定說明 62xx 系統"]
+
+
+
+
+ a| 
+將 HA 配對連接至磁碟機櫃
+ a| 
+https://docs.netapp.com/us-en/ontap/high-availability/index.html["高可用度組態"]
+
+
+
+ a| 
+新增磁碟櫃
+ a| 
+適用於您的磁碟機櫃類型的指南。
+
+
+
+ a| 
+移動磁碟櫃
+ a| 
+適用於您的磁碟機櫃類型的指南。
+
+
+
+ a| 
+磁碟管理
+ a| 
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁碟與Aggregate管理"]
+
+|===

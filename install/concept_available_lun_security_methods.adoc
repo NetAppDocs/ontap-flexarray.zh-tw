@@ -1,0 +1,44 @@
+---
+permalink: install/concept_available_lun_security_methods.html 
+sidebar: sidebar 
+keywords: available, lun, security, methods, port-level, storage, array, dedicate, ontap 
+summary: 各種 LUN 安全性方法可協助您指定哪些主機可以存取特定陣列 LUN 。您可以使用連接埠層級的安全性或 LUN 安全性產品、或將儲存設備專用於 ONTAP 系統。 
+---
+= 可用的 LUN 安全方法
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+各種 LUN 安全性方法可協助您指定哪些主機可以存取特定陣列 LUN 。您可以使用連接埠層級的安全性或 LUN 安全性產品、或將儲存設備專用於 ONTAP 系統。
+
+
+
+== 連接埠層級的安全性
+
+您可以使用連接埠層級的安全性、僅顯示特定主機的陣列 LUN 。然後該連接埠就會成為該主機的專用連接埠。
+
+並非所有儲存陣列都支援連接埠層級的安全性。根據預設、部分儲存陣列會在所有連接埠上顯示所有 LUN 、而且不會提供方法來限制特定主機對 LUN 的可見度。對於這些陣列、您必須使用 LUN 安全產品、或將儲存陣列專用於 ONTAP 系統。您應該查看儲存陣列文件、以判斷儲存陣列是否支援連接埠層級的安全性。
+
+
+
+== LUN 安全產品
+
+您可以使用 LUN 安全產品來控制分區到同一個連接埠的主機、以便它們只能透過該連接埠存取特定的陣列 LUN 。這可防止其他主機從其他主機遮罩這些陣列 LUN 、藉此存取這些陣列 LUN 。
+
+
+
+== 將儲存陣列專用於 ONTAP 使用
+
+您可以將儲存陣列專用於 ONTAP 系統。在這種情況下、除了 ONTAP 系統之外、沒有任何主機連接到儲存陣列。
+
+您應該同時使用分區和 LUN 安全性、為 ONTAP 系統提供額外的保護和備援功能。
+
+除了遵循 LUN 安全性方法之外、您也應該檢查廠商儲存陣列的 LUN 安全性相關其他詳細資料。某些儲存陣列必須專供 ONTAP 系統使用。
+
+*相關資訊*
+
+https://docs.netapp.com/us-en/ontap-flexarray/implement-third-party/index.html["適用於協力廠商儲存設備的虛擬化實作FlexArray"]
+
+https://docs.netapp.com/us-en/ontap-flexarray/implement-e-series/index.html["NetApp E系列儲存設備的虛擬化實作FlexArray"]

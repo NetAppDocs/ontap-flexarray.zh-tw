@@ -1,0 +1,41 @@
+---
+permalink: implement-third-party/reference_required_parameters_for_hp_eva_storage_arrays_with_data_ontap_systems.html 
+sidebar: sidebar 
+keywords: required, parameters, hp, eva, arrays, ontap, systems 
+summary: 儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。 
+---
+= 採用 ONTAP 系統的 HP EVA 陣列所需的參數
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+儲存陣列上需要某些參數設定、才能讓儲存陣列順利與 ONTAP 系統搭配運作。
+
+下表提供系統參數設定：
+
+|===
+| 參數 | 設定 
+
+
+ a| 
+`Redundancy`
+ a| 
+任何 RAID 層級、 VRAID0 除外
+
+
+
+ a| 
+`Preferred path/mode`
+ a| 
+無偏好（預設）
+
+
+
+ a| 
+`Host type`
+ a| 
+SUN Solaris
+
+|===

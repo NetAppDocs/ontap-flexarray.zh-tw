@@ -1,0 +1,30 @@
+---
+permalink: install/concept_location_of_the_root_volume.html 
+sidebar: sidebar 
+keywords: location, root, volume 
+summary: 根磁碟區的位置取決於 ONTAP 系統是預先訂購原生磁碟、還是要新增磁碟至為陣列 LUN 設定的 ONTAP 系統。 
+---
+= 根 Volume 的位置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+根磁碟區的位置取決於 ONTAP 系統是預先訂購原生磁碟、還是要新增磁碟至為陣列 LUN 設定的 ONTAP 系統。
+
+請遵循以下準則來判斷 ONTAP 系統上根磁碟區的位置：
+
+* 根磁碟區可以位於儲存陣列或原生磁碟櫃上。
++
+不過、如果 ONTAP 系統同時具有原生磁碟和陣列 LUN 、則應在原生磁碟上安裝根磁碟區。
+
++
+如果您訂購內含磁碟的儲存系統、原廠會在原生磁碟上安裝根磁碟區。
+
+* 在 HA 配對中、最佳做法是將根磁碟區放在兩個節點的同一類型儲存區上、無論是位於原生磁碟機櫃上、或是位於兩個節點的儲存陣列上。
+* 對於同時具有磁碟和陣列 LUN 的 MetroCluster 組態、如果您要設定新組態、則應在磁碟上建立根磁碟區。
++
+如果您要將磁碟新增至具有陣列 LUN 的現有 MetroCluster 組態、您可以將根磁碟區保留在陣列 LUN 上。
+
+

@@ -1,0 +1,34 @@
+---
+permalink: install/reference_factors_impacting_the_required_number_of_array_luns.html 
+sidebar: sidebar 
+keywords: factors, impact, required, number, array, luns 
+summary: 在規劃使用陣列 LUN 的 ONTAP 時、您必須考量影響 ONTAP 環境所需陣列 LUN 數量的因素、例如陣列 LUN 大小、 ONTAP 負荷和 Checksum 類型。 
+---
+= 影響所需陣列 LUN 數量的因素
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在規劃使用陣列 LUN 的 ONTAP 時、您必須考量影響 ONTAP 環境所需陣列 LUN 數量的因素、例如陣列 LUN 大小、 ONTAP 負荷和 Checksum 類型。
+
+在確定所需的陣列 LUN 數量時，應考慮以下事項：
+
+* 陣列 LUN 越小、儲存設備所需的 LUN 就越多。
++
+理想情況下、建議您從指定的儲存陣列 RAID 群組建立一個大型陣列 LUN 。
+
+* 裝置限制定義可指派給 ONTAP 系統的磁碟和陣列 LUN 數量上限。
++
+Hardware Universe 包含有關裝置限制的資訊。
+
+* 陣列 LUN 中可用空間越大、所需的陣列 LUN 就越少。
++
+陣列 LUN 中的可用空間量取決於 ONTAP 所需的空間、 Checksum 類型、以及其他因素、例如選用的 Snapshot 保留所需的空間。
+
+* 不同的應用程式會產生不同的負載。
++
+在決定將陣列 LUN 指派給 ONTAP 系統時、您必須考量儲存設備的用途、以及不同應用程式可能產生的要求數量。
+
+

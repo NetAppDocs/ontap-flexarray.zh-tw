@@ -1,0 +1,20 @@
+---
+permalink: install/task_preparing_array_luns_before_removing_a_v_series_system_from_service.html 
+sidebar: sidebar 
+keywords: prepare, array, luns, before, remove, ontap, system, service 
+summary: 在將系統從服務中移除之前、您必須在指派給 ONTAP 系統的所有陣列 LUN 上釋放持續保留。 
+---
+= 從服務中移除 ONTAP 系統之前、請先準備陣列 LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在將系統從服務中移除之前、您必須在指派給 ONTAP 系統的所有陣列 LUN 上釋放持續保留。
+
+當您指派陣列 LUN 的 ONTAP 擁有權時、 ONTAP 會在該陣列 LUN 上放置持續保留（擁有權鎖定）、以識別哪個 ONTAP 系統擁有 LUN 。如果您想讓陣列 LUN 可供其他類型的主機使用、則必須移除 ONTAP 對這些陣列 LUN 的持續保留； 如果您未移除 ONTAP 寫入該 LUN 的擁有權和持續保留、則某些陣列不允許您銷毀保留 LUN 。
+
+例如、 Hitachi USP 儲存陣列沒有使用者命令來移除 LUN 的持續保留。如果您在將 ONTAP 系統從服務中移除之前、未透過 ONTAP 移除持續保留、則必須致電 Hitachi 技術支援部門以移除保留。
+
+請參閱知識庫文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/What_are_SCSI_Reservations_and_SCSI_Persistent_Reservations["什麼是 SCSI 保留和 SCSI 持續保留"^]

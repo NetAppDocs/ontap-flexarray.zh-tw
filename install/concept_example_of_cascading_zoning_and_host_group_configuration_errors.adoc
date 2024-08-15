@@ -1,0 +1,91 @@
+---
+permalink: install/concept_example_of_cascading_zoning_and_host_group_configuration_errors.html 
+sidebar: sidebar 
+keywords: example, cascade, zone, host, group, configuration, errors, troubleshoot 
+summary: 區域定義中發生的錯誤可能會影響主機群組定義、反之亦然。當路徑上看不到 LUN 時、您需要檢查分區和主機群組組組態錯誤。 
+---
+= 串聯分區和主機群組組組態錯誤範例
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+區域定義中發生的錯誤可能會影響主機群組定義、反之亦然。當路徑上看不到 LUN 時、您需要檢查分區和主機群組組組態錯誤。
+
+假設您的組態順序如下：
+
+. 區域定義是在交換器上建立的。
++
+ONTAP 系統的 FC 啟動器連接埠 0A 的 WWPN 已置於區域定義中。不過、其用意是將 FC 啟動器連接埠 0c 的 WWPN 納入區域定義。
+
+. 主機群組是在儲存陣列上建立的。
++
+已選取 FC 啟動器連接埠 0A 的 WWPN （因為這是唯一可用的 WWPN 、不明顯是 0A 的 WWPN 、而不是 0c ）。
+
+. 在 ONTAP 中、您會透過 FC 啟動器連接埠查看陣列 LUN 、預期會看到陣列 LUN 超過 0c 。
++
+不過、 0c 上沒有陣列 LUN 、因為區域定義和主機群組定義都不正確地包含 FC 啟動器連接埠 0A 的 WWPN 。
+
++
+[NOTE]
+====
+您使用 `storage array config show` 命令來檢視陣列 LUN 資訊。
+
+====
+. 您開始進行疑難排解、因為無法在啟動器上看到 LUN 、而您預期會看到 LUN 。
+
+
+您需要同時檢查分區和主機群組組組態、但下列哪項程序都不重要。您可能會看到不同的訊息、這取決於您是先從主機群組開始修正內容、還是先從分區開始修正內容。
+
+
+
+== 請先檢查分區、以進行疑難排解
+
+. 檢查 ONTAP 系統的區域定義。
++
+您發現其中有兩個區域、其中包含用於 FC 啟動器連接埠 0A 的 WWPN 、而其中沒有用於 0c 的 WWPN 區域。
+
+. 修正不正確的區域定義並加以啟動。
++
+[NOTE]
+====
+運行時，您將無法通過啓動器端口看到陣列 LUN `storage array config show`。
+
+====
+. 移至陣列並重新設定主機群組、以納入 FC 啟動器連接埠 0c 的 WWPN 。
++
+由於 0c 的 WWPN 位於已啟動的區域定義中、因此 0c 的 WWPN 會顯示在儲存陣列上主機群組組態的選項清單中。
+
+. 在 ONTAP 系統上、執行 `storage array config show` 以透過 FC 啟動器連接埠檢查陣列 LUN 、以確認陣列 LUN 顯示於 0c 以上。
+
+
+
+
+== 請先檢查主機群組以進行疑難排解
+
+. 從 ONTAP 系統的控制檯運行 `storage show adapteradapter#``，然後記下本例中缺少的適配器 -0c 的 WWPN 。
+. 前往儲存陣列、將您寫下的 WWPN 與主機群組選項清單中顯示的 WWPN 進行比較、以查看是否列出您預期的 FC 啟動器連接埠 WWPN 。
++
+如果您預期的 WWPN 未出現、則您想要的啟動器不在區域定義中。
+
+. 如果儲存陣列允許您修改主機群組中的 WWPN 、您可以修改顯示為您所寫下的 WWPN 。
++
+[NOTE]
+====
+如果儲存陣列不允許您修改主機群組中的 WWPN 、則需要在修改區域定義之後修改主機群組定義。
+
+====
++
+由於尚未修復分區、因此您仍無法在您要使用的啟動器上看到 LUN 。
+
+. 移至交換器、以正確的 FC 連接埠啟動器取代不正確的 WWPN 、然後啟動區域定義。
+. 如果您無法在之前的程序中修正主機群組定義中的 WWPN 、請移至儲存陣列並重新設定主機群組、以納入 FC 啟動器連接埠 0c 的 WWPN 。
++
+由於 0c 的 WWPN 位於已啟動的區域定義中、因此 0c 的 WWPN 會顯示在儲存陣列上主機群組組態的選項清單中。
+
+. 在 ONTAP 系統上、執行 `storage array config show` 以透過 FC 啟動器連接埠檢查陣列 LUN 、以確認陣列 LUN 顯示於 0c 以上。
++
+現在您應該可以透過 FC 啟動器連接埠存取 LUN 。
+
+

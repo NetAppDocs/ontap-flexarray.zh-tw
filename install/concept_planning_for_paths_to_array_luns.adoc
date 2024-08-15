@@ -1,0 +1,14 @@
+---
+permalink: install/concept_planning_for_paths_to_array_luns.html 
+sidebar: sidebar 
+keywords: plan, paths, array, luns 
+summary: 路徑是 ONTAP 系統與儲存陣列之間的實體連線。需要備援路徑、才能消除 ONTAP 系統與儲存陣列之間的任何單點故障（ SPOF ）。 
+---
+= 規劃陣列 LUN 的路徑
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+路徑是 ONTAP 系統與儲存陣列之間的實體連線。需要備援路徑、才能消除 ONTAP 系統與儲存陣列之間的任何單點故障（ SPOF ）。

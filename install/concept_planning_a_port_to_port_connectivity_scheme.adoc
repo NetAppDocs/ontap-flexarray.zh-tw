@@ -1,0 +1,14 @@
+---
+permalink: install/concept_planning_a_port_to_port_connectivity_scheme.html 
+sidebar: sidebar 
+keywords: plan, port to port, connectivity, scheme 
+summary: 規劃 ONTAP 系統上的 FC 啟動器連接埠與儲存陣列連接埠之間的連線、包括判斷如何實現備援、以及符合陣列 LUN 路徑數量的要求。 
+---
+= 規劃連接埠對連接埠的連線配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+規劃 ONTAP 系統上的 FC 啟動器連接埠與儲存陣列連接埠之間的連線、包括判斷如何實現備援、以及符合陣列 LUN 路徑數量的要求。
